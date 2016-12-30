@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "QTouchposeApplication.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    // Touchpose Installation
+    QTouchposeApplication *touchposeApplication = (QTouchposeApplication *)application;
+    touchposeApplication.alwaysShowTouches = YES;
+    
+    touchposeApplication.touchColor = [UIColor whiteColor];
+    touchposeApplication.touchEndAnimationDuration = 0.3f;
+    touchposeApplication.touchEndTransform = CATransform3DMakeScale(0.1, 0.1, 1);
+
     return YES;
 }
 

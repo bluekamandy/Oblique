@@ -7,15 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16540918296C78DC978EBDB2 /* libPods-Oblique.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F9F2C64BA2D46DFCAD4831 /* libPods-Oblique.a */; };
+		A59D94FA1E16E98C00049C5D /* MK_FilterViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D94F71E16E98C00049C5D /* MK_FilterViewCell.m */; };
+		A59D94FB1E16E98C00049C5D /* MK_FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D94F91E16E98C00049C5D /* MK_FilterViewController.m */; };
+		A59D94FF1E16ED7400049C5D /* MK_GPUImageCameraManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D94FE1E16ED7400049C5D /* MK_GPUImageCameraManager.m */; };
+		A59D95041E16ED8F00049C5D /* MK_Shader.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D95011E16ED8F00049C5D /* MK_Shader.m */; };
+		A59D95051E16ED8F00049C5D /* MK_ShaderGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D95031E16ED8F00049C5D /* MK_ShaderGroup.m */; };
 		A5C6C9D81E15D39800364421 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C6C9D71E15D39800364421 /* main.m */; };
 		A5C6C9DB1E15D39800364421 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C6C9DA1E15D39800364421 /* AppDelegate.m */; };
 		A5C6C9DE1E15D39800364421 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C6C9DD1E15D39800364421 /* ViewController.m */; };
 		A5C6C9E11E15D39800364421 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5C6C9DF1E15D39800364421 /* Main.storyboard */; };
 		A5C6C9E31E15D39800364421 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5C6C9E21E15D39800364421 /* Assets.xcassets */; };
 		A5C6C9E61E15D39800364421 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5C6C9E41E15D39800364421 /* LaunchScreen.storyboard */; };
+		A5EFBECB1E1625120046E72A /* QTouchposeApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = A5EFBECA1E1625120046E72A /* QTouchposeApplication.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52F9F2C64BA2D46DFCAD4831 /* libPods-Oblique.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Oblique.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		78A635A2ED891BB3F72CE758 /* Pods-Oblique.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oblique.release.xcconfig"; path = "Pods/Target Support Files/Pods-Oblique/Pods-Oblique.release.xcconfig"; sourceTree = "<group>"; };
+		A59D94F61E16E98C00049C5D /* MK_FilterViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MK_FilterViewCell.h; sourceTree = "<group>"; };
+		A59D94F71E16E98C00049C5D /* MK_FilterViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MK_FilterViewCell.m; sourceTree = "<group>"; };
+		A59D94F81E16E98C00049C5D /* MK_FilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MK_FilterViewController.h; sourceTree = "<group>"; };
+		A59D94F91E16E98C00049C5D /* MK_FilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MK_FilterViewController.m; sourceTree = "<group>"; };
+		A59D94FD1E16ED7400049C5D /* MK_GPUImageCameraManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MK_GPUImageCameraManager.h; sourceTree = "<group>"; };
+		A59D94FE1E16ED7400049C5D /* MK_GPUImageCameraManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MK_GPUImageCameraManager.m; sourceTree = "<group>"; };
+		A59D95001E16ED8F00049C5D /* MK_Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MK_Shader.h; sourceTree = "<group>"; };
+		A59D95011E16ED8F00049C5D /* MK_Shader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MK_Shader.m; sourceTree = "<group>"; };
+		A59D95021E16ED8F00049C5D /* MK_ShaderGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MK_ShaderGroup.h; sourceTree = "<group>"; };
+		A59D95031E16ED8F00049C5D /* MK_ShaderGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MK_ShaderGroup.m; sourceTree = "<group>"; };
 		A5C6C9D31E15D39800364421 /* Oblique.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oblique.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5C6C9D71E15D39800364421 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A5C6C9D91E15D39800364421 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +45,9 @@
 		A5C6C9E21E15D39800364421 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5C6C9E51E15D39800364421 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5C6C9E71E15D39800364421 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5EFBEC91E1625120046E72A /* QTouchposeApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTouchposeApplication.h; sourceTree = "<group>"; };
+		A5EFBECA1E1625120046E72A /* QTouchposeApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTouchposeApplication.m; sourceTree = "<group>"; };
+		CB53041B581E739D294BCAA6 /* Pods-Oblique.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oblique.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Oblique/Pods-Oblique.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +55,53 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16540918296C78DC978EBDB2 /* libPods-Oblique.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A589B898BE21D2A7D0589EA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CB53041B581E739D294BCAA6 /* Pods-Oblique.debug.xcconfig */,
+				78A635A2ED891BB3F72CE758 /* Pods-Oblique.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A59D94FC1E16E99A00049C5D /* Filter Menu */ = {
+			isa = PBXGroup;
+			children = (
+				A59D94F61E16E98C00049C5D /* MK_FilterViewCell.h */,
+				A59D94F71E16E98C00049C5D /* MK_FilterViewCell.m */,
+				A59D94F81E16E98C00049C5D /* MK_FilterViewController.h */,
+				A59D94F91E16E98C00049C5D /* MK_FilterViewController.m */,
+			);
+			name = "Filter Menu";
+			sourceTree = "<group>";
+		};
+		A59D95061E16EDA000049C5D /* Camera Manager */ = {
+			isa = PBXGroup;
+			children = (
+				A59D94FD1E16ED7400049C5D /* MK_GPUImageCameraManager.h */,
+				A59D94FE1E16ED7400049C5D /* MK_GPUImageCameraManager.m */,
+				A59D95001E16ED8F00049C5D /* MK_Shader.h */,
+				A59D95011E16ED8F00049C5D /* MK_Shader.m */,
+				A59D95021E16ED8F00049C5D /* MK_ShaderGroup.h */,
+				A59D95031E16ED8F00049C5D /* MK_ShaderGroup.m */,
+			);
+			name = "Camera Manager";
+			sourceTree = "<group>";
+		};
 		A5C6C9CA1E15D39800364421 = {
 			isa = PBXGroup;
 			children = (
 				A5C6C9D51E15D39800364421 /* Oblique */,
 				A5C6C9D41E15D39800364421 /* Products */,
+				4A589B898BE21D2A7D0589EA /* Pods */,
+				BA4928DBE7C97404FDE875BD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,11 +116,12 @@
 		A5C6C9D51E15D39800364421 /* Oblique */ = {
 			isa = PBXGroup;
 			children = (
+				A5EFBEC81E1624FF0046E72A /* Utilities */,
 				A5C6C9D91E15D39800364421 /* AppDelegate.h */,
 				A5C6C9DA1E15D39800364421 /* AppDelegate.m */,
-				A5C6C9DC1E15D39800364421 /* ViewController.h */,
-				A5C6C9DD1E15D39800364421 /* ViewController.m */,
-				A5C6C9DF1E15D39800364421 /* Main.storyboard */,
+				A59D95061E16EDA000049C5D /* Camera Manager */,
+				A59D94FC1E16E99A00049C5D /* Filter Menu */,
+				A5EFBECC1E162A290046E72A /* Main Camera View */,
 				A5C6C9E21E15D39800364421 /* Assets.xcassets */,
 				A5C6C9E41E15D39800364421 /* LaunchScreen.storyboard */,
 				A5C6C9E71E15D39800364421 /* Info.plist */,
@@ -79,6 +138,33 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A5EFBEC81E1624FF0046E72A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A5EFBEC91E1625120046E72A /* QTouchposeApplication.h */,
+				A5EFBECA1E1625120046E72A /* QTouchposeApplication.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		A5EFBECC1E162A290046E72A /* Main Camera View */ = {
+			isa = PBXGroup;
+			children = (
+				A5C6C9DC1E15D39800364421 /* ViewController.h */,
+				A5C6C9DD1E15D39800364421 /* ViewController.m */,
+				A5C6C9DF1E15D39800364421 /* Main.storyboard */,
+			);
+			name = "Main Camera View";
+			sourceTree = "<group>";
+		};
+		BA4928DBE7C97404FDE875BD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52F9F2C64BA2D46DFCAD4831 /* libPods-Oblique.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +172,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A5C6C9EA1E15D39800364421 /* Build configuration list for PBXNativeTarget "Oblique" */;
 			buildPhases = (
+				17DFF5B4951D5E5F51C47877 /* [CP] Check Pods Manifest.lock */,
 				A5C6C9CF1E15D39800364421 /* Sources */,
 				A5C6C9D01E15D39800364421 /* Frameworks */,
 				A5C6C9D11E15D39800364421 /* Resources */,
+				6D621E1107A5FA312C60D790 /* [CP] Embed Pods Frameworks */,
+				C5C1E9C42CA802D087C62D68 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -146,13 +235,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		17DFF5B4951D5E5F51C47877 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6D621E1107A5FA312C60D790 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Oblique/Pods-Oblique-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C5C1E9C42CA802D087C62D68 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Oblique/Pods-Oblique-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A5C6C9CF1E15D39800364421 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A59D94FB1E16E98C00049C5D /* MK_FilterViewController.m in Sources */,
 				A5C6C9DE1E15D39800364421 /* ViewController.m in Sources */,
+				A59D94FF1E16ED7400049C5D /* MK_GPUImageCameraManager.m in Sources */,
+				A5EFBECB1E1625120046E72A /* QTouchposeApplication.m in Sources */,
+				A59D94FA1E16E98C00049C5D /* MK_FilterViewCell.m in Sources */,
 				A5C6C9DB1E15D39800364421 /* AppDelegate.m in Sources */,
+				A59D95041E16ED8F00049C5D /* MK_Shader.m in Sources */,
+				A59D95051E16ED8F00049C5D /* MK_ShaderGroup.m in Sources */,
 				A5C6C9D81E15D39800364421 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,10 +412,12 @@
 		};
 		A5C6C9EB1E15D39800364421 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB53041B581E739D294BCAA6 /* Pods-Oblique.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2LTFKU9364;
 				INFOPLIST_FILE = Oblique/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.masoodkamandy.Oblique;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -281,10 +426,12 @@
 		};
 		A5C6C9EC1E15D39800364421 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78A635A2ED891BB3F72CE758 /* Pods-Oblique.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2LTFKU9364;
 				INFOPLIST_FILE = Oblique/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.masoodkamandy.Oblique;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -310,6 +457,7 @@
 				A5C6C9EC1E15D39800364421 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
