@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "114BBC333F1E91FDFE08E2624D144274BE789544",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "C3345354F3F0EE69BE9AB9817C57A32BC1E1E20F" : 9223372036854775807,
+    "114BBC333F1E91FDFE08E2624D144274BE789544" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C0ACB84D-0CD0-4FC0-B1BD-8C40BD8ADD9B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "C3345354F3F0EE69BE9AB9817C57A32BC1E1E20F" : "WYSI\/",
+    "114BBC333F1E91FDFE08E2624D144274BE789544" : "Oblique\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Oblique",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Oblique.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/masoodkamandy\/Oblique.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "114BBC333F1E91FDFE08E2624D144274BE789544"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/masoodkamandy\/Codename_WYSI.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C3345354F3F0EE69BE9AB9817C57A32BC1E1E20F"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+PODS:
+  - GoogleAnalytics (3.17.0)
+  - GPUImage (0.1.7)
+  - SWRevealViewController (2.3.0)
+
+DEPENDENCIES:
+  - GoogleAnalytics (~> 3.17)
+  - GPUImage (~> 0.1.7)
+  - SWRevealViewController (~> 2.3)
+
+SPEC CHECKSUMS:
+  GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
+  GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
+  SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
+
+PODFILE CHECKSUM: 11019b63c96977c71e2463e080626a828bc0aa5d
+
+COCOAPODS: 1.1.1
