@@ -13,6 +13,10 @@
 		A59D94FF1E16ED7400049C5D /* MK_GPUImageCameraManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D94FE1E16ED7400049C5D /* MK_GPUImageCameraManager.m */; };
 		A59D95041E16ED8F00049C5D /* MK_Shader.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D95011E16ED8F00049C5D /* MK_Shader.m */; };
 		A59D95051E16ED8F00049C5D /* MK_ShaderGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D95031E16ED8F00049C5D /* MK_ShaderGroup.m */; };
+		A59D95091E16F68600049C5D /* MK_GPUImageCustom3Input.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D95081E16F68600049C5D /* MK_GPUImageCustom3Input.m */; };
+		A59D950C1E16F81400049C5D /* MK_CameraGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D950B1E16F81400049C5D /* MK_CameraGridView.m */; };
+		A59D95101E16F8A500049C5D /* MK_PausableTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D950F1E16F8A500049C5D /* MK_PausableTimer.m */; };
+		A59D95131E16FA5700049C5D /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D95121E16FA5700049C5D /* Common.m */; };
 		A5C6C9D81E15D39800364421 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C6C9D71E15D39800364421 /* main.m */; };
 		A5C6C9DB1E15D39800364421 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C6C9DA1E15D39800364421 /* AppDelegate.m */; };
 		A5C6C9DE1E15D39800364421 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C6C9DD1E15D39800364421 /* ViewController.m */; };
@@ -35,6 +39,14 @@
 		A59D95011E16ED8F00049C5D /* MK_Shader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MK_Shader.m; sourceTree = "<group>"; };
 		A59D95021E16ED8F00049C5D /* MK_ShaderGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MK_ShaderGroup.h; sourceTree = "<group>"; };
 		A59D95031E16ED8F00049C5D /* MK_ShaderGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MK_ShaderGroup.m; sourceTree = "<group>"; };
+		A59D95071E16F68600049C5D /* MK_GPUImageCustom3Input.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MK_GPUImageCustom3Input.h; sourceTree = "<group>"; };
+		A59D95081E16F68600049C5D /* MK_GPUImageCustom3Input.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MK_GPUImageCustom3Input.m; sourceTree = "<group>"; };
+		A59D950A1E16F81400049C5D /* MK_CameraGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MK_CameraGridView.h; sourceTree = "<group>"; };
+		A59D950B1E16F81400049C5D /* MK_CameraGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MK_CameraGridView.m; sourceTree = "<group>"; };
+		A59D950E1E16F8A500049C5D /* MK_PausableTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MK_PausableTimer.h; sourceTree = "<group>"; };
+		A59D950F1E16F8A500049C5D /* MK_PausableTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MK_PausableTimer.m; sourceTree = "<group>"; };
+		A59D95111E16FA5700049C5D /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		A59D95121E16FA5700049C5D /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 		A5C6C9D31E15D39800364421 /* Oblique.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oblique.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5C6C9D71E15D39800364421 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A5C6C9D91E15D39800364421 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -95,6 +107,15 @@
 			name = "Camera Manager";
 			sourceTree = "<group>";
 		};
+		A59D950D1E16F82B00049C5D /* Custom Filter */ = {
+			isa = PBXGroup;
+			children = (
+				A59D95071E16F68600049C5D /* MK_GPUImageCustom3Input.h */,
+				A59D95081E16F68600049C5D /* MK_GPUImageCustom3Input.m */,
+			);
+			name = "Custom Filter";
+			sourceTree = "<group>";
+		};
 		A5C6C9CA1E15D39800364421 = {
 			isa = PBXGroup;
 			children = (
@@ -119,9 +140,10 @@
 				A5EFBEC81E1624FF0046E72A /* Utilities */,
 				A5C6C9D91E15D39800364421 /* AppDelegate.h */,
 				A5C6C9DA1E15D39800364421 /* AppDelegate.m */,
+				A5EFBECC1E162A290046E72A /* Main Camera View */,
+				A59D950D1E16F82B00049C5D /* Custom Filter */,
 				A59D95061E16EDA000049C5D /* Camera Manager */,
 				A59D94FC1E16E99A00049C5D /* Filter Menu */,
-				A5EFBECC1E162A290046E72A /* Main Camera View */,
 				A5C6C9E21E15D39800364421 /* Assets.xcassets */,
 				A5C6C9E41E15D39800364421 /* LaunchScreen.storyboard */,
 				A5C6C9E71E15D39800364421 /* Info.plist */,
@@ -141,6 +163,12 @@
 		A5EFBEC81E1624FF0046E72A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				A59D95111E16FA5700049C5D /* Common.h */,
+				A59D95121E16FA5700049C5D /* Common.m */,
+				A59D950E1E16F8A500049C5D /* MK_PausableTimer.h */,
+				A59D950F1E16F8A500049C5D /* MK_PausableTimer.m */,
+				A59D950A1E16F81400049C5D /* MK_CameraGridView.h */,
+				A59D950B1E16F81400049C5D /* MK_CameraGridView.m */,
 				A5EFBEC91E1625120046E72A /* QTouchposeApplication.h */,
 				A5EFBECA1E1625120046E72A /* QTouchposeApplication.m */,
 			);
@@ -292,9 +320,13 @@
 				A5C6C9DE1E15D39800364421 /* ViewController.m in Sources */,
 				A59D94FF1E16ED7400049C5D /* MK_GPUImageCameraManager.m in Sources */,
 				A5EFBECB1E1625120046E72A /* QTouchposeApplication.m in Sources */,
+				A59D95101E16F8A500049C5D /* MK_PausableTimer.m in Sources */,
+				A59D95091E16F68600049C5D /* MK_GPUImageCustom3Input.m in Sources */,
 				A59D94FA1E16E98C00049C5D /* MK_FilterViewCell.m in Sources */,
 				A5C6C9DB1E15D39800364421 /* AppDelegate.m in Sources */,
 				A59D95041E16ED8F00049C5D /* MK_Shader.m in Sources */,
+				A59D950C1E16F81400049C5D /* MK_CameraGridView.m in Sources */,
+				A59D95131E16FA5700049C5D /* Common.m in Sources */,
 				A59D95051E16ED8F00049C5D /* MK_ShaderGroup.m in Sources */,
 				A5C6C9D81E15D39800364421 /* main.m in Sources */,
 			);

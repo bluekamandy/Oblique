@@ -34,7 +34,6 @@
     MK_GPUImageCameraManager *sharedCameraManager;
 }
 
-@property (nonatomic , strong) MK_Hexagon *hexView;
 @property (nonatomic , strong) UIImageView *previewView;
 @property (nonatomic , strong) UILabel *titleLabel;
 
