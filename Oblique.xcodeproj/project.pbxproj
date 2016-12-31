@@ -17,6 +17,7 @@
 		A59D950C1E16F81400049C5D /* MK_CameraGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D950B1E16F81400049C5D /* MK_CameraGridView.m */; };
 		A59D95101E16F8A500049C5D /* MK_PausableTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D950F1E16F8A500049C5D /* MK_PausableTimer.m */; };
 		A59D95131E16FA5700049C5D /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D95121E16FA5700049C5D /* Common.m */; };
+		A5AA38501E1819080056A532 /* MK_DismissSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AA384F1E1819080056A532 /* MK_DismissSegue.m */; };
 		A5ACC7171E17015E0014795F /* MK_FShader_Brightness.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7111E17015E0014795F /* MK_FShader_Brightness.fsh */; };
 		A5ACC7181E17015E0014795F /* MK_FShader_Contrast.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7121E17015E0014795F /* MK_FShader_Contrast.fsh */; };
 		A5ACC7191E17015E0014795F /* MK_FShader_Hue.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7131E17015E0014795F /* MK_FShader_Hue.fsh */; };
@@ -74,6 +75,8 @@
 		A59D950F1E16F8A500049C5D /* MK_PausableTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MK_PausableTimer.m; sourceTree = "<group>"; };
 		A59D95111E16FA5700049C5D /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		A59D95121E16FA5700049C5D /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
+		A5AA384E1E1819080056A532 /* MK_DismissSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MK_DismissSegue.h; sourceTree = "<group>"; };
+		A5AA384F1E1819080056A532 /* MK_DismissSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MK_DismissSegue.m; sourceTree = "<group>"; };
 		A5ACC7111E17015E0014795F /* MK_FShader_Brightness.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_Brightness.fsh; sourceTree = "<group>"; };
 		A5ACC7121E17015E0014795F /* MK_FShader_Contrast.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_Contrast.fsh; sourceTree = "<group>"; };
 		A5ACC7131E17015E0014795F /* MK_FShader_Hue.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_Hue.fsh; sourceTree = "<group>"; };
@@ -292,6 +295,8 @@
 		A5EFBEC81E1624FF0046E72A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				A5AA384E1E1819080056A532 /* MK_DismissSegue.h */,
+				A5AA384F1E1819080056A532 /* MK_DismissSegue.m */,
 				A59D95111E16FA5700049C5D /* Common.h */,
 				A59D95121E16FA5700049C5D /* Common.m */,
 				A59D950E1E16F8A500049C5D /* MK_PausableTimer.h */,
@@ -482,6 +487,7 @@
 				A5C6C9DB1E15D39800364421 /* AppDelegate.m in Sources */,
 				A59D95041E16ED8F00049C5D /* MK_Shader.m in Sources */,
 				A59D950C1E16F81400049C5D /* MK_CameraGridView.m in Sources */,
+				A5AA38501E1819080056A532 /* MK_DismissSegue.m in Sources */,
 				A59D95131E16FA5700049C5D /* Common.m in Sources */,
 				A59D95051E16ED8F00049C5D /* MK_ShaderGroup.m in Sources */,
 				A5C6C9D81E15D39800364421 /* main.m in Sources */,

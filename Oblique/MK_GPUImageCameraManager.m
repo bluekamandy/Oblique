@@ -111,7 +111,7 @@
 {
     if (self.mainFilter) {
         [self.stillCamera capturePhotoAsImageProcessedUpToFilter:self.mainFilter withCompletionHandler:^(UIImage *processedImage, NSError *error) {
-            NSData *dataForJPEGFile = UIImageJPEGRepresentation(processedImage, 0.8);
+            NSData *dataForJPEGFile = UIImageJPEGRepresentation(processedImage, 1.0);
             
             UIImageWriteToSavedPhotosAlbum([UIImage imageWithData:dataForJPEGFile], nil, nil, nil);
             return ;

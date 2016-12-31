@@ -139,6 +139,9 @@
                                 <state key="normal" image="Info"/>
                                 <state key="selected" image="InfoSelected"/>
                                 <state key="highlighted" image="InfoSelected"/>
+                                <connections>
+                                    <segue destination="FEh-cI-N0x" kind="presentation" modalPresentationStyle="overFullScreen" id="TBR-kf-B9j"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbu-Kj-FXF">
                                 <rect key="frame" x="385" y="10" width="14" height="22"/>
@@ -209,6 +212,145 @@
             </objects>
             <point key="canvasLocation" x="20.289855072463769" y="35.869565217391305"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="e8c-Yu-5j0">
+            <objects>
+                <viewController id="FEh-cI-N0x" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="md9-70-cUr"/>
+                        <viewControllerLayoutGuide type="bottom" id="tg4-nG-z3g"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="V0v-GZ-ENF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g8w-Tc-Gnw">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ShA-MD-5vP">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ObliqueLogo" translatesAutoresizingMaskIntoConstraints="NO" id="o4R-GS-la4">
+                                            <rect key="frame" x="170" y="60" width="75" height="48"/>
+                                        </imageView>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Va3-zS-kiJ">
+                                            <rect key="frame" x="70" y="144" width="275" height="476"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <color key="tintColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="275" id="CxI-Sc-jEi"/>
+                                            </constraints>
+                                            <attributedString key="attributedText">
+                                                <fragment>
+                                                    <string key="content">Oblique
+
+Made with </string>
+                                                    <attributes>
+                                                        <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <font key="NSFont" size="14" name=".SFNSText"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                                <fragment content="❤️">
+                                                    <attributes>
+                                                        <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <font key="NSFont" size="14" name="AppleColorEmoji"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                                <fragment>
+                                                    <mutableString key="content"> by an artist for artists.
+
+Oblique is square shifted to its side. It's a lens that shifts your perception. It's transforming the way you see the world. 
+
+Oblique is a real-time camera app that allows you to apply filters and adjustments to your live camera view. The filters are powerful and interactive. They let you touch and manipulate your camera’s view directly and in creative new ways.
+
+With Oblique there is no post-production. There is only now and the world is your art studio.
+
+For more information visit
+www.masoodkamandy.com
+
+For support email
+oblique@masoodkamandy.com
+
+© 2017 Masood Kamandy
+All rights reserved.
+
+Open Source Notices
+
+Made with the GPUImage.
+
+Copyright (c) 2012, Brad Larson, Ben Cochran, Hugues Lismonde, Keitaroh Kobayashi, Alaric Cole, Matthew Clark, Jacob Gundersen, Chris Williams.
+
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. Neither the name of the GPUImage framework nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+Made with SWRevealViewController
+
+Copyright (c) 2013 Joan Lluch &lt;joan.lluch@sweetwilliamsl.com&gt;
+ 
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ 
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Early code inspired on a similar class by Philip Kluz (Philip.Kluz@zuui.org)</mutableString>
+                                                    <attributes>
+                                                        <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <font key="NSFont" size="14" name=".SFNSText"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                        </textView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o7B-fG-bib">
+                                            <rect key="frame" x="188" y="656" width="39" height="32"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <state key="normal" title="Done">
+                                                <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </state>
+                                            <connections>
+                                                <segue destination="BYZ-38-t0r" kind="custom" customClass="MK_DismissSegue" id="kXO-ft-9VJ"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="o7B-fG-bib" secondAttribute="bottom" constant="48" id="6VF-5Z-zNs"/>
+                                        <constraint firstItem="Va3-zS-kiJ" firstAttribute="centerX" secondItem="ShA-MD-5vP" secondAttribute="centerX" id="FoL-ZE-cyf"/>
+                                        <constraint firstItem="o4R-GS-la4" firstAttribute="centerX" secondItem="ShA-MD-5vP" secondAttribute="centerX" id="MOx-Tt-9r7"/>
+                                        <constraint firstItem="o4R-GS-la4" firstAttribute="top" secondItem="ShA-MD-5vP" secondAttribute="top" constant="60" id="fep-uS-NQH"/>
+                                        <constraint firstItem="Va3-zS-kiJ" firstAttribute="top" secondItem="o4R-GS-la4" secondAttribute="bottom" constant="36" id="gZf-ve-feL"/>
+                                        <constraint firstItem="o7B-fG-bib" firstAttribute="top" secondItem="Va3-zS-kiJ" secondAttribute="bottom" constant="36" id="lIQ-6f-oPp"/>
+                                        <constraint firstItem="o7B-fG-bib" firstAttribute="centerX" secondItem="ShA-MD-5vP" secondAttribute="centerX" id="tAi-56-hhr"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tg4-nG-z3g" firstAttribute="top" secondItem="g8w-Tc-Gnw" secondAttribute="bottom" id="E5F-jj-8Ea"/>
+                            <constraint firstItem="g8w-Tc-Gnw" firstAttribute="top" secondItem="md9-70-cUr" secondAttribute="bottom" id="JAp-ut-c4W"/>
+                            <constraint firstAttribute="trailing" secondItem="g8w-Tc-Gnw" secondAttribute="trailing" id="KJm-vf-FxI"/>
+                            <constraint firstItem="g8w-Tc-Gnw" firstAttribute="leading" secondItem="V0v-GZ-ENF" secondAttribute="leading" id="uHa-uD-gf2"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Cf-Tq-sh5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="983" y="36"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Adjustment" width="29" height="32"/>
@@ -221,9 +363,13 @@
         <image name="GridSelected" width="34" height="34"/>
         <image name="Info" width="22" height="22"/>
         <image name="InfoSelected" width="22" height="22"/>
+        <image name="ObliqueLogo" width="75" height="48"/>
         <image name="Selfie" width="35" height="33"/>
         <image name="SelfieSelected" width="35" height="33"/>
         <image name="ShutterRelease" width="84" height="84"/>
         <image name="ShutterReleaseSelected" width="84" height="84"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="kXO-ft-9VJ"/>
+    </inferredMetricsTieBreakers>
 </document>
