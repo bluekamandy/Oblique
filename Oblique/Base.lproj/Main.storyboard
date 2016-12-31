@@ -76,6 +76,91 @@
             </objects>
             <point key="canvasLocation" x="-551.44927536231887" y="734.51086956521749"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Ewb-m1-MAT">
+            <objects>
+                <viewController id="Hid-rJ-OQe" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PYg-Ds-aTq"/>
+                        <viewControllerLayoutGuide type="bottom" id="NtJ-dg-cEW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nZ3-cn-JnI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="FCY-oz-t8m">
+                                <rect key="frame" x="30.333333333333343" y="150" width="354" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="ZCo-0c-Agu"/>
+                                </constraints>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ht9-cE-9Wy">
+                                <rect key="frame" x="30" y="233" width="354" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="6T5-9r-UWP"/>
+                                </constraints>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Y9m-cL-WHc">
+                                <rect key="frame" x="148" y="318" width="118" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZNP-0l-Kss">
+                                <rect key="frame" x="148" y="415" width="118" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </slider>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="BRIGHTNESS" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="au6-oi-bk3">
+                                <rect key="frame" x="165" y="190" width="85" height="28"/>
+                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="CuU-Nn-DXu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="CONTRAST" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jYQ-rB-zy8">
+                                <rect key="frame" x="165" y="282" width="85" height="28"/>
+                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="vRx-nQ-As2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="HUE" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bcs-ax-B6R">
+                                <rect key="frame" x="87" y="453" width="240" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="SATURATION" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YVj-no-y6l">
+                                <rect key="frame" x="87" y="356" width="240" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FCY-oz-t8m" firstAttribute="top" secondItem="PYg-Ds-aTq" secondAttribute="bottom" constant="150" id="8Qr-8q-Fgk"/>
+                            <constraint firstItem="jYQ-rB-zy8" firstAttribute="centerX" secondItem="nZ3-cn-JnI" secondAttribute="centerX" id="NeE-pq-DjC"/>
+                            <constraint firstItem="au6-oi-bk3" firstAttribute="top" secondItem="FCY-oz-t8m" secondAttribute="bottom" constant="10" id="Uxh-fl-puR"/>
+                            <constraint firstItem="au6-oi-bk3" firstAttribute="centerX" secondItem="nZ3-cn-JnI" secondAttribute="centerX" id="f1i-oA-S1F"/>
+                            <constraint firstItem="Ht9-cE-9Wy" firstAttribute="top" secondItem="au6-oi-bk3" secondAttribute="bottom" constant="15" id="iQi-8a-cxv"/>
+                            <constraint firstItem="Ht9-cE-9Wy" firstAttribute="centerX" secondItem="nZ3-cn-JnI" secondAttribute="centerX" id="pEW-fu-MOF"/>
+                            <constraint firstItem="jYQ-rB-zy8" firstAttribute="top" secondItem="Ht9-cE-9Wy" secondAttribute="bottom" constant="10" id="vQx-DQ-KYN"/>
+                            <constraint firstItem="FCY-oz-t8m" firstAttribute="centerX" secondItem="nZ3-cn-JnI" secondAttribute="centerX" id="zXL-xr-NTQ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jpx-eq-G2x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-586.95652173913049" y="35.869565217391305"/>
+        </scene>
         <!--FrontCameraViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -114,6 +199,7 @@
                                 <state key="highlighted" image="AdjustmentSelected"/>
                                 <connections>
                                     <action selector="toggleAdjustments:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qXx-Uz-CwS"/>
+                                    <segue destination="Hid-rJ-OQe" kind="presentation" id="7RK-nT-esn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1e-v5-7TL">
@@ -259,7 +345,7 @@ Made with </string>
                                                     </attributes>
                                                 </fragment>
                                                 <fragment>
-                                                    <mutableString key="content"> by an artist for artists.
+                                                    <string key="content"> by an artist for artists.
 
 Oblique is square shifted to its side. It's a lens that shifts your perception. It's transforming the way you see the world. 
 
@@ -300,7 +386,7 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-Early code inspired on a similar class by Philip Kluz (Philip.Kluz@zuui.org)</mutableString>
+Early code inspired on a similar class by Philip Kluz (Philip.Kluz@zuui.org)</string>
                                                     <attributes>
                                                         <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <font key="NSFont" size="14" name=".SFNSText"/>

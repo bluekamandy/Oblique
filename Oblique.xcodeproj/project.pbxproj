@@ -140,6 +140,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A51DC8E91E1851E40050C0D8 /* Adjustment Menu */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Adjustment Menu";
+			sourceTree = "<group>";
+		};
 		A59D94FC1E16E99A00049C5D /* Filter Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -276,6 +283,7 @@
 				A59D950D1E16F82B00049C5D /* Custom Filter */,
 				A5ACC70C1E1700D30014795F /* Shader Files */,
 				A59D94FC1E16E99A00049C5D /* Filter Menu */,
+				A51DC8E91E1851E40050C0D8 /* Adjustment Menu */,
 				A5C6C9E21E15D39800364421 /* Assets.xcassets */,
 				A5C6C9E41E15D39800364421 /* LaunchScreen.storyboard */,
 				A5C6C9E71E15D39800364421 /* Info.plist */,
@@ -295,10 +303,10 @@
 		A5EFBEC81E1624FF0046E72A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				A5AA384E1E1819080056A532 /* MK_DismissSegue.h */,
-				A5AA384F1E1819080056A532 /* MK_DismissSegue.m */,
 				A59D95111E16FA5700049C5D /* Common.h */,
 				A59D95121E16FA5700049C5D /* Common.m */,
+				A5AA384E1E1819080056A532 /* MK_DismissSegue.h */,
+				A5AA384F1E1819080056A532 /* MK_DismissSegue.m */,
 				A59D950E1E16F8A500049C5D /* MK_PausableTimer.h */,
 				A59D950F1E16F8A500049C5D /* MK_PausableTimer.m */,
 				A59D950A1E16F81400049C5D /* MK_CameraGridView.h */,
