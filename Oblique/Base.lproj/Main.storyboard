@@ -156,6 +156,16 @@
                                     <constraint firstAttribute="width" secondItem="ye2-Jr-nPR" secondAttribute="height" multiplier="3:4" id="IBh-2o-4qR"/>
                                 </constraints>
                             </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODH-iG-Mln">
+                                <rect key="frame" x="82" y="5" width="250" height="33"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="zUN-G8-l8g"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -166,12 +176,14 @@
                             <constraint firstItem="axR-Bm-29S" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="7i3-11-bk9"/>
                             <constraint firstItem="tbu-Kj-FXF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="CwH-YN-Hke"/>
                             <constraint firstItem="d1e-v5-7TL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="DHR-cc-mjX"/>
+                            <constraint firstItem="ODH-iG-Mln" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Eyk-xM-SSg"/>
                             <constraint firstAttribute="trailing" secondItem="0gh-Cj-Bw0" secondAttribute="trailing" constant="15" id="FFZ-GA-DpU"/>
                             <constraint firstItem="cAR-Ts-pV6" firstAttribute="top" secondItem="d1e-v5-7TL" secondAttribute="bottom" constant="25" id="GCV-Eg-7aD"/>
                             <constraint firstItem="Q0L-wm-zXw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GD6-23-5Zr"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Q0L-wm-zXw" secondAttribute="bottom" constant="20" id="GYK-f2-6XU"/>
                             <constraint firstItem="ye2-Jr-nPR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Itk-Gx-FgD"/>
                             <constraint firstItem="cAR-Ts-pV6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="KAq-M2-y9e"/>
+                            <constraint firstItem="ODH-iG-Mln" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="5" id="SQc-eE-1V7"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cAR-Ts-pV6" secondAttribute="bottom" constant="15" id="SWY-qM-d4x"/>
                             <constraint firstItem="axR-Bm-29S" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="eB1-LP-DfF"/>
                             <constraint firstItem="zk2-TR-6pB" firstAttribute="top" secondItem="0gh-Cj-Bw0" secondAttribute="bottom" constant="25" id="eYP-HT-nS3"/>
@@ -188,6 +200,7 @@
                         <outlet property="flashButton" destination="tbu-Kj-FXF" id="MU3-s4-t0N"/>
                         <outlet property="imageView" destination="ye2-Jr-nPR" id="1EP-3j-3XC"/>
                         <outlet property="infoButton" destination="axR-Bm-29S" id="juL-nr-C3E"/>
+                        <outlet property="informationField" destination="ODH-iG-Mln" id="00c-zm-HDz"/>
                         <outlet property="selfieButton" destination="0gh-Cj-Bw0" id="NEd-Y8-D07"/>
                         <outlet property="shutterReleaseButton" destination="Q0L-wm-zXw" id="bAJ-U2-7ok"/>
                     </connections>

@@ -27,6 +27,7 @@
 #import "SWRevealViewController.h"
 #import "MK_GPUImageCameraManager.h"
 #import "MK_CameraGridView.h"
+#import "Common.h"
 
 @interface ViewController ()
 {
@@ -35,6 +36,9 @@
     // Grid
     MK_CameraGridView *cameraGridView;
     int numberOfGridDivisions;
+    
+    // Info Field
+    NSString *informationFieldText;
     
     // Touch
     CGFloat photoViewWidth;
@@ -61,6 +65,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *selfieButton;
 @property (weak, nonatomic) IBOutlet UIButton *flashButton;
 @property (weak, nonatomic) IBOutlet UIButton *infoButton;
+
+@property (weak, nonatomic) IBOutlet UITextView *informationField;
 
 @end
 
@@ -242,6 +248,16 @@
 
 - (IBAction)toggleFlash:(id)sender {
     
+    if (cameraManager.stillCamera.inputCamera.flashActive == NO) {
+        [cameraManager turnFlashOn];
+        [self.flashButton setSelected:YES];
+        
+    } else if (cameraManager.stillCamera.inputCamera.flashActive == YES) {
+        [cameraManager turnFlashOff];
+        [self.flashButton setSelected:NO];
+        
+    }
+
 }
 
 /* Sample code from: https://github.com/BradLarson/GPUImage/issues/233
@@ -317,5 +333,70 @@
  }
  
  */
+
+#pragma mark - Touch
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event
+{
+    touch = [[event allTouches] anyObject];
+    touchStartingCoord = [touch locationInView:_imageView];
+    
+    normalizedTouchStartingCoord.x = touchStartingCoord.x / photoViewWidth;
+    normalizedTouchStartingCoord.y = touchStartingCoord.y / photoViewHeight;
+    
+    //    NSLog(@"touchStartingCoord = %@", NSStringFromCGPoint(touchStartingCoord));
+    //    NSLog(@"normalizedTouchStartingCoord = %@", NSStringFromCGPoint(normalizedTouchStartingCoord));
+}
+
+
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event
+{
+    if (cameraManager.mainFilter) {
+        // touch = [[event allTouches] anyObject];
+        touchPoint = [touch locationInView:_imageView];
+        
+        // Normalize touch coordinates so that adjustments are consistent across devices
+        normalizedTouchPoint.x = touchPoint.x / photoViewWidth;
+        normalizedTouchPoint.y = touchPoint.y / photoViewHeight;
+        
+        // Make sure touch is inside _imageView.
+        if (normalizedTouchPoint.x >= 0 && normalizedTouchPoint.x <= 1.0 && normalizedTouchPoint.y >= 0.0 && normalizedTouchPoint.y <= 1.0)
+        {
+            distanceOfTouch = distanceBetween(normalizedTouchStartingCoord, normalizedTouchPoint); // AKA hypoteneuse
+            xDistance = normalizedTouchPoint.x - normalizedTouchStartingCoord.x;
+            yDistance = normalizedTouchPoint.y - normalizedTouchStartingCoord.y;
+            angleOfTouch = -atan2(yDistance, xDistance); // Negative because the coordinate system is reversed but I'd like it to be relative to the user.
+            informationFieldText = [cameraManager changeFilterParameterUsingXPos:normalizedTouchPoint.x yPos:normalizedTouchPoint.y xDistance:xDistance yDistance:yDistance angle:angleOfTouch];
+        }
+        
+        [self.informationField setText:informationFieldText];
+        
+    }
+    
+}
+
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event
+{
+    touchEndingCoord = [touch locationInView:_imageView];
+    
+    normalizedTouchEndingCoord.x = touchEndingCoord.x / photoViewWidth;
+    normalizedTouchEndingCoord.y = touchEndingCoord.y / photoViewHeight;
+    
+    NSLog(@"touchEndingCoord = %@", NSStringFromCGPoint(touchEndingCoord));
+    NSLog(@"normalizedTouchEndingCoord = %@", NSStringFromCGPoint(normalizedTouchEndingCoord));
+    NSLog(@"distanceOfTouch is %f", distanceOfTouch);
+    NSLog(@"xDistance = %f and yDistance = %f", xDistance, yDistance);
+    NSLog(@"angleOfTouch = %.2f", angleOfTouch);
+    informationFieldText = @"";
+    [self.informationField setText:informationFieldText];
+}
+
+
+//- (void)touchesCancelled:(nullable NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event
+//{
+//
+//}
+
 
 @end
