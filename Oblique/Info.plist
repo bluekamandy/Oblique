@@ -38,5 +38,9 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSCameraUsageDescription</key>
+	<string>Oblique needs access to your camera to take pictures.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Oblique needs access to your photo library to store your pictures.</string>
 </dict>
 </plist>

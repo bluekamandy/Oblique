@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -35,27 +36,30 @@
         <scene sceneID="31x-Te-D8a">
             <objects>
                 <tableViewController id="bMh-dD-aqh" customClass="MK_FilterViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ca7-Oc-mWe">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ca7-Oc-mWe">
                         <rect key="frame" x="0.0" y="0.0" width="125" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="125" id="yoL-hf-Tov" customClass="MK_FilterViewCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="125" id="yoL-hf-Tov" customClass="MK_FilterViewCell">
                                 <rect key="frame" x="0.0" y="28" width="125" height="125"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yoL-hf-Tov" id="cQ9-rr-pN5">
-                                    <rect key="frame" x="0.0" y="0.0" width="125" height="124.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NAME LABEL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvH-Ia-jTg">
-                                            <rect key="frame" x="8" y="103" width="109" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME LABEL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvH-Ia-jTg">
+                                            <rect key="frame" x="30.333333333333336" y="108" width="64.666666666666657" height="12"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
-                                            <color key="textColor" red="0.49803921569999998" green="0.49803921569999998" blue="0.49803921569999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="wvH-Ia-jTg" secondAttribute="bottom" constant="5" id="AKV-cP-WyJ"/>
+                                        <constraint firstItem="wvH-Ia-jTg" firstAttribute="centerX" secondItem="cQ9-rr-pN5" secondAttribute="centerX" id="b2j-8X-LYT"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                             </tableViewCell>
@@ -70,7 +74,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I4K-42-aBX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-551" y="735"/>
+            <point key="canvasLocation" x="-551.44927536231887" y="734.51086956521749"/>
         </scene>
         <!--FrontCameraViewController-->
         <scene sceneID="tne-QT-ifu">
@@ -84,44 +88,79 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q0L-wm-zXw">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q0L-wm-zXw">
                                 <rect key="frame" x="165" y="632" width="84" height="84"/>
                                 <state key="normal" image="ShutterRelease"/>
+                                <state key="selected" image="ShutterRelease"/>
+                                <state key="highlighted" image="ShutterReleaseSelected"/>
+                                <state key="focused" image="ShutterReleaseSelected"/>
+                                <connections>
+                                    <action selector="shutterRelease:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JWc-Ff-CgZ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAR-Ts-pV6">
                                 <rect key="frame" x="15" y="689" width="32" height="32"/>
                                 <state key="normal" image="FilterList"/>
+                                <state key="selected" image="FilterListSelected"/>
+                                <state key="highlighted" image="FilterListSelected"/>
+                                <connections>
+                                    <action selector="toggleFilters:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xxd-TR-OmG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zk2-TR-6pB">
                                 <rect key="frame" x="370" y="689" width="29" height="32"/>
                                 <state key="normal" image="Adjustment"/>
+                                <state key="selected" image="AdjustmentSelected"/>
+                                <state key="highlighted" image="AdjustmentSelected"/>
+                                <connections>
+                                    <action selector="toggleAdjustments:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qXx-Uz-CwS"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1e-v5-7TL">
                                 <rect key="frame" x="15" y="630" width="34" height="34"/>
                                 <state key="normal" image="Grid"/>
+                                <state key="selected" image="GridSelected"/>
+                                <state key="highlighted" image="GridSelected"/>
+                                <connections>
+                                    <action selector="toggleGrid:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mUZ-vL-WVM"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gh-Cj-Bw0">
                                 <rect key="frame" x="364" y="631" width="35" height="33"/>
                                 <state key="normal" image="Selfie"/>
+                                <state key="selected" image="SelfieSelected"/>
+                                <state key="highlighted" image="SelfieSelected"/>
+                                <connections>
+                                    <action selector="toggleSelfie:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qs2-Jy-Y3N"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axR-Bm-29S">
                                 <rect key="frame" x="15" y="10" width="22" height="22"/>
                                 <state key="normal" image="Info"/>
+                                <state key="selected" image="InfoSelected"/>
+                                <state key="highlighted" image="InfoSelected"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbu-Kj-FXF">
                                 <rect key="frame" x="385" y="10" width="14" height="22"/>
                                 <state key="normal" image="Flash"/>
+                                <state key="selected" image="FlashSelected"/>
+                                <state key="highlighted" image="FlashSelected"/>
+                                <connections>
+                                    <action selector="toggleFlash:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jWg-YV-xby"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="ye2-Jr-nPR" userLabel="Camera Feed" customClass="GPUImageView">
-                                <rect key="frame" x="0.0" y="46" width="414" height="569"/>
+                                <rect key="frame" x="0.0" y="46" width="414" height="552"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ye2-Jr-nPR" secondAttribute="height" multiplier="3:4" id="IBh-2o-4qR"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="ye2-Jr-nPR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="46" id="07d-uD-qxP"/>
                             <constraint firstAttribute="trailing" secondItem="ye2-Jr-nPR" secondAttribute="trailing" id="2Wj-hl-DCU"/>
-                            <constraint firstItem="d1e-v5-7TL" firstAttribute="top" secondItem="ye2-Jr-nPR" secondAttribute="bottom" constant="15" id="56a-tX-m10"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="zk2-TR-6pB" secondAttribute="bottom" constant="15" id="5Mh-Fy-Hht"/>
                             <constraint firstAttribute="trailing" secondItem="tbu-Kj-FXF" secondAttribute="trailing" constant="15" id="5Ri-N4-Yp2"/>
                             <constraint firstItem="axR-Bm-29S" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="7i3-11-bk9"/>
@@ -142,6 +181,16 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="adjustmentButton" destination="zk2-TR-6pB" id="ppf-ao-qUb"/>
+                        <outlet property="cameraGridButton" destination="d1e-v5-7TL" id="Geo-JC-BGQ"/>
+                        <outlet property="filterButton" destination="cAR-Ts-pV6" id="Wdd-oQ-q6e"/>
+                        <outlet property="flashButton" destination="tbu-Kj-FXF" id="MU3-s4-t0N"/>
+                        <outlet property="imageView" destination="ye2-Jr-nPR" id="1EP-3j-3XC"/>
+                        <outlet property="infoButton" destination="axR-Bm-29S" id="juL-nr-C3E"/>
+                        <outlet property="selfieButton" destination="0gh-Cj-Bw0" id="NEd-Y8-D07"/>
+                        <outlet property="shutterReleaseButton" destination="Q0L-wm-zXw" id="bAJ-U2-7ok"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -150,11 +199,18 @@
     </scenes>
     <resources>
         <image name="Adjustment" width="29" height="32"/>
+        <image name="AdjustmentSelected" width="29" height="32"/>
         <image name="FilterList" width="32" height="32"/>
+        <image name="FilterListSelected" width="32" height="32"/>
         <image name="Flash" width="14" height="18"/>
+        <image name="FlashSelected" width="14" height="18"/>
         <image name="Grid" width="34" height="34"/>
+        <image name="GridSelected" width="34" height="34"/>
         <image name="Info" width="22" height="22"/>
+        <image name="InfoSelected" width="22" height="22"/>
         <image name="Selfie" width="35" height="33"/>
+        <image name="SelfieSelected" width="35" height="33"/>
         <image name="ShutterRelease" width="84" height="84"/>
+        <image name="ShutterReleaseSelected" width="84" height="84"/>
     </resources>
 </document>

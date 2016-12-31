@@ -141,54 +141,54 @@
 
 - (void)toggleAdjustment:(NSString *)adjustmentName
 {
-    //    // Take all adjustments away. We have to rebuild the filter chain every time.
-    //    if (self.adjustments) {
-    //        [self pauseCamera];
-    //        for (id individualAdjustment in self.adjustments) {
-    //            [self.stillCamera removeTarget:individualAdjustment];
-    //        }
-    //        [self resumeCamera];
-    //    }
-    
-    // Get the new adjustment from storage.
-    SEL s = NSSelectorFromString(adjustmentName);
-    GPUImageFilterGroup *newAdjustment = [MK_Shader performSelector:s];
-    
-    // If it doesn't exist, create a new mutable array.
-    if (!adjustmentsPrivate) {
-        adjustmentsPrivate = [NSMutableArray arrayWithObject:newAdjustment];
-    }
-    
-    NSLog(@"Starting adjustment for loop");
-    for (GPUImageFilterGroup *adj in adjustmentsPrivate) {
-        if (adj.iconName == newAdjustment.iconName) {
-            NSUInteger adjustmentToRemoveIndex = [adjustmentsPrivate indexOfObject:adjustmentName];
-            [adjustmentsPrivate removeObject:adjustmentName];
-            self.selectedFilter = [adjustmentsPrivate objectAtIndex:adjustmentToRemoveIndex--];
-            NSLog(@"Removing %@", adjustmentName);
-        } else {
-            [adjustmentsPrivate addObject:newAdjustment];
-            NSLog(@"Adding %@", adjustmentName);
-        }
-        
-    }
-    
-    
-    
-    // Set selected filter for touch adjustment.
-    self.selectedFilter = newAdjustment;
-    NSLog(@"Selected filter is %@", newAdjustment.title);
-    
-    // Assign/reassign the adjustment NSArray.
-    self.adjustments = [adjustmentsPrivate copy];
-    
-    // Enumerate and add all of the filters in the array to the camera.
-    [self pauseCamera];
-    for (id individualAdjustment in self.adjustments) {
-        [self.stillCamera addTarget:individualAdjustment];
-        [individualAdjustment addTarget:self.stillCameraPreview];
-    }
-    [self resumeCamera];
+//    //    // Take all adjustments away. We have to rebuild the filter chain every time.
+//    //    if (self.adjustments) {
+//    //        [self pauseCamera];
+//    //        for (id individualAdjustment in self.adjustments) {
+//    //            [self.stillCamera removeTarget:individualAdjustment];
+//    //        }
+//    //        [self resumeCamera];
+//    //    }
+//    
+//    // Get the new adjustment from storage.
+//    SEL s = NSSelectorFromString(adjustmentName);
+//    GPUImageFilterGroup *newAdjustment = [MK_Shader performSelector:s];
+//    
+//    // If it doesn't exist, create a new mutable array.
+//    if (!adjustmentsPrivate) {
+//        adjustmentsPrivate = [NSMutableArray arrayWithObject:newAdjustment];
+//    }
+//    
+//    NSLog(@"Starting adjustment for loop");
+//    for (GPUImageFilterGroup *adj in adjustmentsPrivate) {
+//        if (adj.iconName == newAdjustment.iconName) {
+//            NSUInteger adjustmentToRemoveIndex = [adjustmentsPrivate indexOfObject:adjustmentName];
+//            [adjustmentsPrivate removeObject:adjustmentName];
+//            self.selectedFilter = [adjustmentsPrivate objectAtIndex:adjustmentToRemoveIndex--];
+//            NSLog(@"Removing %@", adjustmentName);
+//        } else {
+//            [adjustmentsPrivate addObject:newAdjustment];
+//            NSLog(@"Adding %@", adjustmentName);
+//        }
+//        
+//    }
+//    
+//    
+//    
+//    // Set selected filter for touch adjustment.
+//    self.selectedFilter = newAdjustment;
+//    NSLog(@"Selected filter is %@", newAdjustment.title);
+//    
+//    // Assign/reassign the adjustment NSArray.
+//    self.adjustments = [adjustmentsPrivate copy];
+//    
+//    // Enumerate and add all of the filters in the array to the camera.
+//    [self pauseCamera];
+//    for (id individualAdjustment in self.adjustments) {
+//        [self.stillCamera addTarget:individualAdjustment];
+//        [individualAdjustment addTarget:self.stillCameraPreview];
+//    }
+//    [self resumeCamera];
     
 }
 

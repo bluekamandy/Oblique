@@ -25,30 +25,297 @@
 
 #import "ViewController.h"
 #import "SWRevealViewController.h"
+#import "MK_GPUImageCameraManager.h"
+#import "MK_CameraGridView.h"
 
 @interface ViewController ()
+{
+    MK_GPUImageCameraManager *cameraManager;
+    
+    // Grid
+    MK_CameraGridView *cameraGridView;
+    int numberOfGridDivisions;
+    
+    // Touch
+    CGFloat photoViewWidth;
+    CGFloat photoViewHeight;
+    UITouch *touch;
+    CGPoint touchStartingCoord;
+    CGPoint normalizedTouchStartingCoord;
+    CGPoint touchEndingCoord;
+    CGPoint normalizedTouchEndingCoord;
+    CGPoint touchPoint;
+    CGPoint normalizedTouchPoint;
+    CGFloat angleOfTouch;
+    CGFloat distanceOfTouch;
+    CGFloat xDistance;
+    CGFloat yDistance;
+}
+
+@property (strong, nonatomic) IBOutlet GPUImageView *imageView;
+
+@property (weak, nonatomic) IBOutlet UIButton *shutterReleaseButton;
+@property (weak, nonatomic) IBOutlet UIButton *filterButton;
+@property (weak, nonatomic) IBOutlet UIButton *adjustmentButton;
+@property (weak, nonatomic) IBOutlet UIButton *cameraGridButton;
+@property (weak, nonatomic) IBOutlet UIButton *selfieButton;
+@property (weak, nonatomic) IBOutlet UIButton *flashButton;
+@property (weak, nonatomic) IBOutlet UIButton *infoButton;
 
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
     SWRevealViewController *revealViewController = self.revealViewController;
     self.revealViewController.rearViewRevealWidth = 125;
-    self.revealViewController.rightViewRevealWidth = [[UIScreen mainScreen] bounds].size.width;
     self.revealViewController.rearViewRevealOverdraw = 0;
-    self.revealViewController.rightViewRevealOverdraw = 0;
-
+    self.revealViewController.frontViewShadowOpacity = 0.0;
+    
+    if ( revealViewController )
+    {
+        [self.filterButton addTarget:self.revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    // Setup for touch events and grid.
+    photoViewWidth = _imageView.bounds.size.width;
+    photoViewHeight = _imageView.bounds.size.height;
+    
+    [self startCameraUp];
+    
+    // Setup for cameraGridView
+    numberOfGridDivisions = 1;
+    cameraGridView = [[MK_CameraGridView alloc] initWithFrame:CGRectMake(0, 0, photoViewWidth, photoViewHeight)];
+    cameraGridView.lineColor = [UIColor whiteColor];
+    cameraGridView.lineWidth = 0.5;
+    [self.imageView addSubview:cameraGridView];
+    [self.imageView bringSubviewToFront:cameraGridView];
+    
+    
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Camera Code: Start Up
+
+- (void)startCameraUp {
+    
+    cameraManager = [MK_GPUImageCameraManager sharedManager];
+    
+    [_imageView addSubview:[cameraManager createCameraViewWithFrame:CGRectMake(0, 0, _imageView.bounds.size.width, _imageView.bounds.size.height)]];
+    NSLog(@"_imageView.bounds.size is %@", NSStringFromCGSize(_imageView.bounds.size));
+}
+
+#pragma mark - Shutter Release
+
+- (IBAction)shutterRelease:(id)sender {
+    
+    [cameraManager captureImage];
+    
+    [UIView animateWithDuration:.05 delay:0 options:0 animations:^{
+        self.view.backgroundColor = [UIColor blueColor];
+    } completion:^(BOOL finished)
+     {
+         [UIView animateWithDuration:.05 delay:0 options:0 animations:^{
+             self.view.backgroundColor = [UIColor blackColor];
+         } completion: nil];
+     }];
+    
+}
+
+#pragma mark - Small Buttons
+
+- (IBAction)toggleFilters:(id)sender {
+    
+    [self.filterButton setSelected:!self.filterButton.selected];
+    if ([self.filterButton isSelected]) {
+        self.imageView.transform = CGAffineTransformMakeScale(0.67, 0.67);
+        self.imageView.transform = CGAffineTransformTranslate(self.imageView.transform, -305, 0);
+        [self.imageView layer].anchorPoint = CGPointMake(0.0f, 0.5f);
+        
+    }
+    
+    if (![self.filterButton isSelected]) {
+        self.imageView.transform = CGAffineTransformIdentity;
+        [self.imageView layer].anchorPoint = CGPointMake(0.5f, 0.5f);
+        
+        
+    }
+    
+}
+
+- (IBAction)toggleAdjustments:(id)sender {
+}
+
+- (IBAction)toggleSelfie:(id)sender {
+
+    UIView *blackScreen = [[UIView alloc] initWithFrame: CGRectMake(0, 0, photoViewWidth, photoViewHeight)];
+    [blackScreen setBackgroundColor:[UIColor blackColor]];
+    [self.imageView addSubview:blackScreen];
+    [self.imageView bringSubviewToFront:blackScreen];
+    
+    if (cameraManager.stillCamera.cameraPosition == AVCaptureDevicePositionBack) {
+        [cameraManager toggleSelfieCamera];
+        [self.selfieButton setSelected:YES];
+        [self.flashButton setHidden:YES];
+        [UIView transitionWithView:self.imageView
+                          duration:.5
+                           options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
+                               [blackScreen setAlpha:1.0f];
+                           }
+                        completion:^(BOOL finished){
+                            [UIView animateWithDuration:.5
+                                                  delay:.1
+                                                options:UIViewAnimationOptionCurveEaseOut
+                                             animations:^{
+                                                 [blackScreen setAlpha:0.0f];
+                                             }
+                                             completion:^(BOOL finished){
+                                                 [blackScreen removeFromSuperview];
+                                             }];
+                        }];
+    } else if (cameraManager.stillCamera.cameraPosition == AVCaptureDevicePositionFront) {
+        [cameraManager toggleSelfieCamera];
+        [self.selfieButton setSelected:NO];
+        [self.flashButton setHidden:NO];
+        
+        [UIView transitionWithView:self.imageView
+                          duration:.5
+                           options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
+                               [blackScreen setAlpha:1.0f];
+                           }
+                        completion:^(BOOL finished){
+                            [UIView animateWithDuration:.5
+                                                  delay: .1
+                                                options:UIViewAnimationOptionCurveEaseOut
+                                             animations:^{
+                                                 [blackScreen setAlpha:0.0f];
+                                                 
+                                             }
+                                             completion:^(BOOL finished){
+                                                 [blackScreen removeFromSuperview];
+                                             }];
+                        }];
+    }
+    
+    blackScreen = nil;
+
+}
+
+- (IBAction)toggleGrid:(id)sender {
+    if (numberOfGridDivisions == 1) {
+        
+        // Split view into quarters.
+        cameraGridView.numberOfColumns = numberOfGridDivisions;
+        cameraGridView.numberOfRows = numberOfGridDivisions;
+        [cameraGridView setHidden:NO];
+        [self.cameraGridButton setSelected:YES];
+        [cameraGridView setNeedsDisplay];
+        numberOfGridDivisions++;
+        
+    } else if (numberOfGridDivisions > 1 && numberOfGridDivisions <= 3) {
+        
+        // Split into 9, then 16
+        cameraGridView.numberOfColumns = numberOfGridDivisions;
+        cameraGridView.numberOfRows = numberOfGridDivisions;
+        [cameraGridView setNeedsDisplay];
+        [self.cameraGridButton setSelected:YES];
+        numberOfGridDivisions++;
+        
+    } else {
+        
+        // Turn grid back off.
+        numberOfGridDivisions = 1;
+        [cameraGridView setNeedsDisplay];
+        [cameraGridView setHidden:YES];
+        [self.cameraGridButton setSelected:NO];
+    }
+    
+}
+
+- (IBAction)toggleFlash:(id)sender {
+    
+}
+
+/* Sample code from: https://github.com/BradLarson/GPUImage/issues/233
+ 
+ (void)viewDidLoad {
+ 
+ [super viewDidLoad];
+ 
+ CGRect frame = CGRectMake(20, 20, self.view.frame.size.width-40, self.view.frame.size.height-180);
+ imageView = [[GPUImageView alloc] initWithFrame:frame];
+ [self.view addSubview:imageView];
+ 
+ brightnessFilter = [[GPUImageBrightnessFilter alloc] init];
+ brightnessFilter.brightness = 0;
+ contrastFilter = [[GPUImageContrastFilter alloc] init];
+ contrastFilter.contrast = 1;
+ saturationFilter = [[GPUImageSaturationFilter alloc] init];
+ saturationFilter.saturation = 1;
+ 
+ }
+ 
+ (void)viewWillAppear:(BOOL)animated {
+ 
+ gpuImage = [[GPUImagePicture alloc] initWithImage:appModel.document.currentPage.image];
+ 
+ [gpuImage addTarget:brightnessFilter];
+ [brightnessFilter addTarget:contrastFilter];
+ [contrastFilter addTarget:saturationFilter];
+ 
+ [saturationFilter addTarget:imageView];
+ 
+ [gpuImage processImage];
+ }
+ 
+ (IBAction)onSlide:(id)sender forEvent:(UIEvent *)event {
+ 
+ switch (mode) {
+ case 0:
+ brightnessFilter.brightness = slider.value;
+ break;
+ case 1:
+ contrastFilter.contrast = slider.value;
+ break;
+ case 2:
+ saturationFilter.saturation = slider.value;
+ break;
+ }
+ 
+ [gpuImage processImage];
+ }
+ 
+ (IBAction)onModeChange:(UISegmentedControl *)sender forEvent:(UIEvent *)event {
+ 
+ mode = sender.selectedSegmentIndex;
+ 
+ switch (mode) {
+ case 0:
+ slider.minimumValue = -1;
+ slider.maximumValue = 1;
+ slider.value = brightnessFilter.brightness;
+ break;
+ case 1:
+ slider.minimumValue = 0;
+ slider.maximumValue = 4;
+ slider.value = contrastFilter.contrast;
+ break;
+ case 2:
+ slider.minimumValue = 0;
+ slider.maximumValue = 2;
+ slider.value = saturationFilter.saturation;
+ break;
+ }
+ }
+ 
+ */
 
 @end

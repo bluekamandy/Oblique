@@ -48,18 +48,15 @@
         
         sharedCameraManager = [MK_GPUImageCameraManager sharedManager];
         
-        NSLog(@"initWithCoder : Cell"); // Only called 7 times so I'm assuming this is just called for visible cells.
-//        _hexView = [[MK_Hexagon alloc] initWithFrame:CGRectMake(12.5, 12.5, 88.5, 88.5)];
-        _filterView = [[GPUImageView alloc] initWithFrame:CGRectMake(15, 15, 85, 85)];
+        NSLog(@"initWithCoder : Cell");
+        _filterView = [[GPUImageView alloc] initWithFrame:CGRectMake(20, 15, 85, 85)];
         _filterView.fillMode = kGPUImageFillModePreserveAspectRatioAndFill;
-//        [_hexView addSubview:_filterView];
         [self.contentView addSubview:_filterView];
         
         
     }
     return self;
 }
-
 
 - (void)setFrame:(CGRect)frame {
     if (!tableWidth) {
@@ -75,6 +72,32 @@
     [sharedCameraManager.stillCamera removeTarget:self.filterGroup];
     
     
+}
+
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated
+{
+    if (highlighted) {
+        self.filterView.layer.borderColor = [UIColor yellowColor].CGColor;
+        self.filterView.layer.borderWidth = 5.0f;
+
+    } else {
+        self.filterView.layer.borderColor = [UIColor clearColor].CGColor;
+        self.filterView.layer.borderWidth = 0.0f;
+
+    }
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    if (selected) {
+        self.filterView.layer.borderColor = [UIColor yellowColor].CGColor;
+        self.filterView.layer.borderWidth = 5.0f;
+        
+    } else {
+        self.filterView.layer.borderColor = [UIColor clearColor].CGColor;
+        self.filterView.layer.borderWidth = 0.0f;
+        
+    }
+
 }
 
 - (void)setState:(UIControlState)state {

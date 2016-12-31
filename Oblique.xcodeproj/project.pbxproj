@@ -23,27 +23,27 @@
 		A5ACC71A1E17015E0014795F /* MK_FShader_Saturation.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7141E17015E0014795F /* MK_FShader_Saturation.fsh */; };
 		A5ACC71B1E17015E0014795F /* MK_FShader_Sharpness.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7151E17015E0014795F /* MK_FShader_Sharpness.fsh */; };
 		A5ACC71C1E17015E0014795F /* MK_FShader_ToneMap.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7161E17015E0014795F /* MK_FShader_ToneMap.fsh */; };
-		A5ACC72E1E1701FA0014795F /* RKT_FShader_4Scope.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC71E1E1701FA0014795F /* RKT_FShader_4Scope.fsh */; };
-		A5ACC72F1E1701FA0014795F /* RKT_FShader_4Split.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC71F1E1701FA0014795F /* RKT_FShader_4Split.fsh */; };
-		A5ACC7301E1701FA0014795F /* RKT_FShader_AnalogTV.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7201E1701FA0014795F /* RKT_FShader_AnalogTV.fsh */; };
-		A5ACC7311E1701FA0014795F /* RKT_FShader_ColorCycle.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7211E1701FA0014795F /* RKT_FShader_ColorCycle.fsh */; };
-		A5ACC7321E1701FA0014795F /* RKT_FShader_Edge_Detect.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7221E1701FA0014795F /* RKT_FShader_Edge_Detect.fsh */; };
-		A5ACC7331E1701FA0014795F /* RKT_FShader_GridImage.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7231E1701FA0014795F /* RKT_FShader_GridImage.fsh */; };
-		A5ACC7341E1701FA0014795F /* RKT_FShader_HorizontalMirror.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7241E1701FA0014795F /* RKT_FShader_HorizontalMirror.fsh */; };
-		A5ACC7351E1701FA0014795F /* RKT_FShader_HorizontalStripes.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7251E1701FA0014795F /* RKT_FShader_HorizontalStripes.fsh */; };
-		A5ACC7361E1701FA0014795F /* RKT_FShader_Polar.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7261E1701FA0014795F /* RKT_FShader_Polar.fsh */; };
-		A5ACC7371E1701FA0014795F /* RKT_FShader_Rotate.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7271E1701FA0014795F /* RKT_FShader_Rotate.fsh */; };
-		A5ACC7381E1701FA0014795F /* RKT_FShader_Shear.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7281E1701FA0014795F /* RKT_FShader_Shear.fsh */; };
-		A5ACC7391E1701FA0014795F /* RKT_FShader_Stretch.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7291E1701FA0014795F /* RKT_FShader_Stretch.fsh */; };
-		A5ACC73A1E1701FA0014795F /* RKT_FShader_Tunnel.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC72A1E1701FA0014795F /* RKT_FShader_Tunnel.fsh */; };
-		A5ACC73B1E1701FA0014795F /* RKT_FShader_VerticalMirror.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC72B1E1701FA0014795F /* RKT_FShader_VerticalMirror.fsh */; };
-		A5ACC73C1E1701FA0014795F /* RKT_FShader_VerticalStripes.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC72C1E1701FA0014795F /* RKT_FShader_VerticalStripes.fsh */; };
-		A5ACC73D1E1701FA0014795F /* RKT_FShader_Waves.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC72D1E1701FA0014795F /* RKT_FShader_Waves.fsh */; };
-		A5ACC7421E1702B10014795F /* RKT_FShader_DrawGrid.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC73F1E1702B10014795F /* RKT_FShader_DrawGrid.fsh */; };
-		A5ACC7431E1702B10014795F /* RKT_FShader_Invert_Color.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7401E1702B10014795F /* RKT_FShader_Invert_Color.fsh */; };
-		A5ACC7441E1702B10014795F /* RKT_FShader_Vibrance.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7411E1702B10014795F /* RKT_FShader_Vibrance.fsh */; };
-		A5ACC7471E1702C30014795F /* RKT_FShader_Blank.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7451E1702C30014795F /* RKT_FShader_Blank.fsh */; };
-		A5ACC7481E1702C30014795F /* RKT_FShader_TimerTest.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7461E1702C30014795F /* RKT_FShader_TimerTest.fsh */; };
+		A5ACC7641E17338A0014795F /* MK_FShader_TimerTest.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC74F1E17338A0014795F /* MK_FShader_TimerTest.fsh */; };
+		A5ACC7841E17344A0014795F /* MK_FShader_4Scope.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7741E17344A0014795F /* MK_FShader_4Scope.fsh */; };
+		A5ACC7851E17344A0014795F /* MK_FShader_4Split.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7751E17344A0014795F /* MK_FShader_4Split.fsh */; };
+		A5ACC7861E17344A0014795F /* MK_FShader_AnalogTV.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7761E17344A0014795F /* MK_FShader_AnalogTV.fsh */; };
+		A5ACC7871E17344A0014795F /* MK_FShader_ColorCycle.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7771E17344A0014795F /* MK_FShader_ColorCycle.fsh */; };
+		A5ACC7881E17344A0014795F /* MK_FShader_Edge_Detect.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7781E17344A0014795F /* MK_FShader_Edge_Detect.fsh */; };
+		A5ACC7891E17344A0014795F /* MK_FShader_GridImage.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7791E17344A0014795F /* MK_FShader_GridImage.fsh */; };
+		A5ACC78A1E17344A0014795F /* MK_FShader_HorizontalMirror.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC77A1E17344A0014795F /* MK_FShader_HorizontalMirror.fsh */; };
+		A5ACC78B1E17344A0014795F /* MK_FShader_HorizontalStripes.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC77B1E17344A0014795F /* MK_FShader_HorizontalStripes.fsh */; };
+		A5ACC78C1E17344A0014795F /* MK_FShader_Polar.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC77C1E17344A0014795F /* MK_FShader_Polar.fsh */; };
+		A5ACC78D1E17344A0014795F /* MK_FShader_Rotate.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC77D1E17344A0014795F /* MK_FShader_Rotate.fsh */; };
+		A5ACC78E1E17344A0014795F /* MK_FShader_Shear.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC77E1E17344A0014795F /* MK_FShader_Shear.fsh */; };
+		A5ACC78F1E17344A0014795F /* MK_FShader_Stretch.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC77F1E17344A0014795F /* MK_FShader_Stretch.fsh */; };
+		A5ACC7901E17344A0014795F /* MK_FShader_Tunnel.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7801E17344A0014795F /* MK_FShader_Tunnel.fsh */; };
+		A5ACC7911E17344A0014795F /* MK_FShader_VerticalMirror.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7811E17344A0014795F /* MK_FShader_VerticalMirror.fsh */; };
+		A5ACC7921E17344A0014795F /* MK_FShader_VerticalStripes.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7821E17344A0014795F /* MK_FShader_VerticalStripes.fsh */; };
+		A5ACC7931E17344A0014795F /* MK_FShader_Waves.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7831E17344A0014795F /* MK_FShader_Waves.fsh */; };
+		A5ACC7971E1734670014795F /* MK_FShader_DrawGrid.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7941E1734670014795F /* MK_FShader_DrawGrid.fsh */; };
+		A5ACC7981E1734670014795F /* MK_FShader_Invert_Color.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7951E1734670014795F /* MK_FShader_Invert_Color.fsh */; };
+		A5ACC7991E1734670014795F /* MK_FShader_Vibrance.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7961E1734670014795F /* MK_FShader_Vibrance.fsh */; };
+		A5ACC79B1E17347B0014795F /* MK_FShader_Blank.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC79A1E17347B0014795F /* MK_FShader_Blank.fsh */; };
 		A5C6C9D81E15D39800364421 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C6C9D71E15D39800364421 /* main.m */; };
 		A5C6C9DB1E15D39800364421 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C6C9DA1E15D39800364421 /* AppDelegate.m */; };
 		A5C6C9DE1E15D39800364421 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C6C9DD1E15D39800364421 /* ViewController.m */; };
@@ -80,27 +80,27 @@
 		A5ACC7141E17015E0014795F /* MK_FShader_Saturation.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_Saturation.fsh; sourceTree = "<group>"; };
 		A5ACC7151E17015E0014795F /* MK_FShader_Sharpness.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_Sharpness.fsh; sourceTree = "<group>"; };
 		A5ACC7161E17015E0014795F /* MK_FShader_ToneMap.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_ToneMap.fsh; sourceTree = "<group>"; };
-		A5ACC71E1E1701FA0014795F /* RKT_FShader_4Scope.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = RKT_FShader_4Scope.fsh; sourceTree = "<group>"; };
-		A5ACC71F1E1701FA0014795F /* RKT_FShader_4Split.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = RKT_FShader_4Split.fsh; sourceTree = "<group>"; };
-		A5ACC7201E1701FA0014795F /* RKT_FShader_AnalogTV.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = RKT_FShader_AnalogTV.fsh; sourceTree = "<group>"; };
-		A5ACC7211E1701FA0014795F /* RKT_FShader_ColorCycle.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = RKT_FShader_ColorCycle.fsh; sourceTree = "<group>"; };
-		A5ACC7221E1701FA0014795F /* RKT_FShader_Edge_Detect.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = RKT_FShader_Edge_Detect.fsh; sourceTree = "<group>"; };
-		A5ACC7231E1701FA0014795F /* RKT_FShader_GridImage.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = RKT_FShader_GridImage.fsh; sourceTree = "<group>"; };
-		A5ACC7241E1701FA0014795F /* RKT_FShader_HorizontalMirror.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = RKT_FShader_HorizontalMirror.fsh; sourceTree = "<group>"; };
-		A5ACC7251E1701FA0014795F /* RKT_FShader_HorizontalStripes.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = RKT_FShader_HorizontalStripes.fsh; sourceTree = "<group>"; };
-		A5ACC7261E1701FA0014795F /* RKT_FShader_Polar.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = RKT_FShader_Polar.fsh; sourceTree = "<group>"; };
-		A5ACC7271E1701FA0014795F /* RKT_FShader_Rotate.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = RKT_FShader_Rotate.fsh; sourceTree = "<group>"; };
-		A5ACC7281E1701FA0014795F /* RKT_FShader_Shear.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = RKT_FShader_Shear.fsh; sourceTree = "<group>"; };
-		A5ACC7291E1701FA0014795F /* RKT_FShader_Stretch.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = RKT_FShader_Stretch.fsh; sourceTree = "<group>"; };
-		A5ACC72A1E1701FA0014795F /* RKT_FShader_Tunnel.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = RKT_FShader_Tunnel.fsh; sourceTree = "<group>"; };
-		A5ACC72B1E1701FA0014795F /* RKT_FShader_VerticalMirror.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = RKT_FShader_VerticalMirror.fsh; sourceTree = "<group>"; };
-		A5ACC72C1E1701FA0014795F /* RKT_FShader_VerticalStripes.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = RKT_FShader_VerticalStripes.fsh; sourceTree = "<group>"; };
-		A5ACC72D1E1701FA0014795F /* RKT_FShader_Waves.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = RKT_FShader_Waves.fsh; sourceTree = "<group>"; };
-		A5ACC73F1E1702B10014795F /* RKT_FShader_DrawGrid.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = RKT_FShader_DrawGrid.fsh; sourceTree = "<group>"; };
-		A5ACC7401E1702B10014795F /* RKT_FShader_Invert_Color.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = RKT_FShader_Invert_Color.fsh; sourceTree = "<group>"; };
-		A5ACC7411E1702B10014795F /* RKT_FShader_Vibrance.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = RKT_FShader_Vibrance.fsh; sourceTree = "<group>"; };
-		A5ACC7451E1702C30014795F /* RKT_FShader_Blank.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = RKT_FShader_Blank.fsh; sourceTree = "<group>"; };
-		A5ACC7461E1702C30014795F /* RKT_FShader_TimerTest.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = RKT_FShader_TimerTest.fsh; sourceTree = "<group>"; };
+		A5ACC74F1E17338A0014795F /* MK_FShader_TimerTest.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_TimerTest.fsh; sourceTree = "<group>"; };
+		A5ACC7741E17344A0014795F /* MK_FShader_4Scope.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_4Scope.fsh; sourceTree = "<group>"; };
+		A5ACC7751E17344A0014795F /* MK_FShader_4Split.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_4Split.fsh; sourceTree = "<group>"; };
+		A5ACC7761E17344A0014795F /* MK_FShader_AnalogTV.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_AnalogTV.fsh; sourceTree = "<group>"; };
+		A5ACC7771E17344A0014795F /* MK_FShader_ColorCycle.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_ColorCycle.fsh; sourceTree = "<group>"; };
+		A5ACC7781E17344A0014795F /* MK_FShader_Edge_Detect.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_Edge_Detect.fsh; sourceTree = "<group>"; };
+		A5ACC7791E17344A0014795F /* MK_FShader_GridImage.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_GridImage.fsh; sourceTree = "<group>"; };
+		A5ACC77A1E17344A0014795F /* MK_FShader_HorizontalMirror.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_HorizontalMirror.fsh; sourceTree = "<group>"; };
+		A5ACC77B1E17344A0014795F /* MK_FShader_HorizontalStripes.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_HorizontalStripes.fsh; sourceTree = "<group>"; };
+		A5ACC77C1E17344A0014795F /* MK_FShader_Polar.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_Polar.fsh; sourceTree = "<group>"; };
+		A5ACC77D1E17344A0014795F /* MK_FShader_Rotate.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_Rotate.fsh; sourceTree = "<group>"; };
+		A5ACC77E1E17344A0014795F /* MK_FShader_Shear.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_Shear.fsh; sourceTree = "<group>"; };
+		A5ACC77F1E17344A0014795F /* MK_FShader_Stretch.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_Stretch.fsh; sourceTree = "<group>"; };
+		A5ACC7801E17344A0014795F /* MK_FShader_Tunnel.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_Tunnel.fsh; sourceTree = "<group>"; };
+		A5ACC7811E17344A0014795F /* MK_FShader_VerticalMirror.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_VerticalMirror.fsh; sourceTree = "<group>"; };
+		A5ACC7821E17344A0014795F /* MK_FShader_VerticalStripes.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_VerticalStripes.fsh; sourceTree = "<group>"; };
+		A5ACC7831E17344A0014795F /* MK_FShader_Waves.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_Waves.fsh; sourceTree = "<group>"; };
+		A5ACC7941E1734670014795F /* MK_FShader_DrawGrid.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_DrawGrid.fsh; sourceTree = "<group>"; };
+		A5ACC7951E1734670014795F /* MK_FShader_Invert_Color.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_Invert_Color.fsh; sourceTree = "<group>"; };
+		A5ACC7961E1734670014795F /* MK_FShader_Vibrance.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_Vibrance.fsh; sourceTree = "<group>"; };
+		A5ACC79A1E17347B0014795F /* MK_FShader_Blank.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_Blank.fsh; sourceTree = "<group>"; };
 		A5C6C9D31E15D39800364421 /* Oblique.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oblique.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5C6C9D71E15D39800364421 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A5C6C9D91E15D39800364421 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -166,7 +166,6 @@
 			children = (
 				A59D95071E16F68600049C5D /* MK_GPUImageCustom3Input.h */,
 				A59D95081E16F68600049C5D /* MK_GPUImageCustom3Input.m */,
-				A5ACC70C1E1700D30014795F /* Shader Files */,
 			);
 			name = "Custom Filter";
 			sourceTree = "<group>";
@@ -193,9 +192,9 @@
 		A5ACC70F1E1700F30014795F /* Fragment Shaders: In Progress */ = {
 			isa = PBXGroup;
 			children = (
-				A5ACC73F1E1702B10014795F /* RKT_FShader_DrawGrid.fsh */,
-				A5ACC7401E1702B10014795F /* RKT_FShader_Invert_Color.fsh */,
-				A5ACC7411E1702B10014795F /* RKT_FShader_Vibrance.fsh */,
+				A5ACC7941E1734670014795F /* MK_FShader_DrawGrid.fsh */,
+				A5ACC7951E1734670014795F /* MK_FShader_Invert_Color.fsh */,
+				A5ACC7961E1734670014795F /* MK_FShader_Vibrance.fsh */,
 			);
 			name = "Fragment Shaders: In Progress";
 			sourceTree = "<group>";
@@ -203,8 +202,8 @@
 		A5ACC7101E1700FF0014795F /* Fragment Shaders: Templates */ = {
 			isa = PBXGroup;
 			children = (
-				A5ACC7451E1702C30014795F /* RKT_FShader_Blank.fsh */,
-				A5ACC7461E1702C30014795F /* RKT_FShader_TimerTest.fsh */,
+				A5ACC79A1E17347B0014795F /* MK_FShader_Blank.fsh */,
+				A5ACC74F1E17338A0014795F /* MK_FShader_TimerTest.fsh */,
 			);
 			name = "Fragment Shaders: Templates";
 			sourceTree = "<group>";
@@ -225,22 +224,22 @@
 		A5ACC73E1E1702050014795F /* Filters */ = {
 			isa = PBXGroup;
 			children = (
-				A5ACC71E1E1701FA0014795F /* RKT_FShader_4Scope.fsh */,
-				A5ACC71F1E1701FA0014795F /* RKT_FShader_4Split.fsh */,
-				A5ACC7201E1701FA0014795F /* RKT_FShader_AnalogTV.fsh */,
-				A5ACC7211E1701FA0014795F /* RKT_FShader_ColorCycle.fsh */,
-				A5ACC7221E1701FA0014795F /* RKT_FShader_Edge_Detect.fsh */,
-				A5ACC7231E1701FA0014795F /* RKT_FShader_GridImage.fsh */,
-				A5ACC7241E1701FA0014795F /* RKT_FShader_HorizontalMirror.fsh */,
-				A5ACC7251E1701FA0014795F /* RKT_FShader_HorizontalStripes.fsh */,
-				A5ACC7261E1701FA0014795F /* RKT_FShader_Polar.fsh */,
-				A5ACC7271E1701FA0014795F /* RKT_FShader_Rotate.fsh */,
-				A5ACC7281E1701FA0014795F /* RKT_FShader_Shear.fsh */,
-				A5ACC7291E1701FA0014795F /* RKT_FShader_Stretch.fsh */,
-				A5ACC72A1E1701FA0014795F /* RKT_FShader_Tunnel.fsh */,
-				A5ACC72B1E1701FA0014795F /* RKT_FShader_VerticalMirror.fsh */,
-				A5ACC72C1E1701FA0014795F /* RKT_FShader_VerticalStripes.fsh */,
-				A5ACC72D1E1701FA0014795F /* RKT_FShader_Waves.fsh */,
+				A5ACC7741E17344A0014795F /* MK_FShader_4Scope.fsh */,
+				A5ACC7751E17344A0014795F /* MK_FShader_4Split.fsh */,
+				A5ACC7761E17344A0014795F /* MK_FShader_AnalogTV.fsh */,
+				A5ACC7771E17344A0014795F /* MK_FShader_ColorCycle.fsh */,
+				A5ACC7781E17344A0014795F /* MK_FShader_Edge_Detect.fsh */,
+				A5ACC7791E17344A0014795F /* MK_FShader_GridImage.fsh */,
+				A5ACC77A1E17344A0014795F /* MK_FShader_HorizontalMirror.fsh */,
+				A5ACC77B1E17344A0014795F /* MK_FShader_HorizontalStripes.fsh */,
+				A5ACC77C1E17344A0014795F /* MK_FShader_Polar.fsh */,
+				A5ACC77D1E17344A0014795F /* MK_FShader_Rotate.fsh */,
+				A5ACC77E1E17344A0014795F /* MK_FShader_Shear.fsh */,
+				A5ACC77F1E17344A0014795F /* MK_FShader_Stretch.fsh */,
+				A5ACC7801E17344A0014795F /* MK_FShader_Tunnel.fsh */,
+				A5ACC7811E17344A0014795F /* MK_FShader_VerticalMirror.fsh */,
+				A5ACC7821E17344A0014795F /* MK_FShader_VerticalStripes.fsh */,
+				A5ACC7831E17344A0014795F /* MK_FShader_Waves.fsh */,
 			);
 			name = Filters;
 			sourceTree = "<group>";
@@ -270,8 +269,9 @@
 				A5C6C9D91E15D39800364421 /* AppDelegate.h */,
 				A5C6C9DA1E15D39800364421 /* AppDelegate.m */,
 				A5EFBECC1E162A290046E72A /* Main Camera View */,
-				A59D950D1E16F82B00049C5D /* Custom Filter */,
 				A59D95061E16EDA000049C5D /* Camera Manager */,
+				A59D950D1E16F82B00049C5D /* Custom Filter */,
+				A5ACC70C1E1700D30014795F /* Shader Files */,
 				A59D94FC1E16E99A00049C5D /* Filter Menu */,
 				A5C6C9E21E15D39800364421 /* Assets.xcassets */,
 				A5C6C9E41E15D39800364421 /* LaunchScreen.storyboard */,
@@ -384,36 +384,36 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5ACC7351E1701FA0014795F /* RKT_FShader_HorizontalStripes.fsh in Resources */,
-				A5ACC7341E1701FA0014795F /* RKT_FShader_HorizontalMirror.fsh in Resources */,
-				A5ACC72F1E1701FA0014795F /* RKT_FShader_4Split.fsh in Resources */,
+				A5ACC7851E17344A0014795F /* MK_FShader_4Split.fsh in Resources */,
+				A5ACC7901E17344A0014795F /* MK_FShader_Tunnel.fsh in Resources */,
+				A5ACC78B1E17344A0014795F /* MK_FShader_HorizontalStripes.fsh in Resources */,
+				A5ACC7871E17344A0014795F /* MK_FShader_ColorCycle.fsh in Resources */,
+				A5ACC78A1E17344A0014795F /* MK_FShader_HorizontalMirror.fsh in Resources */,
 				A5C6C9E61E15D39800364421 /* LaunchScreen.storyboard in Resources */,
-				A5ACC73D1E1701FA0014795F /* RKT_FShader_Waves.fsh in Resources */,
 				A5C6C9E31E15D39800364421 /* Assets.xcassets in Resources */,
-				A5ACC7331E1701FA0014795F /* RKT_FShader_GridImage.fsh in Resources */,
-				A5ACC73C1E1701FA0014795F /* RKT_FShader_VerticalStripes.fsh in Resources */,
+				A5ACC7981E1734670014795F /* MK_FShader_Invert_Color.fsh in Resources */,
+				A5ACC7641E17338A0014795F /* MK_FShader_TimerTest.fsh in Resources */,
 				A5ACC7171E17015E0014795F /* MK_FShader_Brightness.fsh in Resources */,
-				A5ACC7441E1702B10014795F /* RKT_FShader_Vibrance.fsh in Resources */,
-				A5ACC7431E1702B10014795F /* RKT_FShader_Invert_Color.fsh in Resources */,
-				A5ACC7481E1702C30014795F /* RKT_FShader_TimerTest.fsh in Resources */,
-				A5ACC7381E1701FA0014795F /* RKT_FShader_Shear.fsh in Resources */,
+				A5ACC78D1E17344A0014795F /* MK_FShader_Rotate.fsh in Resources */,
+				A5ACC78F1E17344A0014795F /* MK_FShader_Stretch.fsh in Resources */,
+				A5ACC7841E17344A0014795F /* MK_FShader_4Scope.fsh in Resources */,
+				A5ACC7971E1734670014795F /* MK_FShader_DrawGrid.fsh in Resources */,
+				A5ACC7911E17344A0014795F /* MK_FShader_VerticalMirror.fsh in Resources */,
+				A5ACC7991E1734670014795F /* MK_FShader_Vibrance.fsh in Resources */,
+				A5ACC78C1E17344A0014795F /* MK_FShader_Polar.fsh in Resources */,
 				A5ACC71C1E17015E0014795F /* MK_FShader_ToneMap.fsh in Resources */,
-				A5ACC7361E1701FA0014795F /* RKT_FShader_Polar.fsh in Resources */,
 				A5ACC71B1E17015E0014795F /* MK_FShader_Sharpness.fsh in Resources */,
 				A5C6C9E11E15D39800364421 /* Main.storyboard in Resources */,
-				A5ACC7311E1701FA0014795F /* RKT_FShader_ColorCycle.fsh in Resources */,
-				A5ACC7471E1702C30014795F /* RKT_FShader_Blank.fsh in Resources */,
+				A5ACC78E1E17344A0014795F /* MK_FShader_Shear.fsh in Resources */,
+				A5ACC7921E17344A0014795F /* MK_FShader_VerticalStripes.fsh in Resources */,
 				A5ACC7191E17015E0014795F /* MK_FShader_Hue.fsh in Resources */,
+				A5ACC7891E17344A0014795F /* MK_FShader_GridImage.fsh in Resources */,
 				A5ACC7181E17015E0014795F /* MK_FShader_Contrast.fsh in Resources */,
+				A5ACC7861E17344A0014795F /* MK_FShader_AnalogTV.fsh in Resources */,
+				A5ACC7881E17344A0014795F /* MK_FShader_Edge_Detect.fsh in Resources */,
 				A5ACC71A1E17015E0014795F /* MK_FShader_Saturation.fsh in Resources */,
-				A5ACC7391E1701FA0014795F /* RKT_FShader_Stretch.fsh in Resources */,
-				A5ACC7371E1701FA0014795F /* RKT_FShader_Rotate.fsh in Resources */,
-				A5ACC72E1E1701FA0014795F /* RKT_FShader_4Scope.fsh in Resources */,
-				A5ACC7421E1702B10014795F /* RKT_FShader_DrawGrid.fsh in Resources */,
-				A5ACC73A1E1701FA0014795F /* RKT_FShader_Tunnel.fsh in Resources */,
-				A5ACC73B1E1701FA0014795F /* RKT_FShader_VerticalMirror.fsh in Resources */,
-				A5ACC7301E1701FA0014795F /* RKT_FShader_AnalogTV.fsh in Resources */,
-				A5ACC7321E1701FA0014795F /* RKT_FShader_Edge_Detect.fsh in Resources */,
+				A5ACC79B1E17347B0014795F /* MK_FShader_Blank.fsh in Resources */,
+				A5ACC7931E17344A0014795F /* MK_FShader_Waves.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

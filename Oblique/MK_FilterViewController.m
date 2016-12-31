@@ -95,35 +95,16 @@
     [cell.filterGroup addTarget: cell.filterView];
     
     
-    //    GPUImageFilterGroup *currentFilter = [MK_Shader noFilter];
-    
-    //MK_Shader *filter = [filtersAvailable objectAtIndex:indexPath.row];
-    
-    if (!cell.filterGroup.useLivePreviewObj) {
-        UIImageView *filterImageView = (UIImageView *)[cell viewWithTag:100];
-        filterImageView.image = [UIImage imageNamed:cell.filterGroup.iconName];
-    }
-    
     UILabel *filterNameLabel = (UILabel *)[cell viewWithTag:101];
     filterNameLabel.text = [cell.filterGroup.title uppercaseString];
-    
-    //NSLog(@"%@", filterNameLabel.text);
-    
-    // Custom Cell background doesn't work for some reason. Not sure why.
-    // REASON: Doesn't belong here. Needs to be in cell's initWithCoder.
-    //    MK_CustomCellBackground *customBackground = [[MK_CustomCellBackground alloc]init];
-    //    cell.backgroundView = customBackground;
-    
-    
+        
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MK_GPUImageCameraManager *sharedCameraManager = [MK_GPUImageCameraManager sharedManager];
     
-//    SEL s = NSSelectorFromString([shaderDatabase.filtersAvailable objectAtIndex:indexPath.row]);
-////    GPUImageFilterGroup *currentFilter = [MK_Shader performSelector:s];
+    MK_GPUImageCameraManager *sharedCameraManager = [MK_GPUImageCameraManager sharedManager];
     
     NSLog(@"%@", [shaderDatabase.filtersAvailable objectAtIndex:indexPath.row]);
     [sharedCameraManager changeToFilter:[shaderDatabase.filtersAvailable objectAtIndex:indexPath.row]] ;
