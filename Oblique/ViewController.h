@@ -27,6 +27,7 @@
 
 @interface ViewController : UIViewController
 
+- (void)toggleVisibilityOfButtons;
 
 @end
 

@@ -23,15 +23,14 @@
 //
 //  More information at masoodkamandy@gmail.com
 
-#import "MK_DismissSegue.h"
+#import "MK_DismissInfoSegue.h"
 #import "ViewController.h"
 
-@implementation MK_DismissSegue
+@implementation MK_DismissInfoSegue
 
 - (void)perform {
     UIViewController *sourceViewController = self.sourceViewController;
     [sourceViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-    [(ViewController *)sourceViewController.presentingViewController.childViewControllers[1] toggleVisibilityOfButtons];
     
 }
 

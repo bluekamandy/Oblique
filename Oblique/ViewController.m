@@ -158,6 +158,7 @@
 }
 
 - (IBAction)toggleAdjustments:(id)sender {
+    [self toggleVisibilityOfButtons];
 }
 
 - (IBAction)toggleSelfie:(id)sender {
@@ -258,6 +259,16 @@
         
     }
 
+}
+
+- (void)toggleVisibilityOfButtons {
+    self.adjustmentButton.hidden = !self.adjustmentButton.hidden;
+    self.filterButton.hidden = !self.filterButton.hidden;
+    self.shutterReleaseButton.hidden = !self.shutterReleaseButton.hidden;
+    self.selfieButton.hidden = !self.selfieButton.hidden;
+    self.cameraGridButton.hidden = !self.cameraGridButton.hidden;
+    self.flashButton.hidden = !self.flashButton.hidden;
+    self.infoButton.hidden = !self.infoButton.hidden;
 }
 
 /* Sample code from: https://github.com/BradLarson/GPUImage/issues/233

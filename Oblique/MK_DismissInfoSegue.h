@@ -1,5 +1,5 @@
 //
-//  MK_DismissSegue.m
+//  MK_DismissSegue.h
 //  Oblique™
 //
 //     /^\˛˛˛˛˛˛˛/^\
@@ -23,17 +23,8 @@
 //
 //  More information at masoodkamandy@gmail.com
 
-#import "MK_DismissSegue.h"
-#import "ViewController.h"
+#import <UIKit/UIKit.h>
 
-@implementation MK_DismissSegue
-
-- (void)perform {
-    UIViewController *sourceViewController = self.sourceViewController;
-    [sourceViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-    [(ViewController *)sourceViewController.presentingViewController.childViewControllers[1] toggleVisibilityOfButtons];
-    
-}
-
+@interface MK_DismissInfoSegue : UIStoryboardSegue
 
 @end

@@ -30,7 +30,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wrd-UO-lfe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1097" y="273"/>
+            <point key="canvasLocation" x="-1439" y="412"/>
         </scene>
         <!--Filter View Controller-->
         <scene sceneID="31x-Te-D8a">
@@ -100,13 +100,11 @@
                                     <constraint firstAttribute="width" constant="350" id="6T5-9r-UWP"/>
                                 </constraints>
                             </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Y9m-cL-WHc">
-                                <rect key="frame" x="148" y="318" width="118" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZNP-0l-Kss">
-                                <rect key="frame" x="148" y="415" width="118" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZNP-0l-Kss">
+                                <rect key="frame" x="30" y="399" width="354" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="cFP-rS-vwc"/>
+                                </constraints>
                             </slider>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="BRIGHTNESS" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="au6-oi-bk3">
                                 <rect key="frame" x="165" y="190" width="85" height="28"/>
@@ -116,42 +114,80 @@
                                 </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="85" id="CuU-Nn-DXu"/>
+                                    <constraint firstAttribute="height" constant="28" id="M2t-1U-RrQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="CONTRAST" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jYQ-rB-zy8">
-                                <rect key="frame" x="165" y="282" width="85" height="28"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="HUE" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bcs-ax-B6R">
+                                <rect key="frame" x="164.66666666666666" y="439" width="85" height="28"/>
                                 <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="5qS-jR-acV"/>
+                                    <constraint firstAttribute="height" constant="28" id="gwq-kR-OV9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="SATURATION" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YVj-no-y6l">
+                                <rect key="frame" x="164.66666666666666" y="356" width="85" height="28"/>
+                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="Ggv-Jb-x3C"/>
+                                    <constraint firstAttribute="height" constant="28" id="aBA-at-wAc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="CONTRAST" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jYQ-rB-zy8">
+                                <rect key="frame" x="165" y="273" width="85" height="28"/>
+                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="7b9-ua-bh6"/>
                                     <constraint firstAttribute="width" constant="85" id="vRx-nQ-As2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="HUE" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bcs-ax-B6R">
-                                <rect key="frame" x="87" y="453" width="240" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="SATURATION" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YVj-no-y6l">
-                                <rect key="frame" x="87" y="356" width="240" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xNd-pM-tY6">
+                                <rect key="frame" x="192" y="492" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="bzQ-L5-hXH"/>
+                                    <constraint firstAttribute="width" constant="30" id="n3A-zk-7P2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Exit">
+                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="custom" customClass="MK_DismissSegue" id="Fz4-34-M7I"/>
+                                </connections>
+                            </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Y9m-cL-WHc">
+                                <rect key="frame" x="30" y="316" width="354" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="qE2-C1-SPT"/>
+                                </constraints>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Y9m-cL-WHc" firstAttribute="top" secondItem="jYQ-rB-zy8" secondAttribute="bottom" constant="15" id="2Rb-6Z-AUx"/>
                             <constraint firstItem="FCY-oz-t8m" firstAttribute="top" secondItem="PYg-Ds-aTq" secondAttribute="bottom" constant="150" id="8Qr-8q-Fgk"/>
+                            <constraint firstItem="YVj-no-y6l" firstAttribute="centerX" secondItem="nZ3-cn-JnI" secondAttribute="centerX" id="Cja-8w-BAk"/>
+                            <constraint firstItem="bcs-ax-B6R" firstAttribute="centerX" secondItem="nZ3-cn-JnI" secondAttribute="centerX" id="DJt-In-yZM"/>
+                            <constraint firstItem="xNd-pM-tY6" firstAttribute="top" secondItem="bcs-ax-B6R" secondAttribute="bottom" constant="25" id="Ko2-ZO-BxS"/>
                             <constraint firstItem="jYQ-rB-zy8" firstAttribute="centerX" secondItem="nZ3-cn-JnI" secondAttribute="centerX" id="NeE-pq-DjC"/>
+                            <constraint firstItem="xNd-pM-tY6" firstAttribute="centerX" secondItem="nZ3-cn-JnI" secondAttribute="centerX" id="S7I-R6-Yiq"/>
+                            <constraint firstItem="ZNP-0l-Kss" firstAttribute="top" secondItem="YVj-no-y6l" secondAttribute="bottom" constant="15" id="T2J-ji-q4p"/>
                             <constraint firstItem="au6-oi-bk3" firstAttribute="top" secondItem="FCY-oz-t8m" secondAttribute="bottom" constant="10" id="Uxh-fl-puR"/>
+                            <constraint firstItem="ZNP-0l-Kss" firstAttribute="centerX" secondItem="nZ3-cn-JnI" secondAttribute="centerX" id="b92-UR-2El"/>
+                            <constraint firstItem="YVj-no-y6l" firstAttribute="top" secondItem="Y9m-cL-WHc" secondAttribute="bottom" constant="10" id="dgB-Zb-Siz"/>
                             <constraint firstItem="au6-oi-bk3" firstAttribute="centerX" secondItem="nZ3-cn-JnI" secondAttribute="centerX" id="f1i-oA-S1F"/>
+                            <constraint firstItem="bcs-ax-B6R" firstAttribute="top" secondItem="ZNP-0l-Kss" secondAttribute="bottom" constant="10" id="iBI-Sy-Ku7"/>
                             <constraint firstItem="Ht9-cE-9Wy" firstAttribute="top" secondItem="au6-oi-bk3" secondAttribute="bottom" constant="15" id="iQi-8a-cxv"/>
                             <constraint firstItem="Ht9-cE-9Wy" firstAttribute="centerX" secondItem="nZ3-cn-JnI" secondAttribute="centerX" id="pEW-fu-MOF"/>
+                            <constraint firstItem="Y9m-cL-WHc" firstAttribute="centerX" secondItem="nZ3-cn-JnI" secondAttribute="centerX" id="rg1-4R-UGb"/>
                             <constraint firstItem="jYQ-rB-zy8" firstAttribute="top" secondItem="Ht9-cE-9Wy" secondAttribute="bottom" constant="10" id="vQx-DQ-KYN"/>
                             <constraint firstItem="FCY-oz-t8m" firstAttribute="centerX" secondItem="nZ3-cn-JnI" secondAttribute="centerX" id="zXL-xr-NTQ"/>
                         </constraints>
@@ -159,7 +195,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jpx-eq-G2x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-586.95652173913049" y="35.869565217391305"/>
+            <point key="canvasLocation" x="-813" y="65"/>
         </scene>
         <!--FrontCameraViewController-->
         <scene sceneID="tne-QT-ifu">
@@ -199,7 +235,7 @@
                                 <state key="highlighted" image="AdjustmentSelected"/>
                                 <connections>
                                     <action selector="toggleAdjustments:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qXx-Uz-CwS"/>
-                                    <segue destination="Hid-rJ-OQe" kind="presentation" id="7RK-nT-esn"/>
+                                    <segue destination="Hid-rJ-OQe" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="7RK-nT-esn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1e-v5-7TL">
@@ -404,7 +440,7 @@ Early code inspired on a similar class by Philip Kluz (Philip.Kluz@zuui.org)</st
                                                 <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </state>
                                             <connections>
-                                                <segue destination="BYZ-38-t0r" kind="custom" customClass="MK_DismissSegue" id="kXO-ft-9VJ"/>
+                                                <segue destination="BYZ-38-t0r" kind="custom" customClass="MK_DismissInfoSegue" id="kXO-ft-9VJ"/>
                                             </connections>
                                         </button>
                                     </subviews>
