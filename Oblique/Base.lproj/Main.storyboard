@@ -79,7 +79,7 @@
         <!--View Controller-->
         <scene sceneID="Ewb-m1-MAT">
             <objects>
-                <viewController id="Hid-rJ-OQe" sceneMemberID="viewController">
+                <viewController id="Hid-rJ-OQe" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PYg-Ds-aTq"/>
                         <viewControllerLayoutGuide type="bottom" id="NtJ-dg-cEW"/>
@@ -88,63 +88,72 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="FCY-oz-t8m">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-1" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="FCY-oz-t8m">
                                 <rect key="frame" x="30.333333333333343" y="150" width="354" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="ZCo-0c-Agu"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="brightnessSliderChanged:" destination="Hid-rJ-OQe" eventType="valueChanged" id="5Ls-Uh-E5D"/>
+                                </connections>
                             </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ht9-cE-9Wy">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="4" translatesAutoresizingMaskIntoConstraints="NO" id="Ht9-cE-9Wy">
                                 <rect key="frame" x="30" y="233" width="354" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="6T5-9r-UWP"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="contrastSliderChanged:" destination="Hid-rJ-OQe" eventType="valueChanged" id="sIZ-1n-Esd"/>
+                                </connections>
                             </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZNP-0l-Kss">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="ZNP-0l-Kss">
                                 <rect key="frame" x="30" y="399" width="354" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="cFP-rS-vwc"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="hueSliderChanged:" destination="Hid-rJ-OQe" eventType="valueChanged" id="IUt-ho-2jT"/>
+                                </connections>
                             </slider>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="BRIGHTNESS" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="au6-oi-bk3">
-                                <rect key="frame" x="165" y="190" width="85" height="28"/>
+                                <rect key="frame" x="132.66666666666669" y="190" width="150.00000000000006" height="28"/>
                                 <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                 </accessibility>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="85" id="CuU-Nn-DXu"/>
+                                    <constraint firstAttribute="width" constant="150" id="CuU-Nn-DXu"/>
                                     <constraint firstAttribute="height" constant="28" id="M2t-1U-RrQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="HUE" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bcs-ax-B6R">
-                                <rect key="frame" x="164.66666666666666" y="439" width="85" height="28"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="HUE" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcs-ax-B6R">
+                                <rect key="frame" x="132.33333333333331" y="439" width="149.99999999999994" height="28"/>
                                 <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="85" id="5qS-jR-acV"/>
+                                    <constraint firstAttribute="width" constant="150" id="5qS-jR-acV"/>
                                     <constraint firstAttribute="height" constant="28" id="gwq-kR-OV9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="SATURATION" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YVj-no-y6l">
-                                <rect key="frame" x="164.66666666666666" y="356" width="85" height="28"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="SATURATION" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVj-no-y6l">
+                                <rect key="frame" x="132.33333333333331" y="356" width="149.99999999999994" height="28"/>
                                 <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="85" id="Ggv-Jb-x3C"/>
+                                    <constraint firstAttribute="width" constant="150" id="Ggv-Jb-x3C"/>
                                     <constraint firstAttribute="height" constant="28" id="aBA-at-wAc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="CONTRAST" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jYQ-rB-zy8">
-                                <rect key="frame" x="165" y="273" width="85" height="28"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="CONTRAST" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jYQ-rB-zy8">
+                                <rect key="frame" x="132.66666666666669" y="273" width="150.00000000000006" height="28"/>
                                 <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="7b9-ua-bh6"/>
-                                    <constraint firstAttribute="width" constant="85" id="vRx-nQ-As2"/>
+                                    <constraint firstAttribute="width" constant="150" id="vRx-nQ-As2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
@@ -163,11 +172,14 @@
                                     <segue destination="BYZ-38-t0r" kind="custom" customClass="MK_DismissSegue" id="Fz4-34-M7I"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Y9m-cL-WHc">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="Y9m-cL-WHc">
                                 <rect key="frame" x="30" y="316" width="354" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="qE2-C1-SPT"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="saturationSliderChanged:" destination="Hid-rJ-OQe" eventType="valueChanged" id="cR9-Jx-xqF"/>
+                                </connections>
                             </slider>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -192,6 +204,16 @@
                             <constraint firstItem="FCY-oz-t8m" firstAttribute="centerX" secondItem="nZ3-cn-JnI" secondAttribute="centerX" id="zXL-xr-NTQ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="brightnessSlider" destination="FCY-oz-t8m" id="hbV-fx-Isy"/>
+                        <outlet property="brightnessTextView" destination="au6-oi-bk3" id="goY-Lp-sPP"/>
+                        <outlet property="contrastSlider" destination="Ht9-cE-9Wy" id="aH9-0Y-NoI"/>
+                        <outlet property="contrastTextView" destination="jYQ-rB-zy8" id="12p-1c-b9X"/>
+                        <outlet property="hueSlider" destination="ZNP-0l-Kss" id="JfY-cn-get"/>
+                        <outlet property="hueTextView" destination="bcs-ax-B6R" id="zAu-Fm-KXE"/>
+                        <outlet property="saturationSlider" destination="Y9m-cL-WHc" id="c3R-LF-S7b"/>
+                        <outlet property="saturationTextView" destination="YVj-no-y6l" id="pw0-q7-3PN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jpx-eq-G2x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -492,6 +514,6 @@ Early code inspired on a similar class by Philip Kluz (Philip.Kluz@zuui.org)</st
         <image name="ShutterReleaseSelected" width="84" height="84"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kXO-ft-9VJ"/>
+        <segue reference="Fz4-34-M7I"/>
     </inferredMetricsTieBreakers>
 </document>

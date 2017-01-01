@@ -68,6 +68,18 @@
 
 @property (weak, nonatomic) IBOutlet UITextView *informationField;
 
+@property (weak, nonatomic) IBOutlet UISlider *brightnessSlider;
+@property (weak, nonatomic) IBOutlet UITextView *brightnessTextView;
+
+@property (weak, nonatomic) IBOutlet UISlider *contrastSlider;
+@property (weak, nonatomic) IBOutlet UITextView *contrastTextView;
+
+@property (weak, nonatomic) IBOutlet UISlider *saturationSlider;
+@property (weak, nonatomic) IBOutlet UITextView *saturationTextView;
+
+@property (weak, nonatomic) IBOutlet UISlider *hueSlider;
+@property (weak, nonatomic) IBOutlet UITextView *hueTextView;
+
 @end
 
 @implementation ViewController
@@ -117,6 +129,19 @@
     
     [_imageView addSubview:[cameraManager createCameraViewWithFrame:CGRectMake(0, 0, _imageView.bounds.size.width, _imageView.bounds.size.height)]];
     NSLog(@"_imageView.bounds.size is %@", NSStringFromCGSize(_imageView.bounds.size));
+    
+    // Set up brightness, contrast, saturation and hue
+    self.brightnessSlider.value = cameraManager.brightness;
+    self.brightnessTextView.text = [NSString stringWithFormat:@"BRIGHTNESS %+.02f", cameraManager.brightness];
+    
+    self.contrastSlider.value = cameraManager.contrast;
+    self.contrastTextView.text = [NSString stringWithFormat:@"CONTRAST %+.02f", cameraManager.contrast];
+
+    self.saturationSlider.value = cameraManager.saturation;
+    self.saturationTextView.text = [NSString stringWithFormat:@"SATURATION %+.02f", cameraManager.saturation];
+    
+    self.hueSlider.value = cameraManager.hue;
+    self.hueTextView.text = [NSString stringWithFormat:@"HUE %.02f", cameraManager.hue];
 }
 
 #pragma mark - Shutter Release
@@ -403,6 +428,30 @@
     [self.informationField setText:informationFieldText];
 }
 
+#pragma mark - Sliders in Adjustment Menu
+
+- (IBAction)brightnessSliderChanged:(id)sender {
+    cameraManager.brightness = [(UISlider *)sender value];
+    _brightnessTextView.text = [NSString stringWithFormat:@"BRIGHTNESS %+.02f", [(UISlider *)sender value]];
+}
+
+- (IBAction)contrastSliderChanged:(id)sender {
+    cameraManager.contrast = [(UISlider *)sender value];
+    self.contrastTextView.text = [NSString stringWithFormat:@"CONTRAST %+.02f", cameraManager.contrast];
+
+}
+
+- (IBAction)saturationSliderChanged:(id)sender {
+    cameraManager.saturation = [(UISlider *)sender value];
+    self.saturationTextView.text = [NSString stringWithFormat:@"SATURATION %+.02f", cameraManager.saturation];
+
+}
+
+- (IBAction)hueSliderChanged:(id)sender {
+    cameraManager.hue = [(UISlider *)sender value];
+    self.hueTextView.text = [NSString stringWithFormat:@"HUE %.02f", cameraManager.hue];
+
+}
 
 //- (void)touchesCancelled:(nullable NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event
 //{

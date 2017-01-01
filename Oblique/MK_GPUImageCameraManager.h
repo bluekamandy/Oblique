@@ -32,9 +32,20 @@
 @property (nonatomic) GPUImageStillCamera *stillCamera;
 @property (nonatomic) GPUImageView *stillCameraPreview;
 @property (nonatomic) GPUImageFilterGroup *mainFilter;
-@property (nonatomic) GPUImageFilterGroup *selectedFilter;
-@property (nonatomic) NSArray *adjustments;
-@property (nonatomic) NSArray *targets;
+@property (nonatomic) GPUImageFilterGroup *filterChain;
+@property (nonatomic) GPUImageBrightnessFilter *brightnessFilter;
+@property (nonatomic) GPUImageContrastFilter *contrastFilter;
+@property (nonatomic) GPUImageSaturationFilter *saturationFilter;
+@property (nonatomic) GPUImageHueFilter *hueFilter;
+
+// Brightness ranges from -1.0 to 1.0, with 0.0 as the normal level
+@property (nonatomic) float brightness;
+// Contrast ranges from 0.0 to 4.0 (max contrast), with 1.0 as the normal level
+@property (nonatomic) float contrast;
+// Saturation ranges from 0.0 (fully desaturated) to 2.0 (max saturation), with 1.0 as the normal level
+@property (nonatomic) float saturation;
+// Hue ranges from 0.0 (normal hue) to 180.0 (opposite hue). Max is 360.
+@property (nonatomic) float hue;
 
 + (id)sharedManager;
 
