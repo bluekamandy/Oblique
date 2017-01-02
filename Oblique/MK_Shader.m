@@ -317,6 +317,19 @@
     
 }
 
++ (GPUImageFilterGroup *)invert {
+    MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_Invert"];
+    GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
+    [(GPUImageFilterGroup *)group setInitialFilters:[NSArray arrayWithObject:filter]];
+    [(GPUImageFilterGroup *)group setTerminalFilter:filter];
+    group.title = @"Invert";
+    group.useLivePreviewObj = [NSNumber numberWithBool:NO];
+    group.usesTouch = [NSNumber numberWithBool:NO];
+    group.iconName = @"Polygon";
+    return group;
+}
+
+
 + (GPUImageFilterGroup *)sharpness {
     GPUImageSharpenFilter *filter = [[GPUImageSharpenFilter alloc] init];
     filter.sharpness = 25.0;

@@ -28,6 +28,12 @@
 #import "MK_ShaderGroup.h"
 #import "MK_GPUImageCustom3Input.h"
 
+const float BRIGHTNESS_DEFAULT = 0.0;
+const float CONTRAST_DEFAULT = 1.0;
+const float SATURATION_DEFAULT = 1.0;
+const float HUE_DEFAULT = 0.0;
+const float INVERT_DEFAULT = 0.0;
+
 @interface MK_GPUImageCameraManager ()
 
 {
@@ -49,128 +55,6 @@
     return sharedCameraManager;
 }
 
-/* Sample code from: https://github.com/BradLarson/GPUImage/issues/233
- 
- (void)viewDidLoad {
- 
- [super viewDidLoad];
- 
- CGRect frame = CGRectMake(20, 20, self.view.frame.size.width-40, self.view.frame.size.height-180);
- imageView = [[GPUImageView alloc] initWithFrame:frame];
- [self.view addSubview:imageView];
- 
- brightnessFilter = [[GPUImageBrightnessFilter alloc] init];
- brightnessFilter.brightness = 0;
- contrastFilter = [[GPUImageContrastFilter alloc] init];
- contrastFilter.contrast = 1;
- saturationFilter = [[GPUImageSaturationFilter alloc] init];
- saturationFilter.saturation = 1;
- 
- }
- 
- (void)viewWillAppear:(BOOL)animated {
- 
- gpuImage = [[GPUImagePicture alloc] initWithImage:appModel.document.currentPage.image];
- 
- [gpuImage addTarget:brightnessFilter];
- [brightnessFilter addTarget:contrastFilter];
- [contrastFilter addTarget:saturationFilter];
- 
- [saturationFilter addTarget:imageView];
- 
- [gpuImage processImage];
- }
- 
- (IBAction)onSlide:(id)sender forEvent:(UIEvent *)event {
- 
- switch (mode) {
- case 0:
- brightnessFilter.brightness = slider.value;
- break;
- case 1:
- contrastFilter.contrast = slider.value;
- break;
- case 2:
- saturationFilter.saturation = slider.value;
- break;
- }
- 
- [gpuImage processImage];
- }
- 
- (IBAction)onModeChange:(UISegmentedControl *)sender forEvent:(UIEvent *)event {
- 
- mode = sender.selectedSegmentIndex;
- 
- switch (mode) {
- case 0:
- slider.minimumValue = -1;
- slider.maximumValue = 1;
- slider.value = brightnessFilter.brightness;
- break;
- case 1:
- slider.minimumValue = 0;
- slider.maximumValue = 4;
- slider.value = contrastFilter.contrast;
- break;
- case 2:
- slider.minimumValue = 0;
- slider.maximumValue = 2;
- slider.value = saturationFilter.saturation;
- break;
- }
- }
- 
- */
-
-// OLD FUNCTIONING INIT
-
-//- (id)init {
-//    if ( self = [super init] ) {
-//
-//        BOOL isFront = NO;
-//
-//        _stillCamera = [[GPUImageStillCamera alloc] initWithSessionPreset:AVCaptureSessionPresetPhoto cameraPosition:isFront?AVCaptureDevicePositionFront:AVCaptureDevicePositionBack];
-//        _stillCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
-//        _stillCamera.horizontallyMirrorFrontFacingCamera = YES;
-//        _stillCamera.horizontallyMirrorRearFacingCamera = NO;
-//
-//        _filterChain = [[GPUImageFilterGroup alloc] init];
-//
-//        _brightnessFilter = [[GPUImageBrightnessFilter alloc] init];
-//        _brightness = 0.0;
-//        _brightnessFilter.brightness = _brightness;
-//
-//        _contrastFilter = [[GPUImageContrastFilter alloc] init];
-//        _contrast = 1.0;
-//        _contrastFilter.contrast = _contrast;
-//
-//        _saturationFilter = [[GPUImageSaturationFilter alloc] init];
-//        _saturation = 1.0;
-//        _saturationFilter.saturation = _saturation;
-//
-//        _hueFilter = [[GPUImageHueFilter alloc] init];
-//        _hue = 180.0;
-//        _hueFilter.hue = _hue;
-//
-//        _mainFilter = [MK_Shader noFilter];
-//
-//        [_brightnessFilter addTarget:_contrastFilter];
-//        [_contrastFilter addTarget:_saturationFilter];
-//        [_saturationFilter addTarget:_hueFilter];
-//        [_hueFilter addTarget:_mainFilter];
-//
-//        [(GPUImageFilterGroup *)_filterChain setInitialFilters:[NSArray arrayWithObject:_brightnessFilter]];
-//        [(GPUImageFilterGroup *)_filterChain setTerminalFilter:_mainFilter];
-//
-//        [_stillCamera addTarget:_filterChain];
-//
-//        [_stillCamera startCameraCapture];
-//
-//    }
-//    return self;
-//}
-
 - (id)init {
     if ( self = [super init] ) {
         
@@ -182,10 +66,11 @@
         _stillCamera.horizontallyMirrorRearFacingCamera = NO;
         
         // These variables cannot be nil when you createNewFilterChain
-        if (!_brightness) { _brightness = 0.25; }
+        if (!_brightness) { _brightness = 0.0; }
         if (!_contrast) { _contrast = 1.0; }
         if (!_saturation) { _saturation = 1.0; }
-        if (!_hue) { _hue = 180.0; }
+        if (!_hue) { _hue = 0.0; }
+        if (!_invert) { _invert = NO; }
         
         _filterChain = [self createNewFilterChain:@"noFilter"];
         
@@ -229,7 +114,7 @@
     
     ///// What?
     
-    [self.mainFilter removeTarget:cameraView];
+    [self.filterChain removeTarget:cameraView];
     
 }
 
@@ -237,8 +122,8 @@
 
 - (void)captureImage
 {
-    if (self.mainFilter) {
-        [self.stillCamera capturePhotoAsImageProcessedUpToFilter:self.mainFilter withCompletionHandler:^(UIImage *processedImage, NSError *error) {
+    if (self.filterChain) {
+        [self.stillCamera capturePhotoAsImageProcessedUpToFilter:self.filterChain withCompletionHandler:^(UIImage *processedImage, NSError *error) {
             NSData *dataForJPEGFile = UIImageJPEGRepresentation(processedImage, 1.0);
             
             UIImageWriteToSavedPhotosAlbum([UIImage imageWithData:dataForJPEGFile], nil, nil, nil);
@@ -250,6 +135,9 @@
 -(GPUImageFilterGroup *)createNewFilterChain:(NSString *)filterName {
     
     GPUImageFilterGroup *newFilterChain = [[GPUImageFilterGroup alloc] init];
+    
+    SEL s = NSSelectorFromString(filterName);
+    self.mainFilter = [MK_Shader performSelector:s];
     
     self.brightnessFilter = [[GPUImageBrightnessFilter alloc] init];
     self.brightnessFilter.brightness = self.brightness;
@@ -263,23 +151,17 @@
     self.hueFilter = [[GPUImageHueFilter alloc] init];
     self.hueFilter.hue = self.hue;
     
-    if (self.mainFilter){
-        [self.stillCamera removeTarget:self.mainFilter];
-    } else {
-        self.mainFilter = [[GPUImageFilterGroup alloc] init];
-        NSLog(@"Initializing main filter in changeToFilter");
-    }
+    self.invertFilter = [MK_Shader invert];
+    self.invert = self.invert;
     
-    SEL s = NSSelectorFromString(filterName);
-    self.mainFilter = [MK_Shader performSelector:s];
-    
+    [self.mainFilter addTarget:self.brightnessFilter];
     [self.brightnessFilter addTarget:self.contrastFilter];
     [self.contrastFilter addTarget:self.saturationFilter];
     [self.saturationFilter addTarget:self.hueFilter];
-    [self.hueFilter addTarget:self.mainFilter];
+    [self.hueFilter addTarget:self.invertFilter];
     
-    [(GPUImageFilterGroup *)newFilterChain setInitialFilters:[NSArray arrayWithObject:self.brightnessFilter]];
-    [(GPUImageFilterGroup *)newFilterChain setTerminalFilter:self.mainFilter];
+    [(GPUImageFilterGroup *)newFilterChain setInitialFilters:[NSArray arrayWithObject:self.mainFilter]];
+    [(GPUImageFilterGroup *)newFilterChain setTerminalFilter:self.invertFilter];
     
     return newFilterChain;
 }
@@ -289,28 +171,30 @@
 {
     if (self.filterChain) {
         [self.stillCamera removeTarget:self.filterChain];
+        self.filterChain = nil;
         NSLog(@"Removing target self.filterChain");
         NSLog (@"%@", self.filterChain.targets);
     }
     self.filterChain = [self createNewFilterChain:filterName];
     NSLog(@"Creating self.filterChain");
     
-    [_stillCamera addTarget:self.filterChain];
+    [self.stillCamera addTarget:self.filterChain];
     [self.filterChain addTarget:self.stillCameraPreview];
     [self.stillCamera startCameraCapture];
-
+    
     
     NSLog(@"Selected filter is %@", self.mainFilter.title);
 }
 
-- (void)toggleAdjustment:(NSString *)adjustmentName
-{
+- (void)resetAdjustmentsToDefaults {
+    self.brightness = 0.0;
+    self.contrast = 1.0;
+    self.saturation = 1.0;
+    self.hue = 0.0;
+    self.invert = NO;
 }
 
-
-// Add adjustment filter
 // Information field is entirely formated here.
-
 
 - (NSString *)changeFilterParameterUsingXPos:(CGFloat)xPos yPos:(CGFloat)yPos xDistance:(CGFloat)xDistance yDistance:(CGFloat)yDistance angle:(CGFloat)angle
 {
@@ -318,7 +202,6 @@
     if (self.mainFilter.usesTouch == [NSNumber numberWithBool:NO]){
         informationField = nil;
     } else {
-        //self.mainFilter.centerObj = [NSValue valueWithCGPoint:xAndYChanges];
         MK_GPUImageCustom3Input *myFilterToChange = (MK_GPUImageCustom3Input *)self.mainFilter.terminalFilter;
         // Have to copy it and then copy it back because you can't access the myFilterToChange.center's CGPoint structure directly and I don't want to use CGPoints.
         CGPoint touchChanges = myFilterToChange.center;
@@ -351,6 +234,16 @@
 - (void)setHue:(float)hue {
     _hue = hue;
     self.hueFilter.hue = hue;
+}
+
+- (void)setInvert:(BOOL)invert {
+    _invert = invert;
+    MK_GPUImageCustom3Input *invertSet = (MK_GPUImageCustom3Input *)self.invertFilter.terminalFilter;
+    if (invert) {
+        invertSet.parameter = 1.0;
+    } else {
+        invertSet.parameter = 0.0;
+    }
 }
 
 

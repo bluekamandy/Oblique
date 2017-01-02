@@ -68,17 +68,6 @@
 
 @property (weak, nonatomic) IBOutlet UITextView *informationField;
 
-@property (weak, nonatomic) IBOutlet UISlider *brightnessSlider;
-@property (weak, nonatomic) IBOutlet UITextView *brightnessTextView;
-
-@property (weak, nonatomic) IBOutlet UISlider *contrastSlider;
-@property (weak, nonatomic) IBOutlet UITextView *contrastTextView;
-
-@property (weak, nonatomic) IBOutlet UISlider *saturationSlider;
-@property (weak, nonatomic) IBOutlet UITextView *saturationTextView;
-
-@property (weak, nonatomic) IBOutlet UISlider *hueSlider;
-@property (weak, nonatomic) IBOutlet UITextView *hueTextView;
 
 @end
 
@@ -131,17 +120,6 @@
     NSLog(@"_imageView.bounds.size is %@", NSStringFromCGSize(_imageView.bounds.size));
     
     // Set up brightness, contrast, saturation and hue
-    self.brightnessSlider.value = cameraManager.brightness;
-    self.brightnessTextView.text = [NSString stringWithFormat:@"BRIGHTNESS %+.02f", cameraManager.brightness];
-    
-    self.contrastSlider.value = cameraManager.contrast;
-    self.contrastTextView.text = [NSString stringWithFormat:@"CONTRAST %+.02f", cameraManager.contrast];
-
-    self.saturationSlider.value = cameraManager.saturation;
-    self.saturationTextView.text = [NSString stringWithFormat:@"SATURATION %+.02f", cameraManager.saturation];
-    
-    self.hueSlider.value = cameraManager.hue;
-    self.hueTextView.text = [NSString stringWithFormat:@"HUE %.02f", cameraManager.hue];
 }
 
 #pragma mark - Shutter Release
@@ -292,83 +270,11 @@
     self.shutterReleaseButton.hidden = !self.shutterReleaseButton.hidden;
     self.selfieButton.hidden = !self.selfieButton.hidden;
     self.cameraGridButton.hidden = !self.cameraGridButton.hidden;
-    self.flashButton.hidden = !self.flashButton.hidden;
+    if (!(cameraManager.stillCamera.cameraPosition == AVCaptureDevicePositionFront)) {
+       self.flashButton.hidden = !self.flashButton.hidden;
+    }
     self.infoButton.hidden = !self.infoButton.hidden;
 }
-
-/* Sample code from: https://github.com/BradLarson/GPUImage/issues/233
- 
- (void)viewDidLoad {
- 
- [super viewDidLoad];
- 
- CGRect frame = CGRectMake(20, 20, self.view.frame.size.width-40, self.view.frame.size.height-180);
- imageView = [[GPUImageView alloc] initWithFrame:frame];
- [self.view addSubview:imageView];
- 
- brightnessFilter = [[GPUImageBrightnessFilter alloc] init];
- brightnessFilter.brightness = 0;
- contrastFilter = [[GPUImageContrastFilter alloc] init];
- contrastFilter.contrast = 1;
- saturationFilter = [[GPUImageSaturationFilter alloc] init];
- saturationFilter.saturation = 1;
- 
- }
- 
- (void)viewWillAppear:(BOOL)animated {
- 
- gpuImage = [[GPUImagePicture alloc] initWithImage:appModel.document.currentPage.image];
- 
- [gpuImage addTarget:brightnessFilter];
- [brightnessFilter addTarget:contrastFilter];
- [contrastFilter addTarget:saturationFilter];
- 
- [saturationFilter addTarget:imageView];
- 
- [gpuImage processImage];
- }
- 
- (IBAction)onSlide:(id)sender forEvent:(UIEvent *)event {
- 
- switch (mode) {
- case 0:
- brightnessFilter.brightness = slider.value;
- break;
- case 1:
- contrastFilter.contrast = slider.value;
- break;
- case 2:
- saturationFilter.saturation = slider.value;
- break;
- }
- 
- [gpuImage processImage];
- }
- 
- (IBAction)onModeChange:(UISegmentedControl *)sender forEvent:(UIEvent *)event {
- 
- mode = sender.selectedSegmentIndex;
- 
- switch (mode) {
- case 0:
- slider.minimumValue = -1;
- slider.maximumValue = 1;
- slider.value = brightnessFilter.brightness;
- break;
- case 1:
- slider.minimumValue = 0;
- slider.maximumValue = 4;
- slider.value = contrastFilter.contrast;
- break;
- case 2:
- slider.minimumValue = 0;
- slider.maximumValue = 2;
- slider.value = saturationFilter.saturation;
- break;
- }
- }
- 
- */
 
 #pragma mark - Touch
 
@@ -427,36 +333,6 @@
     informationFieldText = @"";
     [self.informationField setText:informationFieldText];
 }
-
-#pragma mark - Sliders in Adjustment Menu
-
-- (IBAction)brightnessSliderChanged:(id)sender {
-    cameraManager.brightness = [(UISlider *)sender value];
-    _brightnessTextView.text = [NSString stringWithFormat:@"BRIGHTNESS %+.02f", [(UISlider *)sender value]];
-}
-
-- (IBAction)contrastSliderChanged:(id)sender {
-    cameraManager.contrast = [(UISlider *)sender value];
-    self.contrastTextView.text = [NSString stringWithFormat:@"CONTRAST %+.02f", cameraManager.contrast];
-
-}
-
-- (IBAction)saturationSliderChanged:(id)sender {
-    cameraManager.saturation = [(UISlider *)sender value];
-    self.saturationTextView.text = [NSString stringWithFormat:@"SATURATION %+.02f", cameraManager.saturation];
-
-}
-
-- (IBAction)hueSliderChanged:(id)sender {
-    cameraManager.hue = [(UISlider *)sender value];
-    self.hueTextView.text = [NSString stringWithFormat:@"HUE %.02f", cameraManager.hue];
-
-}
-
-//- (void)touchesCancelled:(nullable NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event
-//{
-//
-//}
 
 
 @end

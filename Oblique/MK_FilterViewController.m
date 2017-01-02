@@ -80,7 +80,6 @@
     if (cell == nil)
     {
         cell = [[MK_FilterViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        
     }
     
     SEL s = NSSelectorFromString([shaderDatabase.filtersAvailable objectAtIndex:indexPath.row]);
@@ -107,7 +106,7 @@
     MK_GPUImageCameraManager *sharedCameraManager = [MK_GPUImageCameraManager sharedManager];
     
     NSLog(@"%@", [shaderDatabase.filtersAvailable objectAtIndex:indexPath.row]);
-    [sharedCameraManager changeToFilter:[shaderDatabase.filtersAvailable objectAtIndex:indexPath.row]] ;
+    [sharedCameraManager changeToFilter:[shaderDatabase.filtersAvailable objectAtIndex:indexPath.row]];
     NSLog(@"Filter number set to %ld", (long)indexPath.row + 1);
     
 }

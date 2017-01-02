@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		16540918296C78DC978EBDB2 /* libPods-Oblique.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F9F2C64BA2D46DFCAD4831 /* libPods-Oblique.a */; };
+		A58D18B31E19B13A00EB8C49 /* MK_AdjustmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A58D18B21E19B13A00EB8C49 /* MK_AdjustmentViewController.m */; };
 		A59D94FA1E16E98C00049C5D /* MK_FilterViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D94F71E16E98C00049C5D /* MK_FilterViewCell.m */; };
 		A59D94FB1E16E98C00049C5D /* MK_FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D94F91E16E98C00049C5D /* MK_FilterViewController.m */; };
 		A59D94FF1E16ED7400049C5D /* MK_GPUImageCameraManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D94FE1E16ED7400049C5D /* MK_GPUImageCameraManager.m */; };
@@ -43,7 +44,7 @@
 		A5ACC7921E17344A0014795F /* MK_FShader_VerticalStripes.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7821E17344A0014795F /* MK_FShader_VerticalStripes.fsh */; };
 		A5ACC7931E17344A0014795F /* MK_FShader_Waves.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7831E17344A0014795F /* MK_FShader_Waves.fsh */; };
 		A5ACC7971E1734670014795F /* MK_FShader_DrawGrid.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7941E1734670014795F /* MK_FShader_DrawGrid.fsh */; };
-		A5ACC7981E1734670014795F /* MK_FShader_Invert_Color.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7951E1734670014795F /* MK_FShader_Invert_Color.fsh */; };
+		A5ACC7981E1734670014795F /* MK_FShader_Invert.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7951E1734670014795F /* MK_FShader_Invert.fsh */; };
 		A5ACC7991E1734670014795F /* MK_FShader_Vibrance.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7961E1734670014795F /* MK_FShader_Vibrance.fsh */; };
 		A5ACC79B1E17347B0014795F /* MK_FShader_Blank.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC79A1E17347B0014795F /* MK_FShader_Blank.fsh */; };
 		A5C6C9D81E15D39800364421 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C6C9D71E15D39800364421 /* main.m */; };
@@ -58,6 +59,8 @@
 /* Begin PBXFileReference section */
 		52F9F2C64BA2D46DFCAD4831 /* libPods-Oblique.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Oblique.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78A635A2ED891BB3F72CE758 /* Pods-Oblique.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oblique.release.xcconfig"; path = "Pods/Target Support Files/Pods-Oblique/Pods-Oblique.release.xcconfig"; sourceTree = "<group>"; };
+		A58D18B11E19B13A00EB8C49 /* MK_AdjustmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MK_AdjustmentViewController.h; sourceTree = "<group>"; };
+		A58D18B21E19B13A00EB8C49 /* MK_AdjustmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MK_AdjustmentViewController.m; sourceTree = "<group>"; };
 		A59D94F61E16E98C00049C5D /* MK_FilterViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MK_FilterViewCell.h; sourceTree = "<group>"; };
 		A59D94F71E16E98C00049C5D /* MK_FilterViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MK_FilterViewCell.m; sourceTree = "<group>"; };
 		A59D94F81E16E98C00049C5D /* MK_FilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MK_FilterViewController.h; sourceTree = "<group>"; };
@@ -104,7 +107,7 @@
 		A5ACC7821E17344A0014795F /* MK_FShader_VerticalStripes.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_VerticalStripes.fsh; sourceTree = "<group>"; };
 		A5ACC7831E17344A0014795F /* MK_FShader_Waves.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_Waves.fsh; sourceTree = "<group>"; };
 		A5ACC7941E1734670014795F /* MK_FShader_DrawGrid.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_DrawGrid.fsh; sourceTree = "<group>"; };
-		A5ACC7951E1734670014795F /* MK_FShader_Invert_Color.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_Invert_Color.fsh; sourceTree = "<group>"; };
+		A5ACC7951E1734670014795F /* MK_FShader_Invert.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_Invert.fsh; sourceTree = "<group>"; };
 		A5ACC7961E1734670014795F /* MK_FShader_Vibrance.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_Vibrance.fsh; sourceTree = "<group>"; };
 		A5ACC79A1E17347B0014795F /* MK_FShader_Blank.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_Blank.fsh; sourceTree = "<group>"; };
 		A5C6C9D31E15D39800364421 /* Oblique.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oblique.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +149,8 @@
 		A51DC8E91E1851E40050C0D8 /* Adjustment Menu */ = {
 			isa = PBXGroup;
 			children = (
+				A58D18B11E19B13A00EB8C49 /* MK_AdjustmentViewController.h */,
+				A58D18B21E19B13A00EB8C49 /* MK_AdjustmentViewController.m */,
 			);
 			name = "Adjustment Menu";
 			sourceTree = "<group>";
@@ -206,7 +211,6 @@
 			isa = PBXGroup;
 			children = (
 				A5ACC7941E1734670014795F /* MK_FShader_DrawGrid.fsh */,
-				A5ACC7951E1734670014795F /* MK_FShader_Invert_Color.fsh */,
 				A5ACC7961E1734670014795F /* MK_FShader_Vibrance.fsh */,
 			);
 			name = "Fragment Shaders: In Progress";
@@ -224,6 +228,7 @@
 		A5ACC71D1E1701F20014795F /* Adjustments */ = {
 			isa = PBXGroup;
 			children = (
+				A5ACC7951E1734670014795F /* MK_FShader_Invert.fsh */,
 				A5ACC7111E17015E0014795F /* MK_FShader_Brightness.fsh */,
 				A5ACC7121E17015E0014795F /* MK_FShader_Contrast.fsh */,
 				A5ACC7131E17015E0014795F /* MK_FShader_Hue.fsh */,
@@ -409,7 +414,7 @@
 				A5ACC78A1E17344A0014795F /* MK_FShader_HorizontalMirror.fsh in Resources */,
 				A5C6C9E61E15D39800364421 /* LaunchScreen.storyboard in Resources */,
 				A5C6C9E31E15D39800364421 /* Assets.xcassets in Resources */,
-				A5ACC7981E1734670014795F /* MK_FShader_Invert_Color.fsh in Resources */,
+				A5ACC7981E1734670014795F /* MK_FShader_Invert.fsh in Resources */,
 				A5ACC7641E17338A0014795F /* MK_FShader_TimerTest.fsh in Resources */,
 				A5ACC7171E17015E0014795F /* MK_FShader_Brightness.fsh in Resources */,
 				A5ACC78D1E17344A0014795F /* MK_FShader_Rotate.fsh in Resources */,
@@ -503,6 +508,7 @@
 				A5AA38501E1819080056A532 /* MK_DismissSegue.m in Sources */,
 				A59D95131E16FA5700049C5D /* Common.m in Sources */,
 				A59D95051E16ED8F00049C5D /* MK_ShaderGroup.m in Sources */,
+				A58D18B31E19B13A00EB8C49 /* MK_AdjustmentViewController.m in Sources */,
 				A59F9B061E18879B0020CC87 /* MK_DismissInfoSegue.m in Sources */,
 				A5C6C9D81E15D39800364421 /* main.m in Sources */,
 			);

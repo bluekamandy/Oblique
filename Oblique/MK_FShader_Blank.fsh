@@ -105,6 +105,6 @@ void main()
     
     lowp vec4 textureColor = texture2D(inputImageTexture, textureCoordinate);
     
-    gl_FragColor = vec4(textureColor);
+    gl_FragColor = vec4(vec3(1. - textureColor.rgb), texturColor.a);
 }
 

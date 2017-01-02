@@ -27,6 +27,12 @@
 #import <GPUImage/GPUImage.h>
 #import "MK_GPUImageCustom3Input.h"
 
+extern const float BRIGHTNESS_DEFAULT;
+extern const float CONTRAST_DEFAULT;
+extern const float SATURATION_DEFAULT;
+extern const float HUE_DEFAULT;
+extern const float INVERT_DEFAULT;
+
 @interface MK_GPUImageCameraManager : NSObject
 
 @property (nonatomic) GPUImageStillCamera *stillCamera;
@@ -36,6 +42,7 @@
 @property (nonatomic) GPUImageBrightnessFilter *brightnessFilter;
 @property (nonatomic) GPUImageContrastFilter *contrastFilter;
 @property (nonatomic) GPUImageSaturationFilter *saturationFilter;
+@property (nonatomic) GPUImageFilterGroup *invertFilter;
 @property (nonatomic) GPUImageHueFilter *hueFilter;
 
 // Brightness ranges from -1.0 to 1.0, with 0.0 as the normal level
@@ -46,6 +53,8 @@
 @property (nonatomic) float saturation;
 // Hue ranges from 0.0 (normal hue) to 180.0 (opposite hue). Max is 360.
 @property (nonatomic) float hue;
+// 1.0 is ON 0.0 is OFF
+@property (nonatomic) BOOL invert;
 
 + (id)sharedManager;
 
@@ -55,7 +64,7 @@
 - (void)toggleSelfieCamera;
 - (void)removeCameraView:(GPUImageView*)cameraView;
 - (void)changeToFilter:(NSString *)filterName;
-- (void)toggleAdjustment:(NSString *)adjustmentName;
+- (void)resetAdjustmentsToDefaults;
 - (NSString *)changeFilterParameterUsingXPos:(CGFloat)xPos yPos:(CGFloat)yPos xDistance:(CGFloat)xDistance yDistance:(CGFloat)yDistance angle:(CGFloat)angle;
 - (void)captureImage;
 

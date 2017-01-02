@@ -11,9 +11,12 @@ uniform highp vec2 center;
 
 void main()
 {
+    lowp vec4 textureColor = texture2D(inputImageTexture, textureCoordinate);
     
-    lowp vec4 textureColor = texture2D(inputImageTexture, fract(textureCoordinate));
-    
-    gl_FragColor = vec4(fract(textureColor.rgb+time), textureColor.a);
+    if (parameter > 0.0) {
+        gl_FragColor = vec4(vec3(parameter - textureColor.rgb), textureColor.a);
+    } else {
+        gl_FragColor = vec4(vec3(textureColor.rgb), textureColor.a);
+    }
 }
 

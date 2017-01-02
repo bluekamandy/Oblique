@@ -67,6 +67,7 @@
 + (GPUImageFilterGroup *)contrast;
 + (GPUImageFilterGroup *)saturation;
 + (GPUImageFilterGroup *)hue;
++ (GPUImageFilterGroup *)invert;
 + (GPUImageFilterGroup *)sharpness;
 
 // Tools
