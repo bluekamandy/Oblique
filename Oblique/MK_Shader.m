@@ -240,7 +240,7 @@
     [(GPUImageFilterGroup *)group setTerminalFilter:filter];
     group.title = @"4 Scope";
     group.useLivePreviewObj = [NSNumber numberWithBool:YES];
-    group.usesTouch = [NSNumber numberWithBool:YES];
+    group.usesTouch = [NSNumber numberWithBool:NO];
     group.iconName = @"Polygon";
     return group;
 }

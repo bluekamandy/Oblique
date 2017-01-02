@@ -31,7 +31,7 @@ extern const float BRIGHTNESS_DEFAULT;
 extern const float CONTRAST_DEFAULT;
 extern const float SATURATION_DEFAULT;
 extern const float HUE_DEFAULT;
-extern const float INVERT_DEFAULT;
+extern const BOOL INVERT_DEFAULT;
 
 @interface MK_GPUImageCameraManager : NSObject
 

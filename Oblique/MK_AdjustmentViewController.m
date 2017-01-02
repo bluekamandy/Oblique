@@ -105,6 +105,9 @@
         [self.hueSlider setValue:HUE_DEFAULT animated:YES];
         self.hueTextView.text = [NSString stringWithFormat:@"HUE %.02f", sharedCameraManager.hue];
     }];
+    [self.invertSwitch setOn:INVERT_DEFAULT animated:YES];
+    
+    
 }
 
 /*

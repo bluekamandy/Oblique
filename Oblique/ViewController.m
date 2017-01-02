@@ -165,7 +165,7 @@
 }
 
 - (IBAction)toggleSelfie:(id)sender {
-
+    
     UIView *blackScreen = [[UIView alloc] initWithFrame: CGRectMake(0, 0, photoViewWidth, photoViewHeight)];
     [blackScreen setBackgroundColor:[UIColor blackColor]];
     [self.imageView addSubview:blackScreen];
@@ -216,7 +216,7 @@
     }
     
     blackScreen = nil;
-
+    
 }
 
 - (IBAction)toggleGrid:(id)sender {
@@ -261,7 +261,7 @@
         [self.flashButton setSelected:NO];
         
     }
-
+    
 }
 
 - (void)toggleVisibilityOfButtons {
@@ -271,7 +271,7 @@
     self.selfieButton.hidden = !self.selfieButton.hidden;
     self.cameraGridButton.hidden = !self.cameraGridButton.hidden;
     if (!(cameraManager.stillCamera.cameraPosition == AVCaptureDevicePositionFront)) {
-       self.flashButton.hidden = !self.flashButton.hidden;
+        self.flashButton.hidden = !self.flashButton.hidden;
     }
     self.infoButton.hidden = !self.infoButton.hidden;
 }
@@ -312,6 +312,13 @@
         }
         
         [self.informationField setText:informationFieldText];
+        
+//        [UIView animateWithDuration:.25 animations:^{
+//            [self.informationField setAlpha:1.0];
+//        } completion:^(BOOL finished){
+//            [self.informationField setAlpha:0.0];
+//        }];
+        
         
     }
     

@@ -32,7 +32,7 @@ const float BRIGHTNESS_DEFAULT = 0.0;
 const float CONTRAST_DEFAULT = 1.0;
 const float SATURATION_DEFAULT = 1.0;
 const float HUE_DEFAULT = 0.0;
-const float INVERT_DEFAULT = 0.0;
+const BOOL INVERT_DEFAULT = NO;
 
 @interface MK_GPUImageCameraManager ()
 

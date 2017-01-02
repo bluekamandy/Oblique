@@ -341,13 +341,13 @@
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODH-iG-Mln">
-                                <rect key="frame" x="82" y="5" width="250" height="33"/>
+                                <rect key="frame" x="82" y="7" width="250" height="30.333333333333336"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="zUN-G8-l8g"/>
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textView>
                         </subviews>
@@ -367,7 +367,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Q0L-wm-zXw" secondAttribute="bottom" constant="20" id="GYK-f2-6XU"/>
                             <constraint firstItem="ye2-Jr-nPR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Itk-Gx-FgD"/>
                             <constraint firstItem="cAR-Ts-pV6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="KAq-M2-y9e"/>
-                            <constraint firstItem="ODH-iG-Mln" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="5" id="SQc-eE-1V7"/>
+                            <constraint firstItem="ODH-iG-Mln" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="7" id="SQc-eE-1V7"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cAR-Ts-pV6" secondAttribute="bottom" constant="15" id="SWY-qM-d4x"/>
                             <constraint firstItem="axR-Bm-29S" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="eB1-LP-DfF"/>
                             <constraint firstItem="zk2-TR-6pB" firstAttribute="top" secondItem="0gh-Cj-Bw0" secondAttribute="bottom" constant="25" id="eYP-HT-nS3"/>
@@ -551,6 +551,6 @@ Early code inspired on a similar class by Philip Kluz (Philip.Kluz@zuui.org)</st
         <image name="ShutterReleaseSelected" width="84" height="84"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Fz4-34-M7I"/>
+        <segue reference="rVx-3D-qVF"/>
     </inferredMetricsTieBreakers>
 </document>
