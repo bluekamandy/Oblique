@@ -16,15 +16,19 @@
 
 @property (weak, nonatomic) IBOutlet UISlider *brightnessSlider;
 @property (weak, nonatomic) IBOutlet UITextView *brightnessTextView;
+@property (weak, nonatomic) IBOutlet UILabel *brightnessLabel;
 
 @property (weak, nonatomic) IBOutlet UISlider *contrastSlider;
 @property (weak, nonatomic) IBOutlet UITextView *contrastTextView;
+@property (weak, nonatomic) IBOutlet UILabel *contrastLabel;
 
 @property (weak, nonatomic) IBOutlet UISlider *saturationSlider;
 @property (weak, nonatomic) IBOutlet UITextView *saturationTextView;
+@property (weak, nonatomic) IBOutlet UILabel *saturationLabel;
 
 @property (weak, nonatomic) IBOutlet UISlider *hueSlider;
 @property (weak, nonatomic) IBOutlet UITextView *hueTextView;
+@property (weak, nonatomic) IBOutlet UILabel *hueLabel;
 
 @property (weak, nonatomic) IBOutlet UISwitch *invertSwitch;
 
@@ -39,16 +43,16 @@
     sharedCameraManager = [MK_GPUImageCameraManager sharedManager];
     
     self.brightnessSlider.value = sharedCameraManager.brightness;
-    self.brightnessTextView.text = [NSString stringWithFormat:@"BRIGHTNESS %+.02f", sharedCameraManager.brightness];
+    self.brightnessLabel.text = [NSString stringWithFormat:@"BRIGHTNESS %+.02f", sharedCameraManager.brightness];
     
     self.contrastSlider.value = sharedCameraManager.contrast;
-    self.contrastTextView.text = [NSString stringWithFormat:@"CONTRAST %+.02f", sharedCameraManager.contrast];
+    self.contrastLabel.text = [NSString stringWithFormat:@"CONTRAST %+.02f", sharedCameraManager.contrast];
     
     self.saturationSlider.value = sharedCameraManager.saturation;
-    self.saturationTextView.text = [NSString stringWithFormat:@"SATURATION %+.02f", sharedCameraManager.saturation];
+    self.saturationLabel.text = [NSString stringWithFormat:@"SATURATION %+.02f", sharedCameraManager.saturation];
     
     self.hueSlider.value = sharedCameraManager.hue;
-    self.hueTextView.text = [NSString stringWithFormat:@"HUE %.02f", sharedCameraManager.hue];
+    self.hueLabel.text = [NSString stringWithFormat:@"HUE %.02f", sharedCameraManager.hue];
     
     self.invertSwitch.on = sharedCameraManager.invert;
     
@@ -63,24 +67,24 @@
 
 - (IBAction)brightnessSliderChanged:(id)sender {
     sharedCameraManager.brightness = [(UISlider *)sender value];
-    self.brightnessTextView.text = [NSString stringWithFormat:@"BRIGHTNESS %+.02f", sharedCameraManager.brightness];
+    self.brightnessLabel.text = [NSString stringWithFormat:@"BRIGHTNESS %+.02f", sharedCameraManager.brightness];
 }
 
 - (IBAction)contrastSliderChanged:(id)sender {
     sharedCameraManager.contrast = [(UISlider *)sender value];
-    self.contrastTextView.text = [NSString stringWithFormat:@"CONTRAST %+.02f", sharedCameraManager.contrast];
+    self.contrastLabel.text = [NSString stringWithFormat:@"CONTRAST %+.02f", sharedCameraManager.contrast];
     
 }
 
 - (IBAction)saturationSliderChanged:(id)sender {
     sharedCameraManager.saturation = [(UISlider *)sender value];
-    self.saturationTextView.text = [NSString stringWithFormat:@"SATURATION %+.02f", sharedCameraManager.saturation];
+    self.saturationLabel.text = [NSString stringWithFormat:@"SATURATION %+.02f", sharedCameraManager.saturation];
     
 }
 
 - (IBAction)hueSliderChanged:(id)sender {
     sharedCameraManager.hue = [(UISlider *)sender value];
-    self.hueTextView.text = [NSString stringWithFormat:@"HUE %.02f", sharedCameraManager.hue];
+    self.hueLabel.text = [NSString stringWithFormat:@"HUE %.02f", sharedCameraManager.hue];
     
 }
 - (IBAction)invertSwitchChanged:(id)sender {
@@ -91,19 +95,19 @@
     [sharedCameraManager resetAdjustmentsToDefaults];
     [UIView animateWithDuration:.25 animations:^{
         [self.brightnessSlider setValue:BRIGHTNESS_DEFAULT animated:YES];
-        self.brightnessTextView.text = [NSString stringWithFormat:@"BRIGHTNESS %+.02f", sharedCameraManager.brightness];
+        self.brightnessLabel.text = [NSString stringWithFormat:@"BRIGHTNESS %+.02f", sharedCameraManager.brightness];
     }];
     [UIView animateWithDuration:.25 animations:^{
         [self.contrastSlider setValue:CONTRAST_DEFAULT animated:YES];
-        self.contrastTextView.text = [NSString stringWithFormat:@"CONTRAST %+.02f", sharedCameraManager.contrast];
+        self.contrastLabel.text = [NSString stringWithFormat:@"CONTRAST %+.02f", sharedCameraManager.contrast];
     }];
     [UIView animateWithDuration:.25 animations:^{
         [self.saturationSlider setValue:SATURATION_DEFAULT animated:YES];
-        self.saturationTextView.text = [NSString stringWithFormat:@"SATURATION %+.02f", sharedCameraManager.saturation];
+        self.saturationLabel.text = [NSString stringWithFormat:@"SATURATION %+.02f", sharedCameraManager.saturation];
     }];
     [UIView animateWithDuration:.25 animations:^{
         [self.hueSlider setValue:HUE_DEFAULT animated:YES];
-        self.hueTextView.text = [NSString stringWithFormat:@"HUE %.02f", sharedCameraManager.hue];
+        self.hueLabel.text = [NSString stringWithFormat:@"HUE %.02f", sharedCameraManager.hue];
     }];
     [self.invertSwitch setOn:INVERT_DEFAULT animated:YES];
     
