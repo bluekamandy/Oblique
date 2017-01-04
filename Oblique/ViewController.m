@@ -155,17 +155,24 @@
 - (IBAction)toggleFilters:(id)sender {
     
     [self.filterButton setSelected:!self.filterButton.selected];
+    
+    float oldX, oldY, oldWidth, oldHeight;
+    oldX = self.imageView.frame.origin.x;
+    oldY = self.imageView.frame.origin.y;
+    oldWidth = self.imageView.frame.size.width;
+    oldWidth = self.imageView.frame.size.height;
+    
     if ([self.filterButton isSelected]) {
 
-        self.imageView.transform = CGAffineTransformMakeScale((self.view.bounds.size.width - 125)/self.view.bounds.size.width, (self.view.bounds.size.width - 125)/self.view.bounds.size.width);
-        self.imageView.transform = CGAffineTransformTranslate(self.imageView.transform, -62.5, 0);
         
+        self.imageView.transform = CGAffineTransformMakeScale((self.view.bounds.size.width - 125)/self.view.bounds.size.width, (self.view.bounds.size.width - 125)/self.view.bounds.size.width);
+        self.imageView.frame = CGRectMake(0, 40, self.imageView.frame.size.width, self.imageView.frame.size.height);
         
     }
     
     if (![self.filterButton isSelected]) {
         self.imageView.transform = CGAffineTransformIdentity;
-        [self.imageView layer].anchorPoint = CGPointMake(0.5, 0.5);
+        self.imageView.frame = CGRectMake(oldX, oldY, oldWidth, oldHeight);
         
         
     }
