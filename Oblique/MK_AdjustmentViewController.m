@@ -15,22 +15,20 @@
 }
 
 @property (weak, nonatomic) IBOutlet UISlider *brightnessSlider;
-@property (weak, nonatomic) IBOutlet UITextView *brightnessTextView;
 @property (weak, nonatomic) IBOutlet UILabel *brightnessLabel;
 
 @property (weak, nonatomic) IBOutlet UISlider *contrastSlider;
-@property (weak, nonatomic) IBOutlet UITextView *contrastTextView;
 @property (weak, nonatomic) IBOutlet UILabel *contrastLabel;
 
 @property (weak, nonatomic) IBOutlet UISlider *saturationSlider;
-@property (weak, nonatomic) IBOutlet UITextView *saturationTextView;
 @property (weak, nonatomic) IBOutlet UILabel *saturationLabel;
 
 @property (weak, nonatomic) IBOutlet UISlider *hueSlider;
-@property (weak, nonatomic) IBOutlet UITextView *hueTextView;
 @property (weak, nonatomic) IBOutlet UILabel *hueLabel;
 
 @property (weak, nonatomic) IBOutlet UISwitch *invertSwitch;
+
+@property (weak, nonatomic) IBOutlet UISwitch *equalizeSwitch;
 
 @end
 
@@ -55,6 +53,8 @@
     self.hueLabel.text = [NSString stringWithFormat:@"HUE %.02f", sharedCameraManager.hue];
     
     self.invertSwitch.on = sharedCameraManager.invert;
+    
+    self.equalizeSwitch.on = sharedCameraManager.equalize;
     
 }
 
@@ -91,6 +91,10 @@
     sharedCameraManager.invert = [(UISwitch *)sender isOn];
 }
 
+- (IBAction)equalizeSwitchChanged:(id)sender {
+    sharedCameraManager.equalize = [(UISwitch *)sender isOn];
+}
+
 - (IBAction)resetToDefaults:(id)sender {
     [sharedCameraManager resetAdjustmentsToDefaults];
     [UIView animateWithDuration:.25 animations:^{
@@ -110,7 +114,7 @@
         self.hueLabel.text = [NSString stringWithFormat:@"HUE %.02f", sharedCameraManager.hue];
     }];
     [self.invertSwitch setOn:INVERT_DEFAULT animated:YES];
-    
+    [self.equalizeSwitch setOn:EQUALIZE_DEFAULT animated:YES];
     
 }
 

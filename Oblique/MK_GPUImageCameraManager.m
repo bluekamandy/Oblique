@@ -33,6 +33,7 @@ const float CONTRAST_DEFAULT = 1.0;
 const float SATURATION_DEFAULT = 1.0;
 const float HUE_DEFAULT = 0.0;
 const BOOL INVERT_DEFAULT = NO;
+const BOOL EQUALIZE_DEFAULT = NO;
 
 @interface MK_GPUImageCameraManager ()
 
@@ -65,14 +66,17 @@ const BOOL INVERT_DEFAULT = NO;
         _stillCamera.horizontallyMirrorFrontFacingCamera = YES;
         _stillCamera.horizontallyMirrorRearFacingCamera = NO;
         
+        if (!_filterName) { _filterName = @"noFilter"; }
+        
         // These variables cannot be nil when you createNewFilterChain
         if (!_brightness) { _brightness = 0.0; }
         if (!_contrast) { _contrast = 1.0; }
         if (!_saturation) { _saturation = 1.0; }
         if (!_hue) { _hue = 0.0; }
         if (!_invert) { _invert = NO; }
+        if (!_equalize) { _equalize = YES; }
         
-        _filterChain = [self createNewFilterChain:@"noFilter"];
+        _filterChain = [self createNewFilterChain:@"noFilter" equalizationOn:_equalize];
         
         [_stillCamera addTarget:_filterChain];
         
@@ -132,9 +136,15 @@ const BOOL INVERT_DEFAULT = NO;
     }
 }
 
+
+
 -(GPUImageFilterGroup *)createNewFilterChain:(NSString *)filterName {
     
     GPUImageFilterGroup *newFilterChain = [[GPUImageFilterGroup alloc] init];
+    
+    self.filterName = filterName;
+    
+    NSLog(@"Setting non-equalized filter to %@", filterName);
     
     SEL s = NSSelectorFromString(filterName);
     self.mainFilter = [MK_Shader performSelector:s];
@@ -166,6 +176,55 @@ const BOOL INVERT_DEFAULT = NO;
     return newFilterChain;
 }
 
+-(GPUImageFilterGroup *)createNewFilterChain:(NSString *)filterName equalizationOn:(BOOL)equal {
+    
+    GPUImageFilterGroup *newFilterChain;
+    
+    if (equal) {
+        
+        newFilterChain = [[GPUImageFilterGroup alloc] init];
+        
+        self.filterName = filterName;
+        NSLog(@"Setting equalized filter to %@", filterName);
+        
+        SEL s = NSSelectorFromString(filterName);
+        self.mainFilter = [MK_Shader performSelector:s];
+        
+        self.equalizationFilter = [[GPUImageHistogramEqualizationFilter alloc] initWithHistogramType:kGPUImageHistogramLuminance];
+        self.equalizationFilter.downsamplingFactor = 4.0; // 1 and 2 reduce performance quite a bit. Going up to 4.
+        
+        self.brightnessFilter = [[GPUImageBrightnessFilter alloc] init];
+        self.brightnessFilter.brightness = self.brightness;
+        
+        self.contrastFilter = [[GPUImageContrastFilter alloc] init];
+        self.contrastFilter.contrast = self.contrast;
+        
+        self.saturationFilter = [[GPUImageSaturationFilter alloc] init];
+        self.saturationFilter.saturation = self.saturation;
+        
+        self.hueFilter = [[GPUImageHueFilter alloc] init];
+        self.hueFilter.hue = self.hue;
+        
+        self.invertFilter = [MK_Shader invert];
+        self.invert = self.invert; // Need to call the setter.
+        
+        [self.mainFilter addTarget:self.equalizationFilter];
+        [self.equalizationFilter addTarget:self.brightnessFilter];
+        [self.brightnessFilter addTarget:self.contrastFilter];
+        [self.contrastFilter addTarget:self.saturationFilter];
+        [self.saturationFilter addTarget:self.hueFilter];
+        [self.hueFilter addTarget:self.invertFilter];
+        
+        [(GPUImageFilterGroup *)newFilterChain setInitialFilters:[NSArray arrayWithObject:self.mainFilter]];
+        [(GPUImageFilterGroup *)newFilterChain setTerminalFilter:self.invertFilter];
+        
+    } else {
+        newFilterChain = [self createNewFilterChain:filterName];
+    }
+    
+    return newFilterChain;
+}
+
 
 - (void)changeToFilter:(NSString *)filterName
 {
@@ -175,8 +234,8 @@ const BOOL INVERT_DEFAULT = NO;
         NSLog(@"Removing target self.filterChain");
         NSLog (@"%@", self.filterChain.targets);
     }
-    self.filterChain = [self createNewFilterChain:filterName];
-    NSLog(@"Creating self.filterChain");
+    self.filterChain = [self createNewFilterChain:filterName equalizationOn:self.equalize];
+    NSLog(@"%@", self.filterChain);
     
     [self.stillCamera addTarget:self.filterChain];
     [self.filterChain addTarget:self.stillCameraPreview];
@@ -192,6 +251,7 @@ const BOOL INVERT_DEFAULT = NO;
     self.saturation = 1.0;
     self.hue = 0.0;
     self.invert = NO;
+    self.equalize = YES;
 }
 
 // Information field is entirely formated here.
@@ -244,6 +304,11 @@ const BOOL INVERT_DEFAULT = NO;
     } else {
         invertSet.parameter = 0.0;
     }
+}
+
+- (void)setEqualize:(BOOL)equalize {
+    _equalize = equalize;
+    [self changeToFilter:self.filterName];
 }
 
 

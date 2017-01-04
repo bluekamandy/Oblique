@@ -32,6 +32,7 @@ extern const float CONTRAST_DEFAULT;
 extern const float SATURATION_DEFAULT;
 extern const float HUE_DEFAULT;
 extern const BOOL INVERT_DEFAULT;
+extern const BOOL EQUALIZE_DEFAULT;
 
 @interface MK_GPUImageCameraManager : NSObject
 
@@ -42,8 +43,11 @@ extern const BOOL INVERT_DEFAULT;
 @property (nonatomic) GPUImageBrightnessFilter *brightnessFilter;
 @property (nonatomic) GPUImageContrastFilter *contrastFilter;
 @property (nonatomic) GPUImageSaturationFilter *saturationFilter;
-@property (nonatomic) GPUImageFilterGroup *invertFilter;
 @property (nonatomic) GPUImageHueFilter *hueFilter;
+@property (nonatomic) GPUImageHistogramEqualizationFilter *equalizationFilter;
+@property (nonatomic) GPUImageFilterGroup *invertFilter;
+
+@property (nonatomic) NSString* filterName;
 
 // Brightness ranges from -1.0 to 1.0, with 0.0 as the normal level
 @property (nonatomic) float brightness;
@@ -53,8 +57,10 @@ extern const BOOL INVERT_DEFAULT;
 @property (nonatomic) float saturation;
 // Hue ranges from 0.0 (normal hue) to 180.0 (opposite hue). Max is 360.
 @property (nonatomic) float hue;
-// 1.0 is ON 0.0 is OFF
+// NO is default.
 @property (nonatomic) BOOL invert;
+// NO is default.
+@property (nonatomic) BOOL equalize;
 
 + (id)sharedManager;
 

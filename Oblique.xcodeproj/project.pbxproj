@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		16540918296C78DC978EBDB2 /* libPods-Oblique.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F9F2C64BA2D46DFCAD4831 /* libPods-Oblique.a */; };
+		A560E30D1E1D7A5900F1ED4E /* MK_GPUImageStillCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = A560E30C1E1D7A5900F1ED4E /* MK_GPUImageStillCamera.m */; };
 		A58D18B31E19B13A00EB8C49 /* MK_AdjustmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A58D18B21E19B13A00EB8C49 /* MK_AdjustmentViewController.m */; };
 		A59D94FA1E16E98C00049C5D /* MK_FilterViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D94F71E16E98C00049C5D /* MK_FilterViewCell.m */; };
 		A59D94FB1E16E98C00049C5D /* MK_FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D94F91E16E98C00049C5D /* MK_FilterViewController.m */; };
@@ -59,6 +60,8 @@
 /* Begin PBXFileReference section */
 		52F9F2C64BA2D46DFCAD4831 /* libPods-Oblique.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Oblique.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78A635A2ED891BB3F72CE758 /* Pods-Oblique.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oblique.release.xcconfig"; path = "Pods/Target Support Files/Pods-Oblique/Pods-Oblique.release.xcconfig"; sourceTree = "<group>"; };
+		A560E30B1E1D7A5900F1ED4E /* MK_GPUImageStillCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MK_GPUImageStillCamera.h; sourceTree = "<group>"; };
+		A560E30C1E1D7A5900F1ED4E /* MK_GPUImageStillCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MK_GPUImageStillCamera.m; sourceTree = "<group>"; };
 		A58D18B11E19B13A00EB8C49 /* MK_AdjustmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MK_AdjustmentViewController.h; sourceTree = "<group>"; };
 		A58D18B21E19B13A00EB8C49 /* MK_AdjustmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MK_AdjustmentViewController.m; sourceTree = "<group>"; };
 		A59D94F61E16E98C00049C5D /* MK_FilterViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MK_FilterViewCell.h; sourceTree = "<group>"; };
@@ -155,6 +158,15 @@
 			name = "Adjustment Menu";
 			sourceTree = "<group>";
 		};
+		A560E30A1E1D7A2700F1ED4E /* Custom Camera to Support IOS 10 Camera Features */ = {
+			isa = PBXGroup;
+			children = (
+				A560E30B1E1D7A5900F1ED4E /* MK_GPUImageStillCamera.h */,
+				A560E30C1E1D7A5900F1ED4E /* MK_GPUImageStillCamera.m */,
+			);
+			name = "Custom Camera to Support IOS 10 Camera Features";
+			sourceTree = "<group>";
+		};
 		A59D94FC1E16E99A00049C5D /* Filter Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +181,7 @@
 		A59D95061E16EDA000049C5D /* Camera Manager */ = {
 			isa = PBXGroup;
 			children = (
+				A560E30A1E1D7A2700F1ED4E /* Custom Camera to Support IOS 10 Camera Features */,
 				A59D94FD1E16ED7400049C5D /* MK_GPUImageCameraManager.h */,
 				A59D94FE1E16ED7400049C5D /* MK_GPUImageCameraManager.m */,
 				A59D95001E16ED8F00049C5D /* MK_Shader.h */,
@@ -510,6 +523,7 @@
 				A59D95051E16ED8F00049C5D /* MK_ShaderGroup.m in Sources */,
 				A58D18B31E19B13A00EB8C49 /* MK_AdjustmentViewController.m in Sources */,
 				A59F9B061E18879B0020CC87 /* MK_DismissInfoSegue.m in Sources */,
+				A560E30D1E1D7A5900F1ED4E /* MK_GPUImageStillCamera.m in Sources */,
 				A5C6C9D81E15D39800364421 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

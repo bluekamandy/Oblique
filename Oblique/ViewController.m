@@ -145,15 +145,16 @@
     
     [self.filterButton setSelected:!self.filterButton.selected];
     if ([self.filterButton isSelected]) {
-        self.imageView.transform = CGAffineTransformMakeScale(0.67, 0.67);
-        self.imageView.transform = CGAffineTransformTranslate(self.imageView.transform, -305, 0);
-        [self.imageView layer].anchorPoint = CGPointMake(0.0f, 0.5f);
+
+        self.imageView.transform = CGAffineTransformMakeScale((self.view.bounds.size.width - 125)/self.view.bounds.size.width, (self.view.bounds.size.width - 125)/self.view.bounds.size.width);
+        self.imageView.transform = CGAffineTransformTranslate(self.imageView.transform, -62.5, 0);
+        
         
     }
     
     if (![self.filterButton isSelected]) {
         self.imageView.transform = CGAffineTransformIdentity;
-        [self.imageView layer].anchorPoint = CGPointMake(0.5f, 0.5f);
+        [self.imageView layer].anchorPoint = CGPointMake(0.5, 0.5);
         
         
     }
@@ -313,11 +314,11 @@
         
         [self.informationField setText:informationFieldText];
         
-//        [UIView animateWithDuration:.25 animations:^{
-//            [self.informationField setAlpha:1.0];
-//        } completion:^(BOOL finished){
-//            [self.informationField setAlpha:0.0];
-//        }];
+        //        [UIView animateWithDuration:.25 animations:^{
+        //            [self.informationField setAlpha:1.0];
+        //        } completion:^(BOOL finished){
+        //            [self.informationField setAlpha:0.0];
+        //        }];
         
         
     }
