@@ -98,10 +98,10 @@
                                         </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="soN-Vj-BKl">
-                                        <rect key="frame" x="43.5" y="35.5" width="153.5" height="12"/>
+                                        <rect key="frame" x="41" y="35.5" width="158.5" height="12"/>
                                         <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
                                         <attributedString key="attributedText">
-                                            <fragment content="EQUALIZE (WILL RESET IMAGE)">
+                                            <fragment content="EQUALIZE (WILL RESET TOUCH)">
                                                 <attributes>
                                                     <font key="NSFont" metaFont="system" size="10"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -262,7 +262,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="t7s-n5-cu7">
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="t7s-n5-cu7" userLabel="Top Bar">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axR-Bm-29S">
@@ -314,43 +314,35 @@
                                     <constraint firstAttribute="width" secondItem="ye2-Jr-nPR" secondAttribute="height" multiplier="3:4" id="2G7-cp-1Cj"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vyY-ev-1df">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vyY-ev-1df" userLabel="Bottom Bar">
                                 <rect key="frame" x="10" y="466.5" width="300" height="101.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kjI-wA-fPy">
-                                        <rect key="frame" x="0.0" y="1" width="40" height="100"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1e-v5-7TL">
-                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="5kz-zG-Q5c"/>
-                                                    <constraint firstAttribute="width" constant="40" id="UfY-Lb-1FR"/>
-                                                </constraints>
-                                                <state key="normal" image="Grid"/>
-                                                <state key="selected" image="GridSelected"/>
-                                                <state key="highlighted" image="GridSelected"/>
-                                                <connections>
-                                                    <action selector="toggleGrid:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mUZ-vL-WVM"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAR-Ts-pV6">
-                                                <rect key="frame" x="0.0" y="60" width="40" height="40"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="40" id="qTK-AE-eBt"/>
-                                                    <constraint firstAttribute="height" constant="40" id="uec-b9-Z7a"/>
-                                                </constraints>
-                                                <state key="normal" image="FilterList"/>
-                                                <state key="selected" image="FilterListSelected"/>
-                                                <state key="highlighted" image="FilterListSelected"/>
-                                                <connections>
-                                                    <action selector="toggleFilters:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xxd-TR-OmG"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAR-Ts-pV6">
+                                        <rect key="frame" x="0.0" y="31" width="40" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="dw1-GZ-gBm"/>
+                                            <constraint firstAttribute="width" constant="40" id="qTK-AE-eBt"/>
+                                            <constraint firstAttribute="height" constant="40" id="uec-b9-Z7a"/>
                                         </constraints>
-                                    </stackView>
+                                        <state key="normal" image="FilterList"/>
+                                        <state key="selected" image="FilterListSelected"/>
+                                        <state key="highlighted" image="FilterListSelected"/>
+                                        <connections>
+                                            <action selector="toggleFilters:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xxd-TR-OmG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1e-v5-7TL">
+                                        <rect key="frame" x="54" y="31" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="5kz-zG-Q5c"/>
+                                            <constraint firstAttribute="width" constant="40" id="UfY-Lb-1FR"/>
+                                        </constraints>
+                                        <state key="normal" image="Grid"/>
+                                        <state key="selected" image="GridSelected"/>
+                                        <state key="highlighted" image="GridSelected"/>
+                                        <connections>
+                                            <action selector="toggleGrid:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mUZ-vL-WVM"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q0L-wm-zXw">
                                         <rect key="frame" x="108" y="9" width="84" height="84"/>
                                         <constraints>
@@ -365,45 +357,34 @@
                                             <action selector="shutterRelease:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JWc-Ff-CgZ"/>
                                         </connections>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="TNj-Is-0ZE">
-                                        <rect key="frame" x="260" y="0.0" width="40" height="101.5"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gh-Cj-Bw0">
-                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="40" id="PPu-yN-UFa"/>
-                                                    <constraint firstAttribute="height" constant="40" id="zOt-dK-FSX"/>
-                                                </constraints>
-                                                <state key="normal" image="Selfie"/>
-                                                <state key="selected" image="SelfieSelected"/>
-                                                <state key="highlighted" image="SelfieSelected"/>
-                                                <connections>
-                                                    <action selector="toggleSelfie:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qs2-Jy-Y3N"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zk2-TR-6pB">
-                                                <rect key="frame" x="0.0" y="61.5" width="40" height="40"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="40" id="4tk-g8-img"/>
-                                                    <constraint firstAttribute="height" constant="40" id="HYJ-Tp-gBz"/>
-                                                </constraints>
-                                                <state key="normal" image="Adjustment"/>
-                                                <state key="selected" image="AdjustmentSelected"/>
-                                                <state key="highlighted" image="AdjustmentSelected"/>
-                                                <connections>
-                                                    <action selector="toggleAdjustments:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qXx-Uz-CwS"/>
-                                                    <segue destination="Hid-rJ-OQe" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="7RK-nT-esn"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gh-Cj-Bw0">
+                                        <rect key="frame" x="206" y="31" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="PPu-yN-UFa"/>
+                                            <constraint firstAttribute="height" constant="40" id="zOt-dK-FSX"/>
+                                        </constraints>
+                                        <state key="normal" image="Selfie"/>
+                                        <state key="selected" image="SelfieSelected"/>
+                                        <state key="highlighted" image="SelfieSelected"/>
+                                        <connections>
+                                            <action selector="toggleSelfie:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qs2-Jy-Y3N"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zk2-TR-6pB">
+                                        <rect key="frame" x="260" y="31" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="4tk-g8-img"/>
+                                            <constraint firstAttribute="height" constant="40" id="HYJ-Tp-gBz"/>
+                                        </constraints>
+                                        <state key="normal" image="Adjustment"/>
+                                        <state key="selected" image="AdjustmentSelected"/>
+                                        <state key="highlighted" image="AdjustmentSelected"/>
+                                        <connections>
+                                            <action selector="toggleAdjustments:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qXx-Uz-CwS"/>
+                                            <segue destination="Hid-rJ-OQe" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="7RK-nT-esn"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="kjI-wA-fPy" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vyY-ev-1df" secondAttribute="top" id="B30-h1-KKJ"/>
-                                    <constraint firstAttribute="bottom" secondItem="TNj-Is-0ZE" secondAttribute="bottom" id="Oc9-Sf-HJU"/>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="kjI-wA-fPy" secondAttribute="bottom" id="Tja-f4-Q9V"/>
-                                    <constraint firstItem="TNj-Is-0ZE" firstAttribute="top" secondItem="vyY-ev-1df" secondAttribute="top" id="s60-p5-Mu7"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

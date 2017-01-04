@@ -69,12 +69,12 @@ const BOOL EQUALIZE_DEFAULT = NO;
         if (!_filterName) { _filterName = @"noFilter"; }
         
         // These variables cannot be nil when you createNewFilterChain
-        if (!_brightness) { _brightness = 0.0; }
-        if (!_contrast) { _contrast = 1.0; }
-        if (!_saturation) { _saturation = 1.0; }
-        if (!_hue) { _hue = 0.0; }
-        if (!_invert) { _invert = NO; }
-        if (!_equalize) { _equalize = YES; }
+        if (!_brightness) { _brightness = BRIGHTNESS_DEFAULT; }
+        if (!_contrast) { _contrast = CONTRAST_DEFAULT; }
+        if (!_saturation) { _saturation = SATURATION_DEFAULT; }
+        if (!_hue) { _hue = HUE_DEFAULT; }
+        if (!_invert) { _invert = INVERT_DEFAULT; }
+        if (!_equalize) { _equalize = EQUALIZE_DEFAULT; }
         
         _filterChain = [self createNewFilterChain:@"noFilter" equalizationOn:_equalize];
         

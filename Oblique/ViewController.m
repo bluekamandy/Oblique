@@ -83,6 +83,17 @@
     self.revealViewController.rearViewRevealOverdraw = 0;
     self.revealViewController.frontViewShadowOpacity = 0.0;
     
+    //Constraint debugging
+    NSLog(@"imageView %p",_imageView);
+    NSLog(@"shutterReleaseButton %p",_shutterReleaseButton);
+    NSLog(@"filterButton %p",_filterButton);
+    NSLog(@"adjustmentButton %p",_adjustmentButton);
+    NSLog(@"cameraGridButton %p",_cameraGridButton);
+    NSLog(@"selfieButton %p",_selfieButton);
+    NSLog(@"flashButton %p",_flashButton);
+    NSLog(@"infoButton %p",_infoButton);
+    NSLog(@"informationField %p",_informationField);
+    
     if ( revealViewController )
     {
         [self.filterButton addTarget:self.revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
@@ -266,15 +277,16 @@
 }
 
 - (void)toggleVisibilityOfButtons {
-    self.adjustmentButton.hidden = !self.adjustmentButton.hidden;
-    self.filterButton.hidden = !self.filterButton.hidden;
-    self.shutterReleaseButton.hidden = !self.shutterReleaseButton.hidden;
-    self.selfieButton.hidden = !self.selfieButton.hidden;
-    self.cameraGridButton.hidden = !self.cameraGridButton.hidden;
+    
+    self.adjustmentButton.alpha = !self.adjustmentButton.alpha;
+    self.filterButton.alpha = !self.filterButton.alpha;
+    self.shutterReleaseButton.alpha = !self.shutterReleaseButton.alpha;
+    self.selfieButton.alpha = !self.selfieButton.alpha;
+    self.cameraGridButton.alpha = !self.cameraGridButton.alpha;
     if (!(cameraManager.stillCamera.cameraPosition == AVCaptureDevicePositionFront)) {
-        self.flashButton.hidden = !self.flashButton.hidden;
+        self.flashButton.alpha = !self.flashButton.alpha;
     }
-    self.infoButton.hidden = !self.infoButton.hidden;
+    self.infoButton.alpha = !self.infoButton.alpha;
 }
 
 #pragma mark - Touch
