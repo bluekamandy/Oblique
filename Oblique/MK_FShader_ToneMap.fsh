@@ -75,24 +75,59 @@
 // }
 // SOURCE: http://lolengine.net/blog/2013/07/27/rgb-to-hsv-in-glsl
 
+// SOURCE FOR TONE MAPPING: https://www.shadertoy.com/view/lslGzl
+
+
+precision highp float;
+
+highp float map(highp float value, highp float low1, highp float high1, highp float low2, highp float high2) {
+    return low2 + (value - low1) * (high2 - low2) / (high1 - low1);
+}
 
 varying highp vec2 textureCoordinate;
 
 uniform sampler2D inputImageTexture;
-//uniform lowp float parameter;
+uniform lowp float parameter;
 //uniform lowp float time;
-uniform highp vec2 center;
+//uniform highp vec2 center;
 
+float gamma = 2.2;
 
-lowp vec3 tonemapReinhard(lowp vec3 color) {
-    return color / (color + vec3(center.x));
+//lowp vec3 tonemapReinhard(lowp vec3 color) {
+//    return color / (color + vec3(center.x));
+//}
+//
+
+vec3 whitePreservingLumaBasedReinhardToneMapping(vec3 color)
+{
+    float white = 4.0;
+    float luma = dot(color, vec3(0.2126, 0.7152, 0.0722));
+    float toneMappedLuma = luma * (1. + luma / (white*white)) / (1. + luma);
+    color *= toneMappedLuma / luma;
+    color = pow(color, vec3(1. / gamma));
+    return color;
 }
+
+
+
+//vec3 simpleReinhardToneMapping(vec3 color)
+//{
+//    float exposure = 1.5;
+//    color *= exposure/(1. + color / exposure);
+//    color = pow(color, vec3(1. / gamma));
+//    return color;
+//}
+
+float remapped;
 
 void main()
 {
     
     lowp vec4 textureColor = texture2D(inputImageTexture, textureCoordinate);
-    
-    gl_FragColor = vec4(tonemapReinhard(textureColor.rgb), textureColor.a);
+    if (parameter > 0.0) {
+        gl_FragColor = vec4(whitePreservingLumaBasedReinhardToneMapping(textureColor.rgb), textureColor.a);
+    } else {
+        gl_FragColor = vec4(vec3(textureColor.rgb), textureColor.a);
+    }
 }
 

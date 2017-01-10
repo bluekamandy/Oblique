@@ -34,7 +34,7 @@
 
 // Reset
 + (GPUImageFilterGroup *) noFilter {
-    GPUImageFilter *filter = [[GPUImageFilter alloc] init];
+    GPUImageFilter *filter = [[MK_GPUImageCustom3Input alloc] init];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
     [(GPUImageFilterGroup *) group setInitialFilters:[NSArray arrayWithObject: filter]];
     [(GPUImageFilterGroup *) group setTerminalFilter:filter];
@@ -47,11 +47,48 @@
     
     group.useLivePreviewObj = [NSNumber numberWithBool:YES];
     group.usesTouch = [NSNumber numberWithBool:NO];
-    group.iconName = @"";
+    group.iconName = @"Polygon";
     return group;
 }
 
 // Filter Presets
+
++ (GPUImageFilterGroup *)noiseWarp {
+    MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_NoiseWarp"];
+    GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
+    [(GPUImageFilterGroup *)group setInitialFilters:[NSArray arrayWithObject:filter]];
+    [(GPUImageFilterGroup *)group setTerminalFilter:filter];
+    group.title = @"Noise Warp";
+    group.informationFormatter = ^(CGFloat xPos, CGFloat yPos, CGFloat xDistance, CGFloat yDistance, CGFloat angle) {
+        
+        NSString *string = [NSString stringWithFormat:@""];
+        return string;
+    };
+    group.useLivePreviewObj = [NSNumber numberWithBool:YES];
+    group.usesTouch = [NSNumber numberWithBool:YES];
+    group.iconName = @"Polygon";
+    return group;
+}
+
++ (GPUImageFilterGroup *)mrPerlin {
+    MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_MrPerlin"];
+    GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
+    [(GPUImageFilterGroup *)group setInitialFilters:[NSArray arrayWithObject:filter]];
+    [(GPUImageFilterGroup *)group setTerminalFilter:filter];
+    group.title = @"Mr Perlin";
+    group.informationFormatter = ^(CGFloat xPos, CGFloat yPos, CGFloat xDistance, CGFloat yDistance, CGFloat angle) {
+        
+        NSString *string = [NSString stringWithFormat:@"X: %1.2f Y: %1.2f", xPos, yPos];
+        return string;
+    };
+    group.useLivePreviewObj = [NSNumber numberWithBool:YES];
+    group.usesTouch = [NSNumber numberWithBool:YES];
+    group.iconName = @"Polygon";
+    return group;
+}
+
+
+
 + (GPUImageFilterGroup *)colorCycleFilter {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_ColorCycle"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -102,7 +139,7 @@
     group.informationFormatter = ^(CGFloat xPos, CGFloat yPos, CGFloat xDistance, CGFloat yDistance, CGFloat angle) {
         CGFloat newX = map(xPos, 0.0, 1.0, 0.0, 20.0);
         // Reversed the numbers so it makes more sense to the user
-        NSString *string = [NSString stringWithFormat:@"+%1.2f", newX];
+        NSString *string = [NSString stringWithFormat:@"X:+%1.2f", newX];
         return string;
     };
     
@@ -144,7 +181,7 @@
     group.usesTouch = [NSNumber numberWithBool:YES];
     group.iconName = @"Polygon";
     return group;
-
+    
 }
 
 + (GPUImageFilterGroup *)stretch {
@@ -161,7 +198,7 @@
     group.usesTouch = [NSNumber numberWithBool:YES];
     group.iconName = @"Polygon";
     return group;
-
+    
 }
 
 
@@ -232,6 +269,18 @@
     return group;
 }
 
++ (GPUImageFilterGroup *)overMirror {
+    MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_overMirror"];
+    GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
+    [(GPUImageFilterGroup *)group setInitialFilters:[NSArray arrayWithObject:filter]];
+    [(GPUImageFilterGroup *)group setTerminalFilter:filter];
+    group.title = @"overMirror";
+    group.useLivePreviewObj = [NSNumber numberWithBool:YES];
+    group.usesTouch = [NSNumber numberWithBool:NO];
+    group.iconName = @"Polygon";
+    return group;
+}
+
 
 + (GPUImageFilterGroup *)fourScope {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_4Scope"];
@@ -254,7 +303,7 @@
     group.title = @"4 Split";
     group.informationFormatter = ^(CGFloat xPos, CGFloat yPos, CGFloat xDistance, CGFloat yDistance, CGFloat angle) {
         CGFloat remappedX = map(xPos, 0., 1., -0.01, .5);
-        NSString *string = [NSString stringWithFormat:@"+%1.2f", remappedX];
+        NSString *string = [NSString stringWithFormat:@"X:+%1.2f", remappedX];
         return string;
     };
     
@@ -263,6 +312,19 @@
     group.iconName = @"Polygon";
     return group;
 }
+    
+//    + (GPUImageFilterGroup *)canny {
+//        GPUImageCannyEdgeDetectionFilter *filter = [[GPUImageCannyEdgeDetectionFilter alloc] init];
+//        GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
+//        [(GPUImageFilterGroup *)group setInitialFilters:[NSArray arrayWithObject:filter]];
+//        [(GPUImageFilterGroup *)group setTerminalFilter:filter];
+//        group.title = @"Canny";
+//        group.useLivePreviewObj = [NSNumber numberWithBool:YES];
+//        group.usesTouch = [NSNumber numberWithBool:NO];
+//        group.iconName = @"Polygon";
+//        return group;
+//    }
+
 
 // Image Adjustment Filters
 
@@ -383,6 +445,8 @@
     
     _filtersAvailable = [NSArray arrayWithObjects:
                          @"noFilter",
+                         @"noiseWarp",
+                         @"mrPerlin",
                          @"colorCycleFilter",
                          @"grid",
                          @"tunnel",
@@ -394,6 +458,7 @@
                          @"horizontalStripes",
                          @"verticalMirror",
                          @"horizontalMirror",
+                         @"overMirror",
                          @"fourScope",
                          @"fourSplit",
                          nil];

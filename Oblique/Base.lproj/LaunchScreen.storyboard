@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,17 +23,79 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OuR-VP-ZBd">
-                                <rect key="frame" x="145" y="563" width="84" height="84"/>
-                                <state key="normal" image="ShutterRelease"/>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ddJ-1e-gVS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="hFD-Ih-i4G"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kkA-MF-DFY">
+                                <rect key="frame" x="0.0" y="40" width="375" height="500"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="kkA-MF-DFY" secondAttribute="height" multiplier="3:4" id="aFD-oy-o4c"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4gS-td-O1t">
+                                <rect key="frame" x="10" y="540" width="355" height="127"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1w-E3-aVF">
+                                        <rect key="frame" x="0.0" y="43.5" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="1Ms-gR-w5S"/>
+                                            <constraint firstAttribute="height" constant="40" id="dXP-hJ-p6l"/>
+                                        </constraints>
+                                        <state key="normal" image="FilterList"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vf4-Hk-IZ4">
+                                        <rect key="frame" x="68" y="43.5" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="I8R-35-LN5"/>
+                                            <constraint firstAttribute="width" constant="40" id="nYm-44-EeO"/>
+                                        </constraints>
+                                        <state key="normal" image="Grid"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OuR-VP-ZBd">
+                                        <rect key="frame" x="135.5" y="21.5" width="84" height="84"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="84" id="aIy-Oc-Fgj"/>
+                                            <constraint firstAttribute="height" constant="84" id="rYJ-Dm-U8p"/>
+                                        </constraints>
+                                        <state key="normal" image="ShutterRelease"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wby-LM-20e">
+                                        <rect key="frame" x="247.5" y="43.5" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="1gY-wi-kqf"/>
+                                            <constraint firstAttribute="height" constant="40" id="O9B-gB-ocG"/>
+                                        </constraints>
+                                        <state key="normal" image="Selfie"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaZ-Cb-y0Z">
+                                        <rect key="frame" x="315" y="43.5" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="doU-hF-NAp"/>
+                                            <constraint firstAttribute="width" constant="40" id="mTu-be-phb"/>
+                                        </constraints>
+                                        <state key="normal" image="Adjustment"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="OuR-VP-ZBd" secondAttribute="bottom" constant="20" id="Gh7-9s-jN8"/>
-                            <constraint firstItem="OuR-VP-ZBd" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="mlE-wC-8q8"/>
+                            <constraint firstItem="ddJ-1e-gVS" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="83O-We-OHo"/>
+                            <constraint firstAttribute="trailing" secondItem="kkA-MF-DFY" secondAttribute="trailing" id="Apd-b0-4F2"/>
+                            <constraint firstItem="ddJ-1e-gVS" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" id="CSK-Sy-R0N"/>
+                            <constraint firstItem="4gS-td-O1t" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="10" id="Lri-x9-ypE"/>
+                            <constraint firstAttribute="trailing" secondItem="ddJ-1e-gVS" secondAttribute="trailing" id="NFL-q9-VE0"/>
+                            <constraint firstItem="kkA-MF-DFY" firstAttribute="top" secondItem="ddJ-1e-gVS" secondAttribute="bottom" id="TLF-eL-ncR"/>
+                            <constraint firstItem="4gS-td-O1t" firstAttribute="top" secondItem="kkA-MF-DFY" secondAttribute="bottom" id="YBh-oD-Wmk"/>
+                            <constraint firstItem="kkA-MF-DFY" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="b30-3P-Szc"/>
+                            <constraint firstAttribute="bottom" secondItem="4gS-td-O1t" secondAttribute="bottom" id="t36-sC-Zuw"/>
+                            <constraint firstAttribute="trailing" secondItem="4gS-td-O1t" secondAttribute="trailing" constant="10" id="yVg-l3-lai"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -39,6 +103,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Adjustment" width="29" height="32"/>
+        <image name="FilterList" width="32" height="32"/>
+        <image name="Grid" width="34" height="34"/>
+        <image name="Selfie" width="35" height="33"/>
         <image name="ShutterRelease" width="84" height="84"/>
     </resources>
 </document>
