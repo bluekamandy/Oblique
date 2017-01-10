@@ -659,6 +659,7 @@
 				INFOPLIST_FILE = Oblique/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.masoodkamandy.Oblique;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -673,6 +674,7 @@
 				INFOPLIST_FILE = Oblique/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.masoodkamandy.Oblique;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
