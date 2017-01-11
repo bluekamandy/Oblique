@@ -76,7 +76,8 @@
 @implementation ViewController
     
 - (void)viewDidLoad {
-    
+    [self.view updateConstraints];
+    [self.view layoutSubviews];
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
@@ -131,6 +132,7 @@
     cameraManager = [MK_GPUImageCameraManager sharedManager];
     
     [_imageView addSubview:[cameraManager createCameraViewWithFrame:CGRectMake(0, 0, _imageView.bounds.size.width, _imageView.bounds.size.height)]];
+    NSLog(@"self.view.bounds.size is %@", NSStringFromCGSize(self.view.bounds.size));
     NSLog(@"_imageView.bounds.size is %@", NSStringFromCGSize(_imageView.bounds.size));
     
     // Set up brightness, contrast, saturation and hue
@@ -302,8 +304,10 @@
     - (void)fullScreenCamera:(BOOL)on {
         if (on) {
             [UIView animateWithDuration:.125 delay:0 options:0 animations:^{
-                CGAffineTransform scale = CGAffineTransformMakeScale((self.view.bounds.size.height/self.imageView.layer.bounds.size.height),(self.view.bounds.size.height/self.imageView.layer.bounds.size.height));
-                CGAffineTransform translate = CGAffineTransformMakeTranslation(0, 40*(self.view.bounds.size.height/self.imageView.layer.bounds.size.height));
+                CGAffineTransform scale = CGAffineTransformMakeScale(
+                                                                     (self.view.bounds.size.height/self.imageView.bounds.size.height),
+                                                                     (self.view.bounds.size.height/self.imageView.bounds.size.height));
+                CGAffineTransform translate = CGAffineTransformMakeTranslation(0, self.view.bounds.size.height/2 - self.imageView.bounds.size.height/2 - 40);
                 self.imageView.layer.affineTransform = CGAffineTransformConcat(scale, translate);
                 NSLog(@"%f", self.imageView.frame.origin.y);
             } completion:nil ];
