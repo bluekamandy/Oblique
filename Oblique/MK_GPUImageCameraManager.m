@@ -141,13 +141,13 @@ const float TINT_DEFAULT = 0.0;
             [self.stillCamera capturePhotoAsImageProcessedUpToFilter:self.filterChain withCompletionHandler:^(UIImage *processedImage, NSError *error) {
                 
                 // Uncomment to do JPEG files.
-                // NSData *dataForJPEGFile = UIImageJPEGRepresentation(processedImage, 1.0);
-                // UIImageWriteToSavedPhotosAlbum([UIImage imageWithData:dataForJPGFile], nil, nil, nil);
+                 NSData *dataForJPEGFile = UIImageJPEGRepresentation(processedImage, 1.0);
+                 UIImageWriteToSavedPhotosAlbum([UIImage imageWithData:dataForJPEGFile], nil, nil, nil);
                 
                 // Uncomment to do PNG files. (Much slower, loss-less.)
-                NSData *dataForPNGFile = UIImagePNGRepresentation(processedImage);
-                UIImageWriteToSavedPhotosAlbum([UIImage imageWithData:dataForPNGFile], nil, nil, nil);
-                return ;
+//                NSData *dataForPNGFile = UIImagePNGRepresentation(processedImage);
+//                UIImageWriteToSavedPhotosAlbum([UIImage imageWithData:dataForPNGFile], nil, nil, nil);
+                return;
             }];
         }
     }
