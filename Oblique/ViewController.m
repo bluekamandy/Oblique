@@ -146,6 +146,7 @@
     
     [cameraManager captureImage];
     
+    // Kind of a hack. I wish I could just queue up the shutter releases, but it doesn't seem like I can do that. I'll have to learn more about multi-threading and semaphors to really understand what's going on.
     self.shutterReleaseButton.enabled = NO;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         self.shutterReleaseButton.enabled = YES;
