@@ -27,6 +27,8 @@
 #import "MK_Shader.h"
 #import "MK_ShaderGroup.h"
 #import "MK_GPUImageCustom3Input.h"
+#import <AssetsLibrary/AssetsLibrary.h>
+#import "GPUImageContext.h"
 
 const BOOL TONEMAP_DEFAULT = NO;
 const float BRIGHTNESS_DEFAULT = 0.0;
@@ -39,20 +41,21 @@ const float TEMPERATURE_DEFAULT = 5000;
 const float TINT_DEFAULT = 0.0;
 
 @interface MK_GPUImageCameraManager ()
-    
-    {
-        MK_Shader *shaderDatabase;
-        CGPoint touchChanges;
-        CGFloat touchXPos;
-        CGFloat touchYPos;
-    }
-    
-    @end
+
+{
+    MK_Shader *shaderDatabase;
+    CGPoint touchChanges;
+    CGFloat touchXPos;
+    CGFloat touchYPos;
+    dispatch_queue_t sharedContextQueue;
+}
+
+@end
 
 @implementation MK_GPUImageCameraManager
-    
+
 #pragma mark Singleton Initialization
-    
+
 + (id)sharedManager {
     static dispatch_once_t onceToken;
     static MK_GPUImageCameraManager *sharedCameraManager;
@@ -61,16 +64,18 @@ const float TINT_DEFAULT = 0.0;
     });
     return sharedCameraManager;
 }
-    
+
 - (id)init {
     if ( self = [super init] ) {
         
+        sharedContextQueue = [GPUImageContext sharedContextQueue];
+        
         BOOL isFront = NO;
         
-        _stillCamera = [[GPUImageStillCamera alloc] initWithSessionPreset:AVCaptureSessionPresetPhoto cameraPosition:isFront?AVCaptureDevicePositionFront:AVCaptureDevicePositionBack];
-        _stillCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
-        _stillCamera.horizontallyMirrorFrontFacingCamera = YES;
-        _stillCamera.horizontallyMirrorRearFacingCamera = NO;
+        self.stillCamera = [[GPUImageStillCamera alloc] initWithSessionPreset:AVCaptureSessionPresetPhoto cameraPosition:isFront?AVCaptureDevicePositionFront:AVCaptureDevicePositionBack];
+        self.stillCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
+        self.stillCamera.horizontallyMirrorFrontFacingCamera = YES;
+        self.stillCamera.horizontallyMirrorRearFacingCamera = NO;
         
         if (!_filterName) { _filterName = @"noFilter"; }
         
@@ -89,31 +94,31 @@ const float TINT_DEFAULT = 0.0;
         
         _filterChain = [self createNewFilterChain:@"noFilter" equalizationOn:_equalize];
         
-        [_stillCamera addTarget:_filterChain];
+        [self.stillCamera addTarget:_filterChain];
         
-        [_stillCamera startCameraCapture];
+        [self.stillCamera startCameraCapture];
         
     }
     return self;
 }
-    
-    
+
+
 -(void)pauseCamera{
     
-    [_stillCamera pauseCameraCapture];
+    [self.stillCamera pauseCameraCapture];
     
 }
-    
+
 -(void)resumeCamera{
     
     if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive) {
         
-        [_stillCamera resumeCameraCapture];
+        [self.stillCamera resumeCameraCapture];
         
     }
     
 }
-    
+
 -(GPUImageView*)createCameraViewWithFrame:(CGRect)frame{
     
     self.stillCameraPreview = [[GPUImageView alloc] initWithFrame:frame];
@@ -124,7 +129,7 @@ const float TINT_DEFAULT = 0.0;
     
     return self.stillCameraPreview;
 }
-    
+
 -(void)removeCameraView:(GPUImageView *)cameraView{
     
     ///// What?
@@ -132,28 +137,90 @@ const float TINT_DEFAULT = 0.0;
     [self.filterChain removeTarget:cameraView];
     
 }
-    
+
 #pragma mark - Camera Manipulation
-    
+
 - (void)captureImage
-    {
-        if (self.filterChain) {
-            [self.stillCamera capturePhotoAsImageProcessedUpToFilter:self.filterChain withCompletionHandler:^(UIImage *processedImage, NSError *error) {
-                
+{
+    // Trying to use semaphor to prevent camera from seizing up.
+    //        dispatch_semaphore_t sema = dispatch_semaphore_create(0);
+    //
+    //        [self.stillCamera capturePhotoAsImageProcessedUpToFilter:self.filterChain withCompletionHandler:^(UIImage *processedImage, NSError *error) {
+    //
+    //            // Uncomment to do JPEG files.
+    //            NSData *dataForJPEGFile = UIImageJPEGRepresentation(processedImage, 1.0);
+    //            UIImageWriteToSavedPhotosAlbum([UIImage imageWithData:dataForJPEGFile], nil, nil, nil);
+    //
+    //            // Uncomment to do PNG files. (Much slower, loss-less.)
+    //            //                NSData *dataForPNGFile = UIImagePNGRepresentation(processedImage);
+    //            //                UIImageWriteToSavedPhotosAlbum([UIImage imageWithData:dataForPNGFile], nil, nil, nil);
+    //            dispatch_semaphore_signal(sema);
+    //            dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
+    //
+    //            return;
+    //        }];
+    //        }
+    //
+    
+    
+    if (self.filterChain) {
+        //        [self.stillCamera pauseCameraCapture];
+            [self.stillCamera capturePhotoAsImageProcessedUpToFilter:self.filterChain.terminalFilter withCompletionHandler:^(UIImage *processedImage, NSError *error) {
+                //            [self.stillCamera pauseCameraCapture];
                 // Uncomment to do JPEG files.
-                 NSData *dataForJPEGFile = UIImageJPEGRepresentation(processedImage, 1.0);
-                 UIImageWriteToSavedPhotosAlbum([UIImage imageWithData:dataForJPEGFile], nil, nil, nil);
+                
+                NSData *dataForJPEGFile = UIImageJPEGRepresentation(processedImage, 0.8);
+                UIImageWriteToSavedPhotosAlbum([UIImage imageWithData:dataForJPEGFile], nil, nil, nil);
+                
+//                UIImageWriteToSavedPhotosAlbum(processedImage, self, nil, nil);
                 
                 // Uncomment to do PNG files. (Much slower, loss-less.)
-//                NSData *dataForPNGFile = UIImagePNGRepresentation(processedImage);
-//                UIImageWriteToSavedPhotosAlbum([UIImage imageWithData:dataForPNGFile], nil, nil, nil);
+                //                NSData *dataForPNGFile = UIImagePNGRepresentation(processedImage);
+                //                UIImageWriteToSavedPhotosAlbum([UIImage imageWithData:dataForPNGFile], nil, nil, nil);
+                //            [self.stillCamera resumeCameraCapture];
+                
                 return;
             }];
-        }
     }
     
     
     
+}
+
+// Trying to discard the NSData portion.
+//        if (self.filterChain) {
+//            [_stillCamera capturePhotoAsImageProcessedUpToFilter:self.filterChain withCompletionHandler:^(UIImage *processedImage, NSError *error) {
+//                ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+//                [library writeImageToSavedPhotosAlbum:processedImage.CGImage
+//                                             metadata:nil
+//                                      completionBlock:^(NSURL *assetURL, NSError *error){
+//                                          if (!error) {
+//                                              NSLog(@"success");
+//                                          } else {
+//                                              NSLog(@"failed");
+//                                          }
+//                                      }
+//                 ];
+//            }];
+//        }
+
+//        [self.stillCamera pauseCameraCapture];
+//        __weak typeof(self)weakSelf = self;
+//        [self.stillCamera capturePhotoAsImageProcessedUpToFilter:self.stillCamera.targets.lastObject
+//                                      withCompletionHandler:^(UIImage *processedImage, NSError *error)
+//         {
+//             UIImageWriteToSavedPhotosAlbum(processedImage, nil, nil, nil);
+//             [weakSelf.stillCamera resumeCameraCapture];
+//         }];
+
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+    if([self respondsToSelector: @selector(saveComplete)]) {
+        [self performSelector:@selector(saveComplete)];
+    }
+}
+
+
 -(GPUImageFilterGroup *)createNewFilterChain:(NSString *)filterName {
     
     GPUImageFilterGroup *newFilterChain = [[GPUImageFilterGroup alloc] init];
@@ -204,7 +271,7 @@ const float TINT_DEFAULT = 0.0;
     
     return newFilterChain;
 }
-    
+
 -(GPUImageFilterGroup *)createNewFilterChain:(NSString *)filterName equalizationOn:(BOOL)equal {
     
     GPUImageFilterGroup *newFilterChain;
@@ -266,27 +333,27 @@ const float TINT_DEFAULT = 0.0;
     
     return newFilterChain;
 }
-    
-    
+
+
 - (void)changeToFilter:(NSString *)filterName
-    {
-        if (self.filterChain) {
-            [self.stillCamera removeTarget:self.filterChain];
-            self.filterChain = nil;
-            NSLog(@"Removing target self.filterChain");
-            NSLog (@"%@", self.filterChain.targets);
-        }
-        self.filterChain = [self createNewFilterChain:filterName equalizationOn:self.equalize];
-        NSLog(@"%@", self.filterChain);
-        
-        [self.stillCamera addTarget:self.filterChain];
-        [self.filterChain addTarget:self.stillCameraPreview];
-        [self.stillCamera startCameraCapture];
-        
-        
-        NSLog(@"Selected filter is %@", self.mainFilter.title);
+{
+    if (self.filterChain) {
+        [self.stillCamera removeTarget:self.filterChain];
+        self.filterChain = nil;
+        NSLog(@"Removing target self.filterChain");
+        NSLog (@"%@", self.filterChain.targets);
     }
+    self.filterChain = [self createNewFilterChain:filterName equalizationOn:self.equalize];
+    NSLog(@"%@", self.filterChain);
     
+    [self.stillCamera addTarget:self.filterChain];
+    [self.filterChain addTarget:self.stillCameraPreview];
+    [self.stillCamera startCameraCapture];
+    
+    
+    NSLog(@"Selected filter is %@", self.mainFilter.title);
+}
+
 - (void)resetAdjustmentsToDefaults {
     self.toneMapValue = TONEMAP_DEFAULT;
     self.brightness = BRIGHTNESS_DEFAULT;
@@ -298,23 +365,23 @@ const float TINT_DEFAULT = 0.0;
     self.temperature = TEMPERATURE_DEFAULT;
     self.tint = TINT_DEFAULT;
 }
-    
-    // Information field is entirely formated here.
-    
+
+// Information field is entirely formated here.
+
 - (NSString *)changeFilterParameterUsingXPos:(CGFloat)xPos yPos:(CGFloat)yPos xDistance:(CGFloat)xDistance yDistance:(CGFloat)yDistance angle:(CGFloat)angle
-    {
-        NSString *informationField;
-        touchXPos = xPos;
-        touchYPos = yPos;
-        if (self.mainFilter.usesTouch == [NSNumber numberWithBool:NO]){
-            informationField = nil;
-        } else {
-            [self updateTouch];
-            informationField = self.mainFilter.informationFormatter(xPos, yPos, xDistance, yDistance, angle);
-        }
-        return informationField;
+{
+    NSString *informationField;
+    touchXPos = xPos;
+    touchYPos = yPos;
+    if (self.mainFilter.usesTouch == [NSNumber numberWithBool:NO]){
+        informationField = nil;
+    } else {
+        [self updateTouch];
+        informationField = self.mainFilter.informationFormatter(xPos, yPos, xDistance, yDistance, angle);
     }
-    
+    return informationField;
+}
+
 - (void)updateTouch {
     
     MK_GPUImageCustom3Input *myFilterToChange = (MK_GPUImageCustom3Input *)self.mainFilter.terminalFilter;
@@ -326,9 +393,9 @@ const float TINT_DEFAULT = 0.0;
     myFilterToChange.center = touchChanges;
     
 }
-    
+
 #pragma mark - Setters for Brightness, Contrast, Saturation and Hue
-  
+
 - (void)setToneMapValue:(BOOL)toneMapValue {
     _toneMapValue = toneMapValue;
     if (toneMapValue) {
@@ -336,39 +403,39 @@ const float TINT_DEFAULT = 0.0;
     } else {
         self.toneMap.parameter = 0.0;
     }
-
-}
     
+}
+
 - (void)setBrightness:(float)brightness {
     _brightness = brightness;
     self.brightnessFilter.brightness = brightness;
 }
-    
+
 - (void)setContrast:(float)contrast {
     _contrast = contrast;
     self.contrastFilter.contrast = contrast;
 }
-    
+
 - (void)setSaturation:(float)saturation {
     _saturation = saturation;
     self.saturationFilter.saturation = saturation;
 }
-    
+
 - (void)setHue:(float)hue {
     _hue = hue;
     self.hueFilter.hue = hue;
 }
-    
-    -(void)setTemperature:(float)temperature {
-        _temperature = temperature;
-        self.temperatureFilter.temperature = temperature;
-    }
-    
-    -(void)setTint:(float)tint {
-        _tint = tint;
-        self.temperatureFilter.tint = tint;
-    }
-    
+
+-(void)setTemperature:(float)temperature {
+    _temperature = temperature;
+    self.temperatureFilter.temperature = temperature;
+}
+
+-(void)setTint:(float)tint {
+    _tint = tint;
+    self.temperatureFilter.tint = tint;
+}
+
 - (void)setInvert:(BOOL)invert {
     _invert = invert;
     MK_GPUImageCustom3Input *invertSet = (MK_GPUImageCustom3Input *)self.invertFilter.terminalFilter;
@@ -378,25 +445,25 @@ const float TINT_DEFAULT = 0.0;
         invertSet.parameter = 0.0;
     }
 }
-    
+
 - (void)setEqualize:(BOOL)equalize {
     _equalize = equalize;
     [self changeToFilter:self.filterName];
 }
-    
-    
+
+
 - (void)turnFlashOn {
     [self.stillCamera.inputCamera lockForConfiguration:nil];
     [self.stillCamera.inputCamera setFlashMode:AVCaptureFlashModeOn];
     [self.stillCamera.inputCamera unlockForConfiguration];
 }
-    
+
 - (void)turnFlashOff {
     [self.stillCamera.inputCamera lockForConfiguration:nil];
     [self.stillCamera.inputCamera setFlashMode:AVCaptureFlashModeOff];
     [self.stillCamera.inputCamera unlockForConfiguration];
 }
-    
+
 - (void)toggleSelfieCamera {
     [self pauseCamera];
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
@@ -407,9 +474,9 @@ const float TINT_DEFAULT = 0.0;
     [self resumeCamera];
     
 }
-    
+
 - (void)dealloc {
     // Should never be called, but just here for clarity really.
 }
-    
-    @end
+
+@end

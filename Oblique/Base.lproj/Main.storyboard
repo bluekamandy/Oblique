@@ -438,6 +438,7 @@
                                             <constraint firstAttribute="height" constant="84" id="WKq-4q-jpq"/>
                                         </constraints>
                                         <state key="normal" image="ShutterRelease"/>
+                                        <state key="disabled" image="ShutterReleaseSelected"/>
                                         <state key="selected" image="ShutterRelease"/>
                                         <state key="highlighted" image="ShutterReleaseSelected"/>
                                         <state key="focused" image="ShutterReleaseSelected"/>

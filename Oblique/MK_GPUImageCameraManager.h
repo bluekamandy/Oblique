@@ -38,7 +38,7 @@ extern const float TEMPERATURE_DEFAULT;
 extern const float TINT_DEFAULT;
 
 @interface MK_GPUImageCameraManager : NSObject
-    
+
     @property (nonatomic) GPUImageStillCamera *stillCamera;
     @property (nonatomic) GPUImageView *stillCameraPreview;
     @property (nonatomic) GPUImageFilterGroup *mainFilter;
