@@ -214,11 +214,11 @@ const float TINT_DEFAULT = 0.0;
 //         }];
 
 
-- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
-    if([self respondsToSelector: @selector(saveComplete)]) {
-        [self performSelector:@selector(saveComplete)];
-    }
-}
+//- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+//    if([self respondsToSelector: @selector(saveComplete)]) {
+//        [self performSelector:@selector(saveComplete)];
+//    }
+//}
 
 
 -(GPUImageFilterGroup *)createNewFilterChain:(NSString *)filterName {

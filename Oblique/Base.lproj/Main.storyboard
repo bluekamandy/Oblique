@@ -97,26 +97,20 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="167" height="58"/>
                                                 <subviews>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2cO-2V-S3Y">
-                                                        <rect key="frame" x="59" y="0.0" width="51" height="46"/>
+                                                        <rect key="frame" x="59" y="0.0" width="51" height="39"/>
                                                         <color key="onTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <connections>
                                                             <action selector="equalizeSwitchChanged:" destination="Hid-rJ-OQe" eventType="valueChanged" id="cHc-Og-ddY"/>
                                                         </connections>
                                                     </switch>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="soN-Vj-BKl">
-                                                        <rect key="frame" x="58.666666666666664" y="46" width="49.666666666666679" height="12"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EQUALIZE" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="soN-Vj-BKl" customClass="MK_LabelWithInsets">
+                                                        <rect key="frame" x="58" y="39" width="51.333333333333343" height="19"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="12" id="2lX-sM-2gw"/>
+                                                            <constraint firstAttribute="height" constant="19" id="RIf-bM-S3r"/>
                                                         </constraints>
-                                                        <attributedString key="attributedText">
-                                                            <fragment content="EQUALIZE">
-                                                                <attributes>
-                                                                    <font key="NSFont" metaFont="system" size="10"/>
-                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                </attributes>
-                                                            </fragment>
-                                                        </attributedString>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
+                                                        <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -125,26 +119,20 @@
                                                 <rect key="frame" x="167" y="0.0" width="167" height="58"/>
                                                 <subviews>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="64O-4J-BNn">
-                                                        <rect key="frame" x="59" y="0.0" width="51" height="46"/>
+                                                        <rect key="frame" x="59" y="0.0" width="51" height="39"/>
                                                         <color key="onTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <connections>
                                                             <action selector="toneMapSwitchChanged:" destination="Hid-rJ-OQe" eventType="valueChanged" id="w3U-uv-y3v"/>
                                                         </connections>
                                                     </switch>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofn-6P-mxK">
-                                                        <rect key="frame" x="58.666666666666686" y="46" width="50" height="12"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TONEMAP" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofn-6P-mxK" customClass="MK_LabelWithInsets">
+                                                        <rect key="frame" x="58" y="39" width="51.333333333333314" height="19"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="12" id="7iK-Oi-sY6"/>
+                                                            <constraint firstAttribute="height" constant="19" id="REc-b7-5Dm"/>
                                                         </constraints>
-                                                        <attributedString key="attributedText">
-                                                            <fragment content="TONEMAP">
-                                                                <attributes>
-                                                                    <font key="NSFont" metaFont="system" size="10"/>
-                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                </attributes>
-                                                            </fragment>
-                                                        </attributedString>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
+                                                        <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -158,13 +146,16 @@
                                         <rect key="frame" x="-2" y="76.333333333333343" width="338" height="31.000000000000014"/>
                                         <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
+                                            <action selector="brightnessDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpInside" id="bBH-Yh-Wtx"/>
+                                            <action selector="brightnessDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpOutside" id="ov8-m6-vjG"/>
+                                            <action selector="brightnessDidStartDragging:" destination="Hid-rJ-OQe" eventType="touchDown" id="v4a-IN-XX1"/>
                                             <action selector="brightnessSliderChanged:" destination="Hid-rJ-OQe" eventType="valueChanged" id="5Ls-Uh-E5D"/>
                                         </connections>
                                     </slider>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BRIGHTNESS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dig-3k-EA6">
-                                        <rect key="frame" x="134.33333333333337" y="124.33333333333334" width="65.666666666666657" height="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BRIGHTNESS" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dig-3k-EA6" customClass="MK_LabelWithInsets">
+                                        <rect key="frame" x="133.66666666666666" y="124.33333333333334" width="66.666666666666686" height="12"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -172,13 +163,16 @@
                                         <rect key="frame" x="-2" y="154.66666666666666" width="338" height="31"/>
                                         <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
+                                            <action selector="contrastDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpOutside" id="X06-xh-2qd"/>
+                                            <action selector="contrastDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpInside" id="n6R-Xj-sBo"/>
+                                            <action selector="contrastDidStartDragging:" destination="Hid-rJ-OQe" eventType="touchDown" id="OiM-lo-pdV"/>
                                             <action selector="contrastSliderChanged:" destination="Hid-rJ-OQe" eventType="valueChanged" id="sIZ-1n-Esd"/>
                                         </connections>
                                     </slider>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONTRAST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APv-yN-9dd">
-                                        <rect key="frame" x="138.66666666666666" y="202.66666666666666" width="56.666666666666686" height="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONTRAST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APv-yN-9dd" customClass="MK_LabelWithInsets">
+                                        <rect key="frame" x="138.33333333333334" y="202.66666666666666" width="57.333333333333314" height="12"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -186,13 +180,16 @@
                                         <rect key="frame" x="-2" y="233" width="338" height="31"/>
                                         <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
+                                            <action selector="temparatureDidStartDragging:" destination="Hid-rJ-OQe" eventType="touchDown" id="2yK-gr-NF8"/>
                                             <action selector="temperatureSliderChanged:" destination="Hid-rJ-OQe" eventType="valueChanged" id="YFD-vj-YFI"/>
+                                            <action selector="tempratureDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpOutside" id="k7S-UR-HbG"/>
+                                            <action selector="tempratureDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpInside" id="sg5-o3-aEB"/>
                                         </connections>
                                     </slider>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEMPERATURE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y88-Vp-8tB">
-                                        <rect key="frame" x="129.66666666666666" y="281.33333333333331" width="75" height="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEMPERATURE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y88-Vp-8tB" customClass="MK_LabelWithInsets">
+                                        <rect key="frame" x="129" y="281.33333333333331" width="76" height="12"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -200,13 +197,16 @@
                                         <rect key="frame" x="-2" y="311.33333333333331" width="338" height="31"/>
                                         <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
+                                            <action selector="tintDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpInside" id="8yB-PE-xBA"/>
+                                            <action selector="tintDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpOutside" id="pxn-2I-moX"/>
+                                            <action selector="tintDidStartDragging:" destination="Hid-rJ-OQe" eventType="touchDown" id="Jgh-Cj-zqd"/>
                                             <action selector="tintSliderChanged:" destination="Hid-rJ-OQe" eventType="valueChanged" id="OZX-6m-TPT"/>
                                         </connections>
                                     </slider>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TINT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNr-50-W2w">
-                                        <rect key="frame" x="155" y="359.66666666666669" width="24" height="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TINT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNr-50-W2w" customClass="MK_LabelWithInsets">
+                                        <rect key="frame" x="155" y="359.66666666666669" width="24.333333333333343" height="12"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -214,13 +214,16 @@
                                         <rect key="frame" x="-2" y="389.66666666666669" width="338" height="31"/>
                                         <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
+                                            <action selector="saturationDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpOutside" id="ear-5m-SRa"/>
+                                            <action selector="saturationDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpInside" id="i65-ZK-vEp"/>
+                                            <action selector="saturationDidStartDragging:" destination="Hid-rJ-OQe" eventType="touchDown" id="bUn-aB-DDF"/>
                                             <action selector="saturationSliderChanged:" destination="Hid-rJ-OQe" eventType="valueChanged" id="cR9-Jx-xqF"/>
                                         </connections>
                                     </slider>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SATURATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6l4-M9-IRf">
-                                        <rect key="frame" x="134.33333333333334" y="438" width="65.333333333333314" height="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SATURATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6l4-M9-IRf" customClass="MK_LabelWithInsets">
+                                        <rect key="frame" x="134" y="438" width="66.333333333333343" height="12"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -228,13 +231,16 @@
                                         <rect key="frame" x="-2" y="468.33333333333337" width="338" height="31.000000000000057"/>
                                         <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
+                                            <action selector="hueDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpOutside" id="3uV-ed-3Wa"/>
+                                            <action selector="hueDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpInside" id="XDF-oQ-c8G"/>
+                                            <action selector="hueDidStartDragging:" destination="Hid-rJ-OQe" eventType="touchDown" id="raU-HO-j7H"/>
                                             <action selector="hueSliderChanged:" destination="Hid-rJ-OQe" eventType="valueChanged" id="IUt-ho-2jT"/>
                                         </connections>
                                     </slider>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HUE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BuB-JI-5hB">
-                                        <rect key="frame" x="156.33333333333337" y="516.33333333333337" width="21.666666666666657" height="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HUE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BuB-JI-5hB" customClass="MK_LabelWithInsets">
+                                        <rect key="frame" x="156" y="516.33333333333337" width="22" height="12"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -245,10 +251,10 @@
                                             <action selector="invertSwitchChanged:" destination="Hid-rJ-OQe" eventType="valueChanged" id="l6S-ej-pg0"/>
                                         </connections>
                                     </switch>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INVERT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jo4-Ld-2hR">
-                                        <rect key="frame" x="148.33333333333334" y="595.66666666666663" width="37.333333333333314" height="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INVERT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jo4-Ld-2hR" customClass="MK_LabelWithInsets">
+                                        <rect key="frame" x="148" y="595.66666666666663" width="38" height="12"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -323,14 +329,19 @@
                         <outlet property="colorTemperatureSlider" destination="yzU-zb-JYo" id="nkT-eR-941"/>
                         <outlet property="contrastLabel" destination="APv-yN-9dd" id="Y2y-TN-nNn"/>
                         <outlet property="contrastSlider" destination="Ht9-cE-9Wy" id="aH9-0Y-NoI"/>
+                        <outlet property="equalizeLabel" destination="soN-Vj-BKl" id="gSm-pG-vDu"/>
                         <outlet property="equalizeSwitch" destination="2cO-2V-S3Y" id="sLa-lv-49h"/>
+                        <outlet property="exitButton" destination="xNd-pM-tY6" id="iFJ-sc-eg6"/>
                         <outlet property="hueLabel" destination="BuB-JI-5hB" id="jkh-UQ-x6j"/>
                         <outlet property="hueSlider" destination="ZNP-0l-Kss" id="JfY-cn-get"/>
+                        <outlet property="invertLabel" destination="jo4-Ld-2hR" id="nqT-aW-jHj"/>
                         <outlet property="invertSwitch" destination="J5V-I4-UiK" id="POR-ct-eAy"/>
+                        <outlet property="resetButton" destination="Ciy-XH-Ygk" id="Ga3-UH-w0F"/>
                         <outlet property="saturationLabel" destination="6l4-M9-IRf" id="d8b-Wk-Luy"/>
                         <outlet property="saturationSlider" destination="Y9m-cL-WHc" id="c3R-LF-S7b"/>
                         <outlet property="tintLabel" destination="lNr-50-W2w" id="GuC-8P-NIf"/>
                         <outlet property="tintSlider" destination="K7R-9L-kGJ" id="qRs-Yi-tXU"/>
+                        <outlet property="toneMapLabel" destination="ofn-6P-mxK" id="6rD-TN-aYw"/>
                         <outlet property="toneMapSwitch" destination="64O-4J-BNn" id="Slw-9J-nVO"/>
                     </connections>
                 </viewController>
@@ -557,7 +568,7 @@ Made with </string>
                                                     </attributes>
                                                 </fragment>
                                                 <fragment>
-                                                    <mutableString key="content"> by artist
+                                                    <string key="content"> by artist
 Masood Kamandy for his exhibition
 Equation for an Apple
 at Luis De Jesus Los Angeles.
@@ -603,7 +614,7 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-Early code inspired on a similar class by Philip Kluz (Philip.Kluz@zuui.org)</mutableString>
+Early code inspired on a similar class by Philip Kluz (Philip.Kluz@zuui.org)</string>
                                                     <attributes>
                                                         <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <font key="NSFont" size="14" name=".SFNSText"/>
@@ -673,6 +684,6 @@ Early code inspired on a similar class by Philip Kluz (Philip.Kluz@zuui.org)</mu
         <image name="ShutterReleaseSelected" width="84" height="84"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kXO-ft-9VJ"/>
+        <segue reference="Fz4-34-M7I"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -22,6 +22,7 @@
 		A59D95101E16F8A500049C5D /* MK_PausableTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D950F1E16F8A500049C5D /* MK_PausableTimer.m */; };
 		A59D95131E16FA5700049C5D /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D95121E16FA5700049C5D /* Common.m */; };
 		A59F9B061E18879B0020CC87 /* MK_DismissInfoSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = A59F9B051E18879B0020CC87 /* MK_DismissInfoSegue.m */; };
+		A5A598601E2EEC28009E72BE /* MK_LabelWithInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A5985F1E2EEC28009E72BE /* MK_LabelWithInsets.m */; };
 		A5AA38501E1819080056A532 /* MK_DismissSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AA384F1E1819080056A532 /* MK_DismissSegue.m */; };
 		A5ACC7171E17015E0014795F /* MK_FShader_Brightness.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7111E17015E0014795F /* MK_FShader_Brightness.fsh */; };
 		A5ACC7181E17015E0014795F /* MK_FShader_Contrast.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5ACC7121E17015E0014795F /* MK_FShader_Contrast.fsh */; };
@@ -89,6 +90,8 @@
 		A59D95121E16FA5700049C5D /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 		A59F9B041E1887900020CC87 /* MK_DismissInfoSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MK_DismissInfoSegue.h; sourceTree = "<group>"; };
 		A59F9B051E18879B0020CC87 /* MK_DismissInfoSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MK_DismissInfoSegue.m; sourceTree = "<group>"; };
+		A5A5985E1E2EEC28009E72BE /* MK_LabelWithInsets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MK_LabelWithInsets.h; sourceTree = "<group>"; };
+		A5A5985F1E2EEC28009E72BE /* MK_LabelWithInsets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MK_LabelWithInsets.m; sourceTree = "<group>"; };
 		A5AA384E1E1819080056A532 /* MK_DismissSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MK_DismissSegue.h; sourceTree = "<group>"; };
 		A5AA384F1E1819080056A532 /* MK_DismissSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MK_DismissSegue.m; sourceTree = "<group>"; };
 		A5ACC7111E17015E0014795F /* MK_FShader_Brightness.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_Brightness.fsh; sourceTree = "<group>"; };
@@ -160,6 +163,8 @@
 			children = (
 				A58D18B11E19B13A00EB8C49 /* MK_AdjustmentViewController.h */,
 				A58D18B21E19B13A00EB8C49 /* MK_AdjustmentViewController.m */,
+				A5A5985E1E2EEC28009E72BE /* MK_LabelWithInsets.h */,
+				A5A5985F1E2EEC28009E72BE /* MK_LabelWithInsets.m */,
 			);
 			name = "Adjustment Menu";
 			sourceTree = "<group>";
@@ -534,6 +539,7 @@
 				A59D95131E16FA5700049C5D /* Common.m in Sources */,
 				A59D95051E16ED8F00049C5D /* MK_ShaderGroup.m in Sources */,
 				A58D18B31E19B13A00EB8C49 /* MK_AdjustmentViewController.m in Sources */,
+				A5A598601E2EEC28009E72BE /* MK_LabelWithInsets.m in Sources */,
 				A59F9B061E18879B0020CC87 /* MK_DismissInfoSegue.m in Sources */,
 				A560E30D1E1D7A5900F1ED4E /* MK_GPUImageStillCamera.m in Sources */,
 				A5C6C9D81E15D39800364421 /* main.m in Sources */,
