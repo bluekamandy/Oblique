@@ -326,7 +326,7 @@
 //    }
 
 
-// Image Adjustment Filters
+// Image Adjustment Filters (NOT CURRENTLY USED)
 
 + (GPUImageFilterGroup *)brightness {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_Brightness"];
@@ -445,22 +445,24 @@
     
     _filtersAvailable = [NSArray arrayWithObjects:
                          @"noFilter",
-                         @"noiseWarp",
-                         @"mrPerlin",
-                         @"colorCycleFilter",
-                         @"grid",
-                         @"tunnel",
-                         @"waves",
-                         @"shear",
-                         @"stretch",
-                         @"polarStripes",
+                         // Non-Touch
+                         @"horizontalMirror",
+                         @"verticalMirror",
+                         @"fourScope",
+                         @"overMirror",
                          @"verticalStripes",
                          @"horizontalStripes",
-                         @"verticalMirror",
-                         @"horizontalMirror",
-                         @"overMirror",
-                         @"fourScope",
+                         @"polarStripes",
+                         // Touch
+                         @"grid",
+                         @"stretch",
+                         @"shear",
+                         @"waves",
+                         @"tunnel",
                          @"fourSplit",
+                         @"colorCycleFilter",
+                         @"mrPerlin",
+                         @"noiseWarp",
                          nil];
     
     _adjustmentsAvailable = [NSArray arrayWithObjects:
