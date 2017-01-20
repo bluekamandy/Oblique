@@ -132,8 +132,6 @@ const float TINT_DEFAULT = 0.0;
 
 -(void)removeCameraView:(GPUImageView *)cameraView{
     
-    ///// What?
-    
     [self.filterChain removeTarget:cameraView];
     
 }
@@ -142,83 +140,16 @@ const float TINT_DEFAULT = 0.0;
 
 - (void)captureImage
 {
-    // Trying to use semaphor to prevent camera from seizing up.
-    //        dispatch_semaphore_t sema = dispatch_semaphore_create(0);
-    //
-    //        [self.stillCamera capturePhotoAsImageProcessedUpToFilter:self.filterChain withCompletionHandler:^(UIImage *processedImage, NSError *error) {
-    //
-    //            // Uncomment to do JPEG files.
-    //            NSData *dataForJPEGFile = UIImageJPEGRepresentation(processedImage, 1.0);
-    //            UIImageWriteToSavedPhotosAlbum([UIImage imageWithData:dataForJPEGFile], nil, nil, nil);
-    //
-    //            // Uncomment to do PNG files. (Much slower, loss-less.)
-    //            //                NSData *dataForPNGFile = UIImagePNGRepresentation(processedImage);
-    //            //                UIImageWriteToSavedPhotosAlbum([UIImage imageWithData:dataForPNGFile], nil, nil, nil);
-    //            dispatch_semaphore_signal(sema);
-    //            dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
-    //
-    //            return;
-    //        }];
-    //        }
-    //
-    
-    
     if (self.filterChain) {
-        //        [self.stillCamera pauseCameraCapture];
-            [self.stillCamera capturePhotoAsImageProcessedUpToFilter:self.filterChain.terminalFilter withCompletionHandler:^(UIImage *processedImage, NSError *error) {
-                //            [self.stillCamera pauseCameraCapture];
-                // Uncomment to do JPEG files.
-                
-                NSData *dataForJPEGFile = UIImageJPEGRepresentation(processedImage, 0.8);
-                UIImageWriteToSavedPhotosAlbum([UIImage imageWithData:dataForJPEGFile], nil, nil, nil);
-                
-//                UIImageWriteToSavedPhotosAlbum(processedImage, self, nil, nil);
-                
-                // Uncomment to do PNG files. (Much slower, loss-less.)
-                //                NSData *dataForPNGFile = UIImagePNGRepresentation(processedImage);
-                //                UIImageWriteToSavedPhotosAlbum([UIImage imageWithData:dataForPNGFile], nil, nil, nil);
-                //            [self.stillCamera resumeCameraCapture];
-                
-                return;
-            }];
+        [self.stillCamera capturePhotoAsImageProcessedUpToFilter:self.filterChain.terminalFilter withCompletionHandler:^(UIImage *processedImage, NSError *error) {
+            
+            NSData *dataForJPEGFile = UIImageJPEGRepresentation(processedImage, 0.8);
+            UIImageWriteToSavedPhotosAlbum([UIImage imageWithData:dataForJPEGFile], nil, nil, nil);
+            
+            return;
+        }];
     }
-    
-    
-    
 }
-
-// Trying to discard the NSData portion.
-//        if (self.filterChain) {
-//            [_stillCamera capturePhotoAsImageProcessedUpToFilter:self.filterChain withCompletionHandler:^(UIImage *processedImage, NSError *error) {
-//                ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-//                [library writeImageToSavedPhotosAlbum:processedImage.CGImage
-//                                             metadata:nil
-//                                      completionBlock:^(NSURL *assetURL, NSError *error){
-//                                          if (!error) {
-//                                              NSLog(@"success");
-//                                          } else {
-//                                              NSLog(@"failed");
-//                                          }
-//                                      }
-//                 ];
-//            }];
-//        }
-
-//        [self.stillCamera pauseCameraCapture];
-//        __weak typeof(self)weakSelf = self;
-//        [self.stillCamera capturePhotoAsImageProcessedUpToFilter:self.stillCamera.targets.lastObject
-//                                      withCompletionHandler:^(UIImage *processedImage, NSError *error)
-//         {
-//             UIImageWriteToSavedPhotosAlbum(processedImage, nil, nil, nil);
-//             [weakSelf.stillCamera resumeCameraCapture];
-//         }];
-
-
-//- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
-//    if([self respondsToSelector: @selector(saveComplete)]) {
-//        [self performSelector:@selector(saveComplete)];
-//    }
-//}
 
 
 -(GPUImageFilterGroup *)createNewFilterChain:(NSString *)filterName {
@@ -241,12 +172,12 @@ const float TINT_DEFAULT = 0.0;
     self.contrastFilter = [[GPUImageContrastFilter alloc] init];
     self.contrastFilter.contrast = self.contrast;
     
+    self.saturationFilter = [[GPUImageSaturationFilter alloc] init];
+    self.saturationFilter.saturation = self.saturation;
+    
     self.temperatureFilter = [[GPUImageWhiteBalanceFilter alloc] init];
     self.temperatureFilter.temperature = self.temperature;
     self.temperatureFilter.tint = self.tint;
-    
-    self.saturationFilter = [[GPUImageSaturationFilter alloc] init];
-    self.saturationFilter.saturation = self.saturation;
     
     self.hueFilter = [[GPUImageHueFilter alloc] init];
     self.hueFilter.hue = self.hue;
@@ -257,9 +188,9 @@ const float TINT_DEFAULT = 0.0;
     [self.mainFilter addTarget:self.toneMap];
     [self.toneMap addTarget:self.brightnessFilter];
     [self.brightnessFilter addTarget:self.contrastFilter];
-    [self.contrastFilter addTarget:self.temperatureFilter];
-    [self.temperatureFilter addTarget:self.saturationFilter];
-    [self.saturationFilter addTarget:self.hueFilter];
+    [self.contrastFilter addTarget:self.saturationFilter];
+    [self.saturationFilter addTarget:self.temperatureFilter];
+    [self.temperatureFilter addTarget:self.hueFilter];
     [self.hueFilter addTarget:self.invertFilter];
     
     [(GPUImageFilterGroup *)newFilterChain setInitialFilters:[NSArray arrayWithObject:self.mainFilter]];
@@ -298,12 +229,12 @@ const float TINT_DEFAULT = 0.0;
         self.contrastFilter = [[GPUImageContrastFilter alloc] init];
         self.contrastFilter.contrast = self.contrast;
         
+        self.saturationFilter = [[GPUImageSaturationFilter alloc] init];
+        self.saturationFilter.saturation = self.saturation;
+        
         self.temperatureFilter = [[GPUImageWhiteBalanceFilter alloc] init];
         self.temperatureFilter.temperature = self.temperature;
         self.temperatureFilter.tint = self.tint;
-        
-        self.saturationFilter = [[GPUImageSaturationFilter alloc] init];
-        self.saturationFilter.saturation = self.saturation;
         
         self.hueFilter = [[GPUImageHueFilter alloc] init];
         self.hueFilter.hue = self.hue;
@@ -315,9 +246,9 @@ const float TINT_DEFAULT = 0.0;
         [self.equalizationFilter addTarget:self.toneMap];
         [self.toneMap addTarget:self.brightnessFilter];
         [self.brightnessFilter addTarget:self.contrastFilter];
-        [self.contrastFilter addTarget:self.temperatureFilter];
-        [self.temperatureFilter addTarget:self.saturationFilter];
-        [self.saturationFilter addTarget:self.hueFilter];
+        [self.contrastFilter addTarget:self.saturationFilter];
+        [self.saturationFilter addTarget:self.temperatureFilter];
+        [self.temperatureFilter addTarget:self.hueFilter];
         [self.hueFilter addTarget:self.invertFilter];
         
         [(GPUImageFilterGroup *)newFilterChain setInitialFilters:[NSArray arrayWithObject:self.mainFilter]];

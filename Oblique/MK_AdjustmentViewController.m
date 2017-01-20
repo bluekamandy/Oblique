@@ -52,6 +52,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setAllControlsVisible) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    
     sharedCameraManager = [MK_GPUImageCameraManager sharedManager];
     
     self.toneMapSwitch.on = sharedCameraManager.toneMapValue;
@@ -63,7 +65,7 @@
     self.contrastLabel.text = [NSString stringWithFormat:@"CONTRAST %+.02f", sharedCameraManager.contrast];
     
     self.colorTemperatureSlider.value = sharedCameraManager.temperature;
-    self.colorTemperatureLabel.text = [NSString stringWithFormat:@"TEMPERATURE %.00f KELVIN", sharedCameraManager.temperature];
+    self.colorTemperatureLabel.text = [NSString stringWithFormat:@"TEMPERATURE"];
     
     self.tintSlider.value = sharedCameraManager.tint;
     self.tintLabel.text = [NSString stringWithFormat:@"TINT %+.00f", sharedCameraManager.tint];
@@ -138,6 +140,30 @@
     
 }
 
+- (void)setAllControlsVisible {
+    
+    CGFloat newAlpha = 1.0;
+    self.equalizeSwitch.alpha = newAlpha;
+    self.equalizeLabel.alpha = newAlpha;
+    self.toneMapSwitch.alpha = newAlpha;
+    self.toneMapLabel.alpha = newAlpha;
+    self.brightnessSlider.alpha = newAlpha;
+    self.brightnessLabel.alpha = newAlpha;
+    self.contrastSlider.alpha = newAlpha;
+    self.contrastLabel.alpha = newAlpha;
+    self.colorTemperatureSlider.alpha = newAlpha;
+    self.colorTemperatureLabel.alpha = newAlpha;
+    self.tintSlider.alpha = newAlpha;
+    self.tintLabel.alpha = newAlpha;
+    self.saturationSlider.alpha = newAlpha;
+    self.saturationLabel.alpha = newAlpha;
+    self.hueSlider.alpha = newAlpha;
+    self.hueLabel.alpha = newAlpha;
+    self.invertSwitch.alpha = newAlpha;
+    self.invertLabel.alpha = newAlpha;
+    self.resetButton.alpha = newAlpha;
+    self.exitButton.alpha = newAlpha;
+}
 
 #pragma mark - Sliders in Adjustment Menu
 
@@ -175,7 +201,7 @@
 
 - (IBAction)temperatureSliderChanged:(id)sender {
     sharedCameraManager.temperature = [(UISlider *)sender value];
-    self.colorTemperatureLabel.text = [NSString stringWithFormat:@"TEMPERATURE %.00f KELVIN", sharedCameraManager.temperature];
+    self.colorTemperatureLabel.text = [NSString stringWithFormat:@"TEMPERATURE %+.00f K", sharedCameraManager.temperature - 5000.f];
 }
 
 - (IBAction)temparatureDidStartDragging:(id)sender {
@@ -243,7 +269,7 @@
         self.contrastLabel.text = [NSString stringWithFormat:@"CONTRAST %+.02f", sharedCameraManager.contrast];
         
         [self.colorTemperatureSlider setValue:TEMPERATURE_DEFAULT animated:YES];
-        self.colorTemperatureLabel.text = [NSString stringWithFormat:@"TEMPERATURE %.00f KELVIN", sharedCameraManager.temperature];
+        self.colorTemperatureLabel.text = [NSString stringWithFormat:@"TEMPERATURE"];
         
         [self.tintSlider setValue:TINT_DEFAULT animated:YES];
         self.tintLabel.text = [NSString stringWithFormat:@"TINT %+.00f", sharedCameraManager.tint];

@@ -116,21 +116,145 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vyj-dr-Zr7">
                                 <rect key="frame" x="40" y="40" width="334" height="656"/>
                                 <subviews>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-1" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="FCY-oz-t8m">
+                                        <rect key="frame" x="-2" y="0.0" width="338" height="31"/>
+                                        <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="brightnessDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpInside" id="bBH-Yh-Wtx"/>
+                                            <action selector="brightnessDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpOutside" id="ov8-m6-vjG"/>
+                                            <action selector="brightnessDidStartDragging:" destination="Hid-rJ-OQe" eventType="touchDown" id="v4a-IN-XX1"/>
+                                            <action selector="brightnessSliderChanged:" destination="Hid-rJ-OQe" eventType="valueChanged" id="5Ls-Uh-E5D"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BRIGHTNESS" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dig-3k-EA6" customClass="MK_LabelWithInsets">
+                                        <rect key="frame" x="133.66666666666666" y="54.333333333333329" width="66.666666666666686" height="12"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="4" translatesAutoresizingMaskIntoConstraints="NO" id="Ht9-cE-9Wy">
+                                        <rect key="frame" x="-2" y="90.666666666666657" width="338" height="31"/>
+                                        <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="contrastDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpOutside" id="X06-xh-2qd"/>
+                                            <action selector="contrastDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpInside" id="n6R-Xj-sBo"/>
+                                            <action selector="contrastDidStartDragging:" destination="Hid-rJ-OQe" eventType="touchDown" id="OiM-lo-pdV"/>
+                                            <action selector="contrastSliderChanged:" destination="Hid-rJ-OQe" eventType="valueChanged" id="sIZ-1n-Esd"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONTRAST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APv-yN-9dd" customClass="MK_LabelWithInsets">
+                                        <rect key="frame" x="138.33333333333334" y="145" width="57.333333333333314" height="12"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="Y9m-cL-WHc">
+                                        <rect key="frame" x="-2" y="181.33333333333334" width="338" height="31"/>
+                                        <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="saturationDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpOutside" id="ear-5m-SRa"/>
+                                            <action selector="saturationDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpInside" id="i65-ZK-vEp"/>
+                                            <action selector="saturationDidStartDragging:" destination="Hid-rJ-OQe" eventType="touchDown" id="bUn-aB-DDF"/>
+                                            <action selector="saturationSliderChanged:" destination="Hid-rJ-OQe" eventType="valueChanged" id="cR9-Jx-xqF"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SATURATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6l4-M9-IRf" customClass="MK_LabelWithInsets">
+                                        <rect key="frame" x="134" y="235.66666666666669" width="66.333333333333343" height="12"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5000" minValue="-2000" maxValue="12000" translatesAutoresizingMaskIntoConstraints="NO" id="yzU-zb-JYo">
+                                        <rect key="frame" x="-2" y="272" width="338" height="31"/>
+                                        <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="temparatureDidStartDragging:" destination="Hid-rJ-OQe" eventType="touchDown" id="2yK-gr-NF8"/>
+                                            <action selector="temperatureSliderChanged:" destination="Hid-rJ-OQe" eventType="valueChanged" id="YFD-vj-YFI"/>
+                                            <action selector="tempratureDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpOutside" id="k7S-UR-HbG"/>
+                                            <action selector="tempratureDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpInside" id="sg5-o3-aEB"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEMPERATURE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y88-Vp-8tB" customClass="MK_LabelWithInsets">
+                                        <rect key="frame" x="129" y="326" width="76" height="12"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-150" maxValue="150" translatesAutoresizingMaskIntoConstraints="NO" id="K7R-9L-kGJ">
+                                        <rect key="frame" x="-2" y="362.33333333333331" width="338" height="31"/>
+                                        <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="tintDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpInside" id="8yB-PE-xBA"/>
+                                            <action selector="tintDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpOutside" id="pxn-2I-moX"/>
+                                            <action selector="tintDidStartDragging:" destination="Hid-rJ-OQe" eventType="touchDown" id="Jgh-Cj-zqd"/>
+                                            <action selector="tintSliderChanged:" destination="Hid-rJ-OQe" eventType="valueChanged" id="OZX-6m-TPT"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TINT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNr-50-W2w" customClass="MK_LabelWithInsets">
+                                        <rect key="frame" x="155" y="416.66666666666669" width="24.333333333333343" height="12"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="ZNP-0l-Kss">
+                                        <rect key="frame" x="-2" y="453" width="338" height="31"/>
+                                        <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="hueDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpOutside" id="3uV-ed-3Wa"/>
+                                            <action selector="hueDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpInside" id="XDF-oQ-c8G"/>
+                                            <action selector="hueDidStartDragging:" destination="Hid-rJ-OQe" eventType="touchDown" id="raU-HO-j7H"/>
+                                            <action selector="hueSliderChanged:" destination="Hid-rJ-OQe" eventType="valueChanged" id="IUt-ho-2jT"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HUE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BuB-JI-5hB" customClass="MK_LabelWithInsets">
+                                        <rect key="frame" x="156" y="507.33333333333337" width="22" height="12"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="KAD-Uk-JaM">
-                                        <rect key="frame" x="0.0" y="0.0" width="334" height="58"/>
+                                        <rect key="frame" x="0.0" y="543.66666666666663" width="334" height="58"/>
                                         <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZGf-QF-evE">
+                                                <rect key="frame" x="0.0" y="0.0" width="111.33333333333334" height="58"/>
+                                                <subviews>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="J5V-I4-UiK">
+                                                        <rect key="frame" x="31.333333333333329" y="0.0" width="51" height="39"/>
+                                                        <color key="onTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <connections>
+                                                            <action selector="invertSwitchChanged:" destination="Hid-rJ-OQe" eventType="valueChanged" id="l6S-ej-pg0"/>
+                                                        </connections>
+                                                    </switch>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INVERT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jo4-Ld-2hR" customClass="MK_LabelWithInsets">
+                                                        <rect key="frame" x="36.666666666666671" y="39" width="38" height="19"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="19" id="zeB-7b-OdH"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="GL5-fo-tAZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="167" height="58"/>
+                                                <rect key="frame" x="111.33333333333333" y="0.0" width="111.33333333333336" height="58"/>
                                                 <subviews>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2cO-2V-S3Y">
-                                                        <rect key="frame" x="59" y="0.0" width="51" height="39"/>
+                                                        <rect key="frame" x="31.333333333333314" y="0.0" width="51" height="39"/>
                                                         <color key="onTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <connections>
                                                             <action selector="equalizeSwitchChanged:" destination="Hid-rJ-OQe" eventType="valueChanged" id="cHc-Og-ddY"/>
                                                         </connections>
                                                     </switch>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EQUALIZE" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="soN-Vj-BKl" customClass="MK_LabelWithInsets">
-                                                        <rect key="frame" x="58" y="39" width="51.333333333333343" height="19"/>
+                                                        <rect key="frame" x="30" y="39" width="51.333333333333314" height="19"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="19" id="RIf-bM-S3r"/>
@@ -142,17 +266,17 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iOj-FC-RTV">
-                                                <rect key="frame" x="167" y="0.0" width="167" height="58"/>
+                                                <rect key="frame" x="222.66666666666671" y="0.0" width="111.33333333333329" height="58"/>
                                                 <subviews>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="64O-4J-BNn">
-                                                        <rect key="frame" x="59" y="0.0" width="51" height="39"/>
+                                                        <rect key="frame" x="31.333333333333314" y="0.0" width="51" height="39"/>
                                                         <color key="onTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <connections>
                                                             <action selector="toneMapSwitchChanged:" destination="Hid-rJ-OQe" eventType="valueChanged" id="w3U-uv-y3v"/>
                                                         </connections>
                                                     </switch>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TONEMAP" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofn-6P-mxK" customClass="MK_LabelWithInsets">
-                                                        <rect key="frame" x="58" y="39" width="51.333333333333314" height="19"/>
+                                                        <rect key="frame" x="30" y="39" width="51.333333333333314" height="19"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="19" id="REc-b7-5Dm"/>
@@ -168,131 +292,15 @@
                                             <constraint firstAttribute="height" constant="58" id="VxW-ns-ndD"/>
                                         </constraints>
                                     </stackView>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-1" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="FCY-oz-t8m">
-                                        <rect key="frame" x="-2" y="76.333333333333343" width="338" height="31.000000000000014"/>
-                                        <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="brightnessDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpInside" id="bBH-Yh-Wtx"/>
-                                            <action selector="brightnessDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpOutside" id="ov8-m6-vjG"/>
-                                            <action selector="brightnessDidStartDragging:" destination="Hid-rJ-OQe" eventType="touchDown" id="v4a-IN-XX1"/>
-                                            <action selector="brightnessSliderChanged:" destination="Hid-rJ-OQe" eventType="valueChanged" id="5Ls-Uh-E5D"/>
-                                        </connections>
-                                    </slider>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BRIGHTNESS" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dig-3k-EA6" customClass="MK_LabelWithInsets">
-                                        <rect key="frame" x="133.66666666666666" y="124.33333333333334" width="66.666666666666686" height="12"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="4" translatesAutoresizingMaskIntoConstraints="NO" id="Ht9-cE-9Wy">
-                                        <rect key="frame" x="-2" y="154.66666666666666" width="338" height="31"/>
-                                        <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="contrastDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpOutside" id="X06-xh-2qd"/>
-                                            <action selector="contrastDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpInside" id="n6R-Xj-sBo"/>
-                                            <action selector="contrastDidStartDragging:" destination="Hid-rJ-OQe" eventType="touchDown" id="OiM-lo-pdV"/>
-                                            <action selector="contrastSliderChanged:" destination="Hid-rJ-OQe" eventType="valueChanged" id="sIZ-1n-Esd"/>
-                                        </connections>
-                                    </slider>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONTRAST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APv-yN-9dd" customClass="MK_LabelWithInsets">
-                                        <rect key="frame" x="138.33333333333334" y="202.66666666666666" width="57.333333333333314" height="12"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5000" minValue="0.0" maxValue="12000" translatesAutoresizingMaskIntoConstraints="NO" id="yzU-zb-JYo">
-                                        <rect key="frame" x="-2" y="233" width="338" height="31"/>
-                                        <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="temparatureDidStartDragging:" destination="Hid-rJ-OQe" eventType="touchDown" id="2yK-gr-NF8"/>
-                                            <action selector="temperatureSliderChanged:" destination="Hid-rJ-OQe" eventType="valueChanged" id="YFD-vj-YFI"/>
-                                            <action selector="tempratureDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpOutside" id="k7S-UR-HbG"/>
-                                            <action selector="tempratureDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpInside" id="sg5-o3-aEB"/>
-                                        </connections>
-                                    </slider>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEMPERATURE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y88-Vp-8tB" customClass="MK_LabelWithInsets">
-                                        <rect key="frame" x="129" y="281.33333333333331" width="76" height="12"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-150" maxValue="150" translatesAutoresizingMaskIntoConstraints="NO" id="K7R-9L-kGJ">
-                                        <rect key="frame" x="-2" y="311.33333333333331" width="338" height="31"/>
-                                        <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="tintDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpInside" id="8yB-PE-xBA"/>
-                                            <action selector="tintDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpOutside" id="pxn-2I-moX"/>
-                                            <action selector="tintDidStartDragging:" destination="Hid-rJ-OQe" eventType="touchDown" id="Jgh-Cj-zqd"/>
-                                            <action selector="tintSliderChanged:" destination="Hid-rJ-OQe" eventType="valueChanged" id="OZX-6m-TPT"/>
-                                        </connections>
-                                    </slider>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TINT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNr-50-W2w" customClass="MK_LabelWithInsets">
-                                        <rect key="frame" x="155" y="359.66666666666669" width="24.333333333333343" height="12"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="Y9m-cL-WHc">
-                                        <rect key="frame" x="-2" y="389.66666666666669" width="338" height="31"/>
-                                        <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="saturationDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpOutside" id="ear-5m-SRa"/>
-                                            <action selector="saturationDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpInside" id="i65-ZK-vEp"/>
-                                            <action selector="saturationDidStartDragging:" destination="Hid-rJ-OQe" eventType="touchDown" id="bUn-aB-DDF"/>
-                                            <action selector="saturationSliderChanged:" destination="Hid-rJ-OQe" eventType="valueChanged" id="cR9-Jx-xqF"/>
-                                        </connections>
-                                    </slider>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SATURATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6l4-M9-IRf" customClass="MK_LabelWithInsets">
-                                        <rect key="frame" x="134" y="438" width="66.333333333333343" height="12"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="ZNP-0l-Kss">
-                                        <rect key="frame" x="-2" y="468.33333333333337" width="338" height="31.000000000000057"/>
-                                        <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="hueDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpOutside" id="3uV-ed-3Wa"/>
-                                            <action selector="hueDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpInside" id="XDF-oQ-c8G"/>
-                                            <action selector="hueDidStartDragging:" destination="Hid-rJ-OQe" eventType="touchDown" id="raU-HO-j7H"/>
-                                            <action selector="hueSliderChanged:" destination="Hid-rJ-OQe" eventType="valueChanged" id="IUt-ho-2jT"/>
-                                        </connections>
-                                    </slider>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HUE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BuB-JI-5hB" customClass="MK_LabelWithInsets">
-                                        <rect key="frame" x="156" y="516.33333333333337" width="22" height="12"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="J5V-I4-UiK">
-                                        <rect key="frame" x="142.66666666666666" y="546.66666666666663" width="51" height="31"/>
-                                        <color key="onTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="invertSwitchChanged:" destination="Hid-rJ-OQe" eventType="valueChanged" id="l6S-ej-pg0"/>
-                                        </connections>
-                                    </switch>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INVERT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jo4-Ld-2hR" customClass="MK_LabelWithInsets">
-                                        <rect key="frame" x="148" y="595.66666666666663" width="38" height="12"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="5M4-lu-dYU">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5M4-lu-dYU">
                                         <rect key="frame" x="0.0" y="626" width="334" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ciy-XH-Ygk">
                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="2sG-U8-WpF"/>
                                                     <constraint firstAttribute="height" constant="30" id="Ejb-4j-CgZ"/>
-                                                    <constraint firstAttribute="width" constant="60" id="bOH-Xy-PLi"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <state key="normal" title="RESET">
@@ -307,7 +315,7 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="AZI-7e-YtK"/>
-                                                    <constraint firstAttribute="width" constant="60" id="DZ0-CW-xmR"/>
+                                                    <constraint firstAttribute="width" constant="60" id="Avx-FN-4r6"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <state key="normal" title="EXIT">
@@ -388,10 +396,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="t7s-n5-cu7" userLabel="Top Bar">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                <rect key="frame" x="5" y="0.0" width="404" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axR-Bm-29S">
-                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                        <rect key="frame" x="0.0" y="2" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="UQa-l5-fBO"/>
                                             <constraint firstAttribute="width" constant="40" id="kzE-TL-SVa"/>
@@ -404,7 +412,7 @@
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODH-iG-Mln">
-                                        <rect key="frame" x="40" y="5" width="334" height="30"/>
+                                        <rect key="frame" x="40" y="7" width="324" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="225" id="A0e-Ya-8qb"/>
@@ -415,7 +423,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbu-Kj-FXF">
-                                        <rect key="frame" x="374" y="0.0" width="40" height="40"/>
+                                        <rect key="frame" x="364" y="2" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="RJe-7K-V3C"/>
                                             <constraint firstAttribute="width" constant="40" id="eyQ-Hm-zJy"/>
@@ -429,21 +437,21 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="ZGi-Hj-GRm"/>
+                                    <constraint firstAttribute="height" constant="44" id="ZGi-Hj-GRm"/>
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="ye2-Jr-nPR" userLabel="Camera Feed" customClass="GPUImageView">
-                                <rect key="frame" x="0.0" y="40" width="414" height="552.66666666666663"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="552.66666666666663"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ye2-Jr-nPR" secondAttribute="height" multiplier="3:4" id="2G7-cp-1Cj"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vyY-ev-1df" userLabel="Bottom Bar">
-                                <rect key="frame" x="10" y="592.66666666666652" width="394" height="143.33333333333337"/>
+                                <rect key="frame" x="10" y="596.66666666666652" width="394" height="139.33333333333337"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAR-Ts-pV6">
-                                        <rect key="frame" x="0.0" y="51.666666666666742" width="40" height="40"/>
+                                        <rect key="frame" x="0.0" y="49.666666666666742" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="qTK-AE-eBt"/>
                                             <constraint firstAttribute="height" constant="40" id="uec-b9-Z7a"/>
@@ -456,7 +464,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gh-Cj-Bw0">
-                                        <rect key="frame" x="77.666666666666671" y="51.666666666666742" width="40" height="40"/>
+                                        <rect key="frame" x="77.666666666666671" y="49.666666666666742" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="PPu-yN-UFa"/>
                                             <constraint firstAttribute="height" constant="40" id="zOt-dK-FSX"/>
@@ -469,7 +477,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q0L-wm-zXw">
-                                        <rect key="frame" x="155" y="29.666666666666742" width="84" height="84"/>
+                                        <rect key="frame" x="155" y="27.666666666666742" width="84" height="84"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="84" id="T4T-LA-mWV"/>
                                             <constraint firstAttribute="height" constant="84" id="WKq-4q-jpq"/>
@@ -484,7 +492,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1e-v5-7TL">
-                                        <rect key="frame" x="276.66666666666669" y="51.666666666666742" width="40" height="40"/>
+                                        <rect key="frame" x="276.66666666666669" y="49.666666666666742" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="5kz-zG-Q5c"/>
                                             <constraint firstAttribute="width" constant="40" id="UfY-Lb-1FR"/>
@@ -497,7 +505,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zk2-TR-6pB">
-                                        <rect key="frame" x="354" y="51.666666666666742" width="40" height="40"/>
+                                        <rect key="frame" x="354" y="49.666666666666742" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="4tk-g8-img"/>
                                             <constraint firstAttribute="height" constant="40" id="HYJ-Tp-gBz"/>
@@ -518,13 +526,13 @@
                             <constraint firstItem="ye2-Jr-nPR" firstAttribute="top" secondItem="t7s-n5-cu7" secondAttribute="bottom" id="3zT-e5-AER"/>
                             <constraint firstItem="t7s-n5-cu7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="4Pt-RB-ORj"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="vyY-ev-1df" secondAttribute="bottom" id="AX2-2G-fQ9"/>
-                            <constraint firstAttribute="trailing" secondItem="t7s-n5-cu7" secondAttribute="trailing" id="H8u-H3-UxP"/>
+                            <constraint firstAttribute="trailing" secondItem="t7s-n5-cu7" secondAttribute="trailing" constant="5" id="H8u-H3-UxP"/>
                             <constraint firstItem="vyY-ev-1df" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="SRT-Q1-c9k"/>
                             <constraint firstAttribute="trailing" secondItem="ye2-Jr-nPR" secondAttribute="trailing" id="TgM-Hi-TwL"/>
                             <constraint firstItem="vyY-ev-1df" firstAttribute="top" secondItem="ye2-Jr-nPR" secondAttribute="bottom" id="f9b-Bf-MjU"/>
                             <constraint firstItem="ye2-Jr-nPR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="geu-MV-yiv"/>
                             <constraint firstItem="vyY-ev-1df" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="n95-mK-ddS"/>
-                            <constraint firstItem="t7s-n5-cu7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vSq-jy-toZ"/>
+                            <constraint firstItem="t7s-n5-cu7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="5" id="vSq-jy-toZ"/>
                             <constraint firstAttribute="trailing" secondItem="vyY-ev-1df" secondAttribute="trailing" constant="10" id="zvY-ab-vjl"/>
                         </constraints>
                     </view>
@@ -710,6 +718,6 @@ Early code inspired on a similar class by Philip Kluz (Philip.Kluz@zuui.org)</st
         <image name="ShutterReleaseSelected" width="84" height="84"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rVx-3D-qVF"/>
+        <segue reference="Fz4-34-M7I"/>
     </inferredMetricsTieBreakers>
 </document>
