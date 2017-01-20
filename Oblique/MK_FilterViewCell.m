@@ -34,8 +34,6 @@
     MK_GPUImageCameraManager *sharedCameraManager;
 }
 
-@property (nonatomic , strong) UIImageView *previewView;
-@property (nonatomic , strong) UILabel *titleLabel;
 
 @end
 
@@ -49,7 +47,9 @@
         sharedCameraManager = [MK_GPUImageCameraManager sharedManager];
         
         NSLog(@"initWithCoder : Cell");
+        // Creating if statement so that 'No filter' (without title) is centered.
         _filterView = [[GPUImageView alloc] initWithFrame:CGRectMake(20, 15, 85, 85)];
+        
         _filterView.fillMode = kGPUImageFillModePreserveAspectRatioAndFill;
         [self.contentView addSubview:_filterView];
         
@@ -62,7 +62,7 @@
     if (!tableWidth) {
         tableWidth = 125;
     }
-     frame.size.width = tableWidth;
+    frame.size.width = tableWidth;
     [super setFrame:frame];
 }
 
@@ -79,11 +79,11 @@
     if (highlighted) {
         self.filterView.layer.borderColor = [UIColor yellowColor].CGColor;
         self.filterView.layer.borderWidth = 5.0f;
-
+        
     } else {
         self.filterView.layer.borderColor = [UIColor clearColor].CGColor;
         self.filterView.layer.borderWidth = 0.0f;
-
+        
     }
 }
 
@@ -97,7 +97,7 @@
         self.filterView.layer.borderWidth = 0.0f;
         
     }
-
+    
 }
 
 - (void)setState:(UIControlState)state {

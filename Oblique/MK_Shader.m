@@ -312,7 +312,7 @@
     group.iconName = @"Polygon";
     return group;
 }
-    
+
 //    + (GPUImageFilterGroup *)canny {
 //        GPUImageCannyEdgeDetectionFilter *filter = [[GPUImageCannyEdgeDetectionFilter alloc] init];
 //        GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -443,35 +443,36 @@
     
     self = [super init];
     
-    _filtersAvailable = [NSArray arrayWithObjects:
-                         @"noFilter",
-                         // Non-Touch
-                         @"horizontalMirror",
-                         @"verticalMirror",
-                         @"fourScope",
-                         @"overMirror",
-                         @"verticalStripes",
-                         @"horizontalStripes",
-                         @"polarStripes",
-                         // Touch
-                         @"grid",
-                         @"stretch",
-                         @"shear",
-                         @"waves",
-                         @"tunnel",
-                         @"fourSplit",
-                         @"colorCycleFilter",
-                         @"mrPerlin",
-                         @"noiseWarp",
-                         nil];
+    _filtersAvailable = @{@"Filter-Free" : @[@"noFilter"],
+                          @"Interactive" :     @[@"grid",
+                                           @"stretch",
+                                           @"shear",
+                                           @"waves",
+                                           @"tunnel",
+                                           @"fourSplit",
+                                           @"colorCycleFilter",
+                                           @"mrPerlin",
+                                           @"noiseWarp"],
+                          @"Non-Interactive" : @[@"horizontalMirror",
+                                           @"verticalMirror",
+                                           @"fourScope",
+                                           @"overMirror",
+                                           @"verticalStripes",
+                                           @"horizontalStripes",
+                                           @"polarStripes"]
+                          };
     
-    _adjustmentsAvailable = [NSArray arrayWithObjects:
-                             @"brightness",
-                             @"contrast",
-                             @"saturation",
-                             @"hue",
-                             @"sharpness",
-                             nil];
+    _filterSectionTitles = [[_filtersAvailable allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    NSLog(@"This is the order of the titles: %@", [_filtersAvailable allKeys]);
+
+    
+//    _adjustmentsAvailable = [NSArray arrayWithObjects:
+//                             @"brightness",
+//                             @"contrast",
+//                             @"saturation",
+//                             @"hue",
+//                             @"sharpness",
+//                             nil];
     
     return self;
 }

@@ -22,6 +22,9 @@
 //  Last updated 12/29/2016
 //
 //  More information at masoodkamandy@gmail.com
+//
+//  Section header code adapted from:
+//  https://www.appcoda.com/ios-programming-index-list-uitableview/
 
 #import <Foundation/Foundation.h>
 #import <GPUImage/GPUImage.h>
@@ -30,24 +33,25 @@
 
 
 @interface MK_Shader : NSObject
-    
-    {
-        MK_GPUImageCustom3Input *filter;
-        GPUImageFilter *noFilter;
-    }
-    
-    @property (nonatomic, readonly, strong) NSArray *filtersAvailable;
-    @property (nonatomic, readonly, strong) NSArray *adjustmentsAvailable;
-    @property (nonatomic, readonly, strong) NSString *filterName; // name of filter
-    @property (nonatomic, readonly, strong) NSString *shaderFileName;
-    @property (nonatomic) BOOL needsTimer;
-    
-    // FILTER METHODS: Presets and tools
-    
-    // Reset
+
+{
+    MK_GPUImageCustom3Input *filter;
+    GPUImageFilter *noFilter;
+}
+
+@property (nonatomic, readonly, strong) NSDictionary *filtersAvailable;
+@property (nonatomic, readonly, strong) NSArray *filterSectionTitles;
+//    @property (nonatomic, readonly, strong) NSArray *adjustmentsAvailable;
+@property (nonatomic, readonly, strong) NSString *filterName; // name of filter
+@property (nonatomic, readonly, strong) NSString *shaderFileName;
+@property (nonatomic) BOOL needsTimer;
+
+// FILTER METHODS: Presets and tools
+
+// Reset
 + (GPUImageFilterGroup *)noFilter;
-    
-    // Presets
+
+// Presets
 + (GPUImageFilterGroup *)noiseWarp;
 + (GPUImageFilterGroup *)mrPerlin;
 + (GPUImageFilterGroup *)colorCycleFilter;
@@ -64,19 +68,19 @@
 + (GPUImageFilterGroup *)overMirror;
 + (GPUImageFilterGroup *)fourScope;
 + (GPUImageFilterGroup *)fourSplit;
-    
-    // Image Adjustment Filters
+
+// Image Adjustment Filters
 + (GPUImageFilterGroup *)brightness;
 + (GPUImageFilterGroup *)contrast;
 + (GPUImageFilterGroup *)saturation;
 + (GPUImageFilterGroup *)hue;
 + (GPUImageFilterGroup *)invert;
 + (GPUImageFilterGroup *)sharpness;
-    
-    // Tools
+
+// Tools
 + (GPUImageFilterGroup *)addFilter:(GPUImageFilterGroup *)newFilter toCurrentFilter:(GPUImageFilterGroup *)currentFilter;
-    
+
 + (GPUImageFilterGroup *)removeFilter:(GPUImageFilterGroup *)filterToRemove fromCurrentFilter:(GPUImageFilterGroup *)currentFilter;
-    
-    
-    @end
+
+
+@end

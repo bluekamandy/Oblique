@@ -35,13 +35,31 @@
         <scene sceneID="31x-Te-D8a">
             <objects>
                 <tableViewController id="bMh-dD-aqh" customClass="MK_FilterViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ca7-Oc-mWe">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ca7-Oc-mWe">
                         <rect key="frame" x="0.0" y="0.0" width="125" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Header" rowHeight="40" id="Of3-jV-qLF">
+                                <rect key="frame" x="0.0" y="28" width="125" height="40"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Of3-jV-qLF" id="wpI-x6-5tX">
+                                    <rect key="frame" x="0.0" y="0.0" width="125" height="40"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="777" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HEADER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdi-Mk-pbN">
+                                            <rect key="frame" x="8" y="14" width="109" height="12"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" weight="black" pointSize="10"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.10000000000000001" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="125" id="yoL-hf-Tov" customClass="MK_FilterViewCell">
-                                <rect key="frame" x="0.0" y="28" width="125" height="125"/>
+                                <rect key="frame" x="0.0" y="68" width="125" height="125"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yoL-hf-Tov" id="cQ9-rr-pN5">
                                     <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
@@ -62,6 +80,14 @@
                                 </tableViewCellContentView>
                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Footer" rowHeight="10" id="o5y-NT-1Vb">
+                                <rect key="frame" x="0.0" y="193" width="125" height="10"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o5y-NT-1Vb" id="gYQ-0G-Wfa">
+                                    <rect key="frame" x="0.0" y="0.0" width="125" height="10"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="bMh-dD-aqh" id="Pqe-7u-lB5"/>
@@ -73,7 +99,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I4K-42-aBX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-329" y="843"/>
+            <point key="canvasLocation" x="-329.71014492753625" y="842.93478260869574"/>
         </scene>
         <!--Adjustment View Controller-->
         <scene sceneID="Ewb-m1-MAT">
@@ -568,7 +594,7 @@ Made with </string>
                                                     </attributes>
                                                 </fragment>
                                                 <fragment>
-                                                    <mutableString key="content"> by artist
+                                                    <string key="content"> by artist
 Masood Kamandy for his exhibition
 The Effect of Lighting on a Rainbow
 at Luis De Jesus Los Angeles.
@@ -614,7 +640,7 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-Early code inspired on a similar class by Philip Kluz (Philip.Kluz@zuui.org)</mutableString>
+Early code inspired on a similar class by Philip Kluz (Philip.Kluz@zuui.org)</string>
                                                     <attributes>
                                                         <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <font key="NSFont" size="14" name=".SFNSText"/>
@@ -684,6 +710,6 @@ Early code inspired on a similar class by Philip Kluz (Philip.Kluz@zuui.org)</mu
         <image name="ShutterReleaseSelected" width="84" height="84"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kXO-ft-9VJ"/>
+        <segue reference="rVx-3D-qVF"/>
     </inferredMetricsTieBreakers>
 </document>

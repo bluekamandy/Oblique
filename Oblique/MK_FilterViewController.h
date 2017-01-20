@@ -22,6 +22,9 @@
 //  Last updated 12/29/2016
 //
 //  More information at masoodkamandy@gmail.com
+//
+//  Section header code adapted from:
+//  https://www.appcoda.com/ios-programming-index-list-uitableview/
 
 #import <UIKit/UIKit.h>
 
