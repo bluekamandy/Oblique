@@ -61,7 +61,9 @@
     group.title = @"Color Compress";
     group.informationFormatter = ^(CGFloat xPos, CGFloat yPos, CGFloat xDistance, CGFloat yDistance, CGFloat angle) {
         
-        NSString *string = [NSString stringWithFormat:@"X: %1.2f", xPos];
+        CGFloat newX = map(xPos, 0.0, 1.0, 0.0, 20.0);
+        
+        NSString *string = [NSString stringWithFormat:@"X: %1.2f", newX];
         return string;
     };
     
