@@ -52,6 +52,7 @@
 + (GPUImageFilterGroup *)noFilter;
 
 // Presets
++ (GPUImageFilterGroup *)rgbSeparation;
 + (GPUImageFilterGroup *)noiseWarp;
 + (GPUImageFilterGroup *)mrPerlin;
 + (GPUImageFilterGroup *)colorCycleFilter;

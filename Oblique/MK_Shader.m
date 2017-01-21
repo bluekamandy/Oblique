@@ -29,10 +29,10 @@
 #import "Common.h"
 
 @implementation MK_Shader
-
+    
 #pragma mark - Class Methods
-
-// Reset
+    
+    // Reset
 + (GPUImageFilterGroup *) noFilter {
     GPUImageFilter *filter = [[MK_GPUImageCustom3Input alloc] init];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -50,9 +50,28 @@
     group.iconName = @"Polygon";
     return group;
 }
-
-// Filter Presets
-
+    
+    // Filter Presets
+    
++ (GPUImageFilterGroup *)rgbSeparation {
+    MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_RGB_Separation"];
+    GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
+    [(GPUImageFilterGroup *)group setInitialFilters:[NSArray arrayWithObject:filter]];
+    [(GPUImageFilterGroup *)group setTerminalFilter:filter];
+    group.title = @"RGB Separation";
+    group.informationFormatter = ^(CGFloat xPos, CGFloat yPos, CGFloat xDistance, CGFloat yDistance, CGFloat angle) {
+        
+        NSString *string = [NSString stringWithFormat:@"%1.2f", xPos];
+        return string;
+    };
+    
+    group.useLivePreviewObj = [NSNumber numberWithBool:YES];
+    group.usesTouch = [NSNumber numberWithBool:YES];
+    group.iconName = @"Polygon";
+    return group;
+}
+    
+    
 + (GPUImageFilterGroup *)noiseWarp {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_NoiseWarp"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -69,7 +88,7 @@
     group.iconName = @"Polygon";
     return group;
 }
-
+    
 + (GPUImageFilterGroup *)mrPerlin {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_MrPerlin"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -86,9 +105,9 @@
     group.iconName = @"Polygon";
     return group;
 }
-
-
-
+    
+    
+    
 + (GPUImageFilterGroup *)colorCycleFilter {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_ColorCycle"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -109,7 +128,7 @@
     group.iconName = @"Polygon";
     return group;
 }
-
+    
 + (GPUImageFilterGroup *)grid {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_GridImage"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -129,7 +148,7 @@
     group.iconName = @"Polygon";
     return group;
 }
-
+    
 + (GPUImageFilterGroup *)tunnel {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_Tunnel"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -149,7 +168,7 @@
     return group;
     
 }
-
+    
 + (GPUImageFilterGroup *)waves {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_Waves" timerOn:YES ];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -166,7 +185,7 @@
     return group;
     
 }
-
+    
 + (GPUImageFilterGroup *)shear {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_Shear"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -183,7 +202,7 @@
     return group;
     
 }
-
+    
 + (GPUImageFilterGroup *)stretch {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_Stretch"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -200,8 +219,8 @@
     return group;
     
 }
-
-
+    
+    
 + (GPUImageFilterGroup *)polarStripes {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_Polar"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -219,7 +238,7 @@
     group.iconName = @"Polygon";
     return group;
 }
-
+    
 + (GPUImageFilterGroup *)verticalStripes {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_VerticalStripes"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -232,7 +251,7 @@
     return group;
     
 }
-
+    
 + (GPUImageFilterGroup *)horizontalStripes {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_HorizontalStripes"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -244,7 +263,7 @@
     group.iconName = @"Polygon";
     return group;
 }
-
+    
 + (GPUImageFilterGroup *)verticalMirror {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_VerticalMirror"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -256,7 +275,7 @@
     group.iconName = @"Polygon";
     return group;
 }
-
+    
 + (GPUImageFilterGroup *)horizontalMirror {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_HorizontalMirror"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -268,7 +287,7 @@
     group.iconName = @"Polygon";
     return group;
 }
-
+    
 + (GPUImageFilterGroup *)overMirror {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_overMirror"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -280,8 +299,8 @@
     group.iconName = @"Polygon";
     return group;
 }
-
-
+    
+    
 + (GPUImageFilterGroup *)fourScope {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_4Scope"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -293,8 +312,8 @@
     group.iconName = @"Polygon";
     return group;
 }
-
-
+    
+    
 + (GPUImageFilterGroup *)fourSplit {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_4Split"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -312,22 +331,22 @@
     group.iconName = @"Polygon";
     return group;
 }
-
-//    + (GPUImageFilterGroup *)canny {
-//        GPUImageCannyEdgeDetectionFilter *filter = [[GPUImageCannyEdgeDetectionFilter alloc] init];
-//        GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
-//        [(GPUImageFilterGroup *)group setInitialFilters:[NSArray arrayWithObject:filter]];
-//        [(GPUImageFilterGroup *)group setTerminalFilter:filter];
-//        group.title = @"Canny";
-//        group.useLivePreviewObj = [NSNumber numberWithBool:YES];
-//        group.usesTouch = [NSNumber numberWithBool:NO];
-//        group.iconName = @"Polygon";
-//        return group;
-//    }
-
-
-// Image Adjustment Filters (NOT CURRENTLY USED)
-
+    
+    //    + (GPUImageFilterGroup *)canny {
+    //        GPUImageCannyEdgeDetectionFilter *filter = [[GPUImageCannyEdgeDetectionFilter alloc] init];
+    //        GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
+    //        [(GPUImageFilterGroup *)group setInitialFilters:[NSArray arrayWithObject:filter]];
+    //        [(GPUImageFilterGroup *)group setTerminalFilter:filter];
+    //        group.title = @"Canny";
+    //        group.useLivePreviewObj = [NSNumber numberWithBool:YES];
+    //        group.usesTouch = [NSNumber numberWithBool:NO];
+    //        group.iconName = @"Polygon";
+    //        return group;
+    //    }
+    
+    
+    // Image Adjustment Filters (NOT CURRENTLY USED)
+    
 + (GPUImageFilterGroup *)brightness {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_Brightness"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -339,7 +358,7 @@
     group.iconName = @"Polygon";
     return group;
 }
-
+    
 + (GPUImageFilterGroup *)contrast {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_Contrast"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -352,7 +371,7 @@
     return group;
     
 }
-
+    
 + (GPUImageFilterGroup *)saturation {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_Saturation"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -365,7 +384,7 @@
     return group;
     
 }
-
+    
 + (GPUImageFilterGroup *)hue {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_Hue"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -378,7 +397,7 @@
     return group;
     
 }
-
+    
 + (GPUImageFilterGroup *)invert {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_Invert"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -390,8 +409,8 @@
     group.iconName = @"Polygon";
     return group;
 }
-
-
+    
+    
 + (GPUImageFilterGroup *)sharpness {
     GPUImageSharpenFilter *filter = [[GPUImageSharpenFilter alloc] init];
     filter.sharpness = 25.0;
@@ -404,8 +423,8 @@
     group.iconName = @"Polygon";
     return group;
 }
-
-// Tools
+    
+    // Tools
 + (GPUImageFilterGroup *)addFilter:(GPUImageFilterGroup *)newFilter toCurrentFilter:(GPUImageFilterGroup *)currentFilter{
     GPUImageFilterGroup *replacementFilterGroup = [[GPUImageFilterGroup alloc] init];
     for (id GPUImageFilter in currentFilter.initialFilters) {
@@ -418,7 +437,7 @@
     
     return replacementFilterGroup;
 }
-
+    
 + (GPUImageFilterGroup *)removeFilter:(GPUImageFilterGroup *)filterToRemove fromCurrentFilter:(GPUImageFilterGroup *)currentFilter {
     
     GPUImageFilterGroup *replacementFilterGroup = [[GPUImageFilterGroup alloc] init];
@@ -436,45 +455,46 @@
     return replacementFilterGroup;
     
 }
-
+    
 #pragma mark - Initializer
-
+    
 - (id)init {
     
     self = [super init];
     
     _filtersAvailable = @{@"Filter-Free" : @[@"noFilter"],
                           @"Interactive" :     @[@"grid",
-                                           @"stretch",
-                                           @"shear",
-                                           @"waves",
-                                           @"tunnel",
-                                           @"fourSplit",
-                                           @"colorCycleFilter",
-                                           @"mrPerlin",
-                                           @"noiseWarp"],
+                                                 @"stretch",
+                                                 @"shear",
+                                                 @"waves",
+                                                 @"tunnel",
+                                                 @"fourSplit",
+                                                 @"rgbSeparation",
+                                                 @"colorCycleFilter",
+                                                 @"mrPerlin",
+                                                 @"noiseWarp"],
                           @"Non-Interactive" : @[@"horizontalMirror",
-                                           @"verticalMirror",
-                                           @"fourScope",
-                                           @"overMirror",
-                                           @"verticalStripes",
-                                           @"horizontalStripes",
-                                           @"polarStripes"]
+                                                 @"verticalMirror",
+                                                 @"fourScope",
+                                                 @"overMirror",
+                                                 @"verticalStripes",
+                                                 @"horizontalStripes",
+                                                 @"polarStripes"]
                           };
     
     _filterSectionTitles = [[_filtersAvailable allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     NSLog(@"This is the order of the titles: %@", [_filtersAvailable allKeys]);
-
     
-//    _adjustmentsAvailable = [NSArray arrayWithObjects:
-//                             @"brightness",
-//                             @"contrast",
-//                             @"saturation",
-//                             @"hue",
-//                             @"sharpness",
-//                             nil];
+    
+    //    _adjustmentsAvailable = [NSArray arrayWithObjects:
+    //                             @"brightness",
+    //                             @"contrast",
+    //                             @"saturation",
+    //                             @"hue",
+    //                             @"sharpness",
+    //                             nil];
     
     return self;
 }
-
-@end
+    
+    @end
