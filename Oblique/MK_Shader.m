@@ -52,7 +52,26 @@
 }
     
     // Filter Presets
+
++ (GPUImageFilterGroup *)colorCompress {
+    MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_Color_Compress"];
+    GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
+    [(GPUImageFilterGroup *)group setInitialFilters:[NSArray arrayWithObject:filter]];
+    [(GPUImageFilterGroup *)group setTerminalFilter:filter];
+    group.title = @"Color Compress";
+    group.informationFormatter = ^(CGFloat xPos, CGFloat yPos, CGFloat xDistance, CGFloat yDistance, CGFloat angle) {
+        
+        NSString *string = [NSString stringWithFormat:@"X: %1.2f", xPos];
+        return string;
+    };
     
+    group.useLivePreviewObj = [NSNumber numberWithBool:YES];
+    group.usesTouch = [NSNumber numberWithBool:YES];
+    group.iconName = @"Polygon";
+    return group;
+}
+
+
 + (GPUImageFilterGroup *)rgbSeparation {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_RGB_Separation"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -61,7 +80,7 @@
     group.title = @"RGB Separation";
     group.informationFormatter = ^(CGFloat xPos, CGFloat yPos, CGFloat xDistance, CGFloat yDistance, CGFloat angle) {
         
-        NSString *string = [NSString stringWithFormat:@"%1.2f", xPos];
+        NSString *string = [NSString stringWithFormat:@"X: %1.2f Y: %1.2f", xPos, yPos];
         return string;
     };
     
@@ -469,6 +488,7 @@
                                                  @"waves",
                                                  @"tunnel",
                                                  @"fourSplit",
+                                                 @"colorCompress",
                                                  @"rgbSeparation",
                                                  @"colorCycleFilter",
                                                  @"mrPerlin",

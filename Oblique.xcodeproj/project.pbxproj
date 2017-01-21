@@ -59,6 +59,7 @@
 		A5C6C9E11E15D39800364421 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5C6C9DF1E15D39800364421 /* Main.storyboard */; };
 		A5C6C9E31E15D39800364421 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5C6C9E21E15D39800364421 /* Assets.xcassets */; };
 		A5C6C9E61E15D39800364421 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5C6C9E41E15D39800364421 /* LaunchScreen.storyboard */; };
+		A5E2337C1E33BEB2002A15CE /* MK_FShader_Color_Compress.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5E2337B1E33BEB2002A15CE /* MK_FShader_Color_Compress.fsh */; };
 		A5EFBECB1E1625120046E72A /* QTouchposeApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = A5EFBECA1E1625120046E72A /* QTouchposeApplication.m */; };
 /* End PBXBuildFile section */
 
@@ -134,6 +135,7 @@
 		A5C6C9E21E15D39800364421 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5C6C9E51E15D39800364421 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5C6C9E71E15D39800364421 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5E2337B1E33BEB2002A15CE /* MK_FShader_Color_Compress.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_Color_Compress.fsh; sourceTree = "<group>"; };
 		A5EFBEC91E1625120046E72A /* QTouchposeApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTouchposeApplication.h; sourceTree = "<group>"; };
 		A5EFBECA1E1625120046E72A /* QTouchposeApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTouchposeApplication.m; sourceTree = "<group>"; };
 		CB53041B581E739D294BCAA6 /* Pods-Oblique.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oblique.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Oblique/Pods-Oblique.debug.xcconfig"; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 				A5ACC7821E17344A0014795F /* MK_FShader_VerticalStripes.fsh */,
 				A5ACC7831E17344A0014795F /* MK_FShader_Waves.fsh */,
 				A55B748B1E32E60700C53A04 /* MK_FShader_RGB_Separation.fsh */,
+				A5E2337B1E33BEB2002A15CE /* MK_FShader_Color_Compress.fsh */,
 			);
 			name = Filters;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				A560E30F1E1DB0BD00F1ED4E /* MK_FShader_NoiseWarp.fsh in Resources */,
 				A5ACC7901E17344A0014795F /* MK_FShader_Tunnel.fsh in Resources */,
 				A5ACC78B1E17344A0014795F /* MK_FShader_HorizontalStripes.fsh in Resources */,
+				A5E2337C1E33BEB2002A15CE /* MK_FShader_Color_Compress.fsh in Resources */,
 				A5ACC7871E17344A0014795F /* MK_FShader_ColorCycle.fsh in Resources */,
 				A5ACC78A1E17344A0014795F /* MK_FShader_HorizontalMirror.fsh in Resources */,
 				A5C6C9E61E15D39800364421 /* LaunchScreen.storyboard in Resources */,
