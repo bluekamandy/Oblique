@@ -180,8 +180,13 @@
     [(GPUImageFilterGroup *)group setTerminalFilter:filter];
     group.title = @"Grid";
     group.informationFormatter = ^(CGFloat xPos, CGFloat yPos, CGFloat xDistance, CGFloat yDistance, CGFloat angle) {
+        CGFloat x;
         
-        CGFloat x = floor(xPos * 20.0);
+        if (xPos > 0){
+            x = ceil(xPos * 20.0);
+        } else {
+            x = 1.0;
+        }
         
         NSString *string = [NSString stringWithFormat:@"%1.0f x %1.0f Grid", x, x];
         return string;
@@ -363,8 +368,11 @@
     [(GPUImageFilterGroup *)group setTerminalFilter:filter];
     group.title = @"4 Split";
     group.informationFormatter = ^(CGFloat xPos, CGFloat yPos, CGFloat xDistance, CGFloat yDistance, CGFloat angle) {
-        CGFloat remappedX = map(xPos, 0., 1., -0.01, .5);
-        NSString *string = [NSString stringWithFormat:@"X:+%1.2f", remappedX];
+        //        CGFloat remappedX = map(xPos, 0., 1., -0.01, .5);
+        //        NSString *string = [NSString stringWithFormat:@"X:+%1.2f", remappedX];
+        NSString *string = [NSString stringWithFormat:@""];
+        return string;
+        
         return string;
     };
     

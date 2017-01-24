@@ -218,11 +218,11 @@ const float TINT_DEFAULT = 0.0;
         SEL s = NSSelectorFromString(filterName);
         self.mainFilter = [MK_Shader performSelector:s];
         
-        self.equalizationFilter = [[GPUImageHistogramEqualizationFilter alloc] initWithHistogramType:kGPUImageHistogramLuminance];
-        self.equalizationFilter.downsamplingFactor = 4.0; // 1 and 2 reduce performance quite a bit. Going up to 4.
-        
         self.toneMap = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_ToneMap"];
         self.toneMap.parameter = self.toneMapValue;
+        
+        self.equalizationFilter = [[GPUImageHistogramEqualizationFilter alloc] initWithHistogramType:kGPUImageHistogramLuminance];
+        self.equalizationFilter.downsamplingFactor = 4.0; // 1 and 2 reduce performance quite a bit. Going up to 4.
         
         self.brightnessFilter = [[GPUImageBrightnessFilter alloc] init];
         self.brightnessFilter.brightness = self.brightness;
@@ -243,9 +243,9 @@ const float TINT_DEFAULT = 0.0;
         self.invertFilter = [MK_Shader invert];
         self.invert = self.invert; // Need to call the setter.
         
-        [self.mainFilter addTarget:self.equalizationFilter];
-        [self.equalizationFilter addTarget:self.toneMap];
-        [self.toneMap addTarget:self.brightnessFilter];
+        [self.mainFilter addTarget:self.toneMap];
+        [self.toneMap addTarget:self.equalizationFilter];
+        [self.equalizationFilter addTarget:self.brightnessFilter];
         [self.brightnessFilter addTarget:self.contrastFilter];
         [self.contrastFilter addTarget:self.saturationFilter];
         [self.saturationFilter addTarget:self.temperatureFilter];

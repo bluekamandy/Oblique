@@ -127,14 +127,14 @@
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BRIGHTNESS" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dig-3k-EA6" customClass="MK_LabelWithInsets">
-                                        <rect key="frame" x="133.66666666666666" y="54.333333333333329" width="66.666666666666686" height="12"/>
+                                        <rect key="frame" x="133.66666666666666" y="53.333333333333329" width="66.666666666666686" height="12"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="4" translatesAutoresizingMaskIntoConstraints="NO" id="Ht9-cE-9Wy">
-                                        <rect key="frame" x="-2" y="90.666666666666657" width="338" height="31"/>
+                                        <rect key="frame" x="-2" y="88.333333333333343" width="338" height="31"/>
                                         <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="contrastDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpOutside" id="X06-xh-2qd"/>
@@ -144,14 +144,14 @@
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONTRAST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APv-yN-9dd" customClass="MK_LabelWithInsets">
-                                        <rect key="frame" x="138.33333333333334" y="145" width="57.333333333333314" height="12"/>
+                                        <rect key="frame" x="138.33333333333334" y="141.66666666666666" width="57.333333333333314" height="12"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="Y9m-cL-WHc">
-                                        <rect key="frame" x="-2" y="181.33333333333334" width="338" height="31"/>
+                                        <rect key="frame" x="-2" y="177" width="338" height="31"/>
                                         <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="saturationDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpOutside" id="ear-5m-SRa"/>
@@ -161,14 +161,14 @@
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SATURATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6l4-M9-IRf" customClass="MK_LabelWithInsets">
-                                        <rect key="frame" x="134" y="235.66666666666669" width="66.333333333333343" height="12"/>
+                                        <rect key="frame" x="134" y="230" width="66.333333333333343" height="12"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5000" minValue="-2000" maxValue="12000" translatesAutoresizingMaskIntoConstraints="NO" id="yzU-zb-JYo">
-                                        <rect key="frame" x="-2" y="272" width="338" height="31"/>
+                                        <rect key="frame" x="-2" y="265.33333333333331" width="338" height="31"/>
                                         <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="temparatureDidStartDragging:" destination="Hid-rJ-OQe" eventType="touchDown" id="2yK-gr-NF8"/>
@@ -178,14 +178,14 @@
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEMPERATURE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y88-Vp-8tB" customClass="MK_LabelWithInsets">
-                                        <rect key="frame" x="129" y="326" width="76" height="12"/>
+                                        <rect key="frame" x="129" y="318.66666666666669" width="76" height="12"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-150" maxValue="150" translatesAutoresizingMaskIntoConstraints="NO" id="K7R-9L-kGJ">
-                                        <rect key="frame" x="-2" y="362.33333333333331" width="338" height="31"/>
+                                        <rect key="frame" x="-2" y="354" width="338" height="31"/>
                                         <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="tintDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpInside" id="8yB-PE-xBA"/>
@@ -195,14 +195,14 @@
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TINT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNr-50-W2w" customClass="MK_LabelWithInsets">
-                                        <rect key="frame" x="155" y="416.66666666666669" width="24.333333333333343" height="12"/>
+                                        <rect key="frame" x="155" y="407" width="24.333333333333343" height="12"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="ZNP-0l-Kss">
-                                        <rect key="frame" x="-2" y="453" width="338" height="31"/>
+                                        <rect key="frame" x="-2" y="442.33333333333337" width="338" height="31.000000000000057"/>
                                         <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="hueDidFinishDragging:" destination="Hid-rJ-OQe" eventType="touchUpOutside" id="3uV-ed-3Wa"/>
@@ -212,21 +212,21 @@
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HUE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BuB-JI-5hB" customClass="MK_LabelWithInsets">
-                                        <rect key="frame" x="156" y="507.33333333333337" width="22" height="12"/>
+                                        <rect key="frame" x="156" y="495.66666666666663" width="22" height="12"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="KAD-Uk-JaM">
-                                        <rect key="frame" x="0.0" y="543.66666666666663" width="334" height="58"/>
+                                        <rect key="frame" x="0.0" y="530.66666666666663" width="334" height="58"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZGf-QF-evE">
                                                 <rect key="frame" x="0.0" y="0.0" width="111.33333333333334" height="58"/>
                                                 <subviews>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="J5V-I4-UiK">
                                                         <rect key="frame" x="31.333333333333329" y="0.0" width="51" height="39"/>
-                                                        <color key="onTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="onTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <connections>
                                                             <action selector="invertSwitchChanged:" destination="Hid-rJ-OQe" eventType="valueChanged" id="l6S-ej-pg0"/>
                                                         </connections>
@@ -248,7 +248,7 @@
                                                 <subviews>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2cO-2V-S3Y">
                                                         <rect key="frame" x="31.333333333333314" y="0.0" width="51" height="39"/>
-                                                        <color key="onTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="onTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <connections>
                                                             <action selector="equalizeSwitchChanged:" destination="Hid-rJ-OQe" eventType="valueChanged" id="cHc-Og-ddY"/>
                                                         </connections>
@@ -270,7 +270,7 @@
                                                 <subviews>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="64O-4J-BNn">
                                                         <rect key="frame" x="31.333333333333314" y="0.0" width="51" height="39"/>
-                                                        <color key="onTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="onTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <connections>
                                                             <action selector="toneMapSwitchChanged:" destination="Hid-rJ-OQe" eventType="valueChanged" id="w3U-uv-y3v"/>
                                                         </connections>
@@ -292,33 +292,29 @@
                                             <constraint firstAttribute="height" constant="58" id="VxW-ns-ndD"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5M4-lu-dYU">
-                                        <rect key="frame" x="0.0" y="626" width="334" height="30"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="5M4-lu-dYU">
+                                        <rect key="frame" x="73" y="612" width="188" height="44"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ciy-XH-Ygk">
-                                                <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ciy-XH-Ygk">
+                                                <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="60" id="2sG-U8-WpF"/>
-                                                    <constraint firstAttribute="height" constant="30" id="Ejb-4j-CgZ"/>
+                                                    <constraint firstAttribute="height" constant="44" id="6wG-tb-8xb"/>
+                                                    <constraint firstAttribute="width" constant="44" id="t9Q-kb-klm"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <state key="normal" title="RESET">
+                                                <state key="normal" image="Reset">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="resetToDefaults:" destination="Hid-rJ-OQe" eventType="touchUpInside" id="b1n-Kz-JOu"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xNd-pM-tY6">
-                                                <rect key="frame" x="274" y="0.0" width="60" height="30"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xNd-pM-tY6">
+                                                <rect key="frame" x="144" y="0.0" width="44" height="44"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="AZI-7e-YtK"/>
-                                                    <constraint firstAttribute="width" constant="60" id="Avx-FN-4r6"/>
+                                                    <constraint firstAttribute="width" constant="44" id="sSD-Gl-WqO"/>
+                                                    <constraint firstAttribute="height" constant="44" id="tFb-5U-s5t"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <state key="normal" title="EXIT">
+                                                <state key="normal" image="Exit">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -334,11 +330,9 @@
                                     <constraint firstItem="K7R-9L-kGJ" firstAttribute="leading" secondItem="vyj-dr-Zr7" secondAttribute="leading" id="5jN-4e-JWv"/>
                                     <constraint firstAttribute="trailing" secondItem="FCY-oz-t8m" secondAttribute="trailing" id="69W-lu-JAa"/>
                                     <constraint firstAttribute="trailing" secondItem="Y9m-cL-WHc" secondAttribute="trailing" id="7ed-iH-QlL"/>
-                                    <constraint firstItem="5M4-lu-dYU" firstAttribute="leading" secondItem="vyj-dr-Zr7" secondAttribute="leading" id="Ksw-SU-fd6"/>
                                     <constraint firstItem="ZNP-0l-Kss" firstAttribute="leading" secondItem="vyj-dr-Zr7" secondAttribute="leading" id="L7i-CF-5Pi"/>
                                     <constraint firstAttribute="trailing" secondItem="KAD-Uk-JaM" secondAttribute="trailing" id="OcK-Eg-epP"/>
                                     <constraint firstAttribute="trailing" secondItem="Ht9-cE-9Wy" secondAttribute="trailing" id="QS4-a6-zwN"/>
-                                    <constraint firstAttribute="trailing" secondItem="5M4-lu-dYU" secondAttribute="trailing" id="UaI-4O-pcd"/>
                                     <constraint firstAttribute="trailing" secondItem="ZNP-0l-Kss" secondAttribute="trailing" id="ZcI-dL-HKh"/>
                                     <constraint firstItem="FCY-oz-t8m" firstAttribute="leading" secondItem="vyj-dr-Zr7" secondAttribute="leading" id="gAW-xN-drb"/>
                                     <constraint firstItem="Y9m-cL-WHc" firstAttribute="leading" secondItem="vyj-dr-Zr7" secondAttribute="leading" id="l71-ex-rHL"/>
@@ -608,7 +602,7 @@ Masood Kamandy for his exhibition
 The Effect of Lighting on a Rainbow
 at Luis De Jesus Los Angeles.
 
-Oblique is square shifted to its side. It's a lens that shifts your perception. It's transforming the way you see and experience the world. 
+Oblique is square shifted to its side. It's a lens that shifts your perception. It transforms the way you see and experience the world. 
 
 Oblique is a real-time camera app that allows you to apply filters and adjustments to your live camera view. The filters are powerful and interactive. They let you touch and manipulate your camera’s view directly and in creative
 new ways.
@@ -704,6 +698,7 @@ Early code inspired on a similar class by Philip Kluz (Philip.Kluz@zuui.org)</st
     <resources>
         <image name="Adjustment" width="29" height="32"/>
         <image name="AdjustmentSelected" width="29" height="32"/>
+        <image name="Exit" width="30" height="30"/>
         <image name="FilterList" width="32" height="32"/>
         <image name="FilterListSelected" width="32" height="32"/>
         <image name="Flash" width="14" height="18"/>
@@ -713,6 +708,7 @@ Early code inspired on a similar class by Philip Kluz (Philip.Kluz@zuui.org)</st
         <image name="Info" width="22" height="22"/>
         <image name="InfoSelected" width="22" height="22"/>
         <image name="ObliqueLogo" width="75" height="48"/>
+        <image name="Reset" width="32" height="31"/>
         <image name="Selfie" width="35" height="33"/>
         <image name="SelfieSelected" width="35" height="33"/>
         <image name="ShutterRelease" width="84" height="84"/>

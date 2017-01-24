@@ -38,8 +38,10 @@ void main()
 {
     vec2 textureCoordinateToUse = textureCoordinate;
     vec3 color = vec3(0.0);
-    
-    textureCoordinateToUse *= floor(center.x*20.0);      // Scale up the space. Floor keeps the number of views on screen whole.
+    if (center.x > 0.0) {
+    textureCoordinateToUse *= ceil(center.x*20.0);
+    }
+    // Scale up the space. Ceil keeps the number of views on screen whole (changed from floor).
     textureCoordinateToUse = fract(textureCoordinateToUse); // Wrap arround 1.0
     
     //textureCoordinateToUse -= 0.5;
