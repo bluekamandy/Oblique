@@ -10,6 +10,13 @@
 // ------------------------------------------------------------
 // ???
 //
+// ROTATE AROUND DIFFERENT ORIGIN
+// ------------------------------------------------------------
+//highp vec2 rotateAroundPoint(highp float angle, highp vec2 texCoord, highp vec2 rotationPoint) {
+//    return vec2(cos(angle) * (texCoord.x - rotationPoint.x) + sin(angle) * (texCoord.y - rotationPoint.y) + rotationPoint.x,
+//                cos(angle) * (texCoord.y - rotationPoint.y) - sin(angle) * (texCoord.x - rotationPoint.x) + rotationPoint.y);
+//}
+//
 // REMAPPING FUNCTION FOR GLSL
 // ------------------------------------------------------------
 // low2 + (value - low1) * (high2 - low2) / (high1 - low1)
@@ -92,19 +99,68 @@
 //     return color / (color + vec3(1.0));
 // }
 
+// SOURCE: https://www.shadertoy.com/view/Ml2Szz
+
+// Directionality of touch SOURCE: https://www.shadertoy.com/view/XltGWS
+
+#define M_PI 3.1415926535897932384626433832795
+
+highp float map(highp float value, highp float low1, highp float high1, highp float low2, highp float high2) {
+    return low2 + (value - low1) * (high2 - low2) / (high1 - low1);
+}
+
+highp vec2 rotateAroundPoint(highp float angle, highp vec2 texCoord, highp vec2 rotationPoint) {
+    return vec2(cos(angle) * (texCoord.x - rotationPoint.x) + sin(angle) * (texCoord.y - rotationPoint.y) + rotationPoint.x,
+                cos(angle) * (texCoord.y - rotationPoint.y) - sin(angle) * (texCoord.x - rotationPoint.x) + rotationPoint.y);
+}
+
 varying highp vec2 textureCoordinate;
 
 uniform sampler2D inputImageTexture;
-//uniform lowp float parameter;
+uniform lowp float parameter;
 //uniform lowp float time;
-//uniform highp vec2 center;
-
+uniform highp vec2 center;
 
 void main()
 {
     
-    lowp vec4 textureColor = texture2D(inputImageTexture, textureCoordinate);
+    highp vec4 textureColor = texture2D(inputImageTexture, textureCoordinate);
+        
+    highp float distFromCenter = distance(vec2(.5, .5), center);
     
-    gl_FragColor = vec4(vec3(1. - textureColor.rgb), textureColor.a);
+    int numOfSteps = int(ceil(map(distFromCenter, 0., .5, 1., 25.)));
+    
+    highp float xAmount = (0.25 - center.x * 0.5) / 10.;
+    highp float yAmount = (0.25 - center.y * 0.5) / 10.;;
+    
+    highp float r = 0.0;
+    highp float pass = 0.0;
+    
+    for (int i = 0; i < numOfSteps; i++) {
+        r += texture2D(inputImageTexture, vec2(textureCoordinate.x + pass*xAmount, textureCoordinate.y + pass*yAmount)).r;
+        pass += 1.0;
+    }
+    r /= pass;
+    
+    highp float g = 0.0;
+    pass = 0.0;
+    
+    for (int i = 0; i < numOfSteps; i++) {
+        g += texture2D(inputImageTexture, vec2(textureCoordinate.x, textureCoordinate.y)).g;
+        pass += 1.0;
+    }
+    g /= pass;
+    
+    highp float b = 0.0;
+    pass = 0.0;
+    
+    for (int i = 0; i < numOfSteps; i++) {
+        b += texture2D(inputImageTexture, vec2(textureCoordinate.x - pass*xAmount, textureCoordinate.y - pass*yAmount)).b;
+        pass += 1.0;
+    }
+    b /= pass;
+    
+    gl_FragColor =  vec4(vec3(r,g,b), 1.0);
+    
 }
 

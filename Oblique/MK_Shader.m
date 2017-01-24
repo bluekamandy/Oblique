@@ -40,11 +40,10 @@
     [(GPUImageFilterGroup *) group setTerminalFilter:filter];
     group.title = @"No Filter";
     group.informationFormatter = ^(CGFloat xPos, CGFloat yPos, CGFloat xDistance, CGFloat yDistance, CGFloat angle) {
-        
+
         NSString *string = [NSString stringWithFormat:@""];
         return string;
     };
-    
     group.useLivePreviewObj = [NSNumber numberWithBool:YES];
     group.usesTouch = [NSNumber numberWithBool:NO];
     group.iconName = @"Polygon";
@@ -52,6 +51,26 @@
 }
     
     // Filter Presets
+
++ (GPUImageFilterGroup *)rainbow {
+    MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_Rainbow"];
+    GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
+    [(GPUImageFilterGroup *)group setInitialFilters:[NSArray arrayWithObject:filter]];
+    [(GPUImageFilterGroup *)group setTerminalFilter:filter];
+    group.title = @"Rainbow";
+    group.informationFormatter = ^(CGFloat xPos, CGFloat yPos, CGFloat xDistance, CGFloat yDistance, CGFloat angle) {
+        
+        NSString *string = [NSString stringWithFormat:@""];
+        return string;
+
+    };
+    
+    group.useLivePreviewObj = [NSNumber numberWithBool:YES];
+    group.usesTouch = [NSNumber numberWithBool:YES];
+    group.iconName = @"Polygon";
+    return group;
+}
+
 
 + (GPUImageFilterGroup *)colorCompress {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_Color_Compress"];
@@ -490,6 +509,7 @@
                                                  @"waves",
                                                  @"tunnel",
                                                  @"fourSplit",
+                                                 @"rainbow",
                                                  @"colorCompress",
                                                  @"rgbSeparation",
                                                  @"colorCycleFilter",
@@ -505,7 +525,7 @@
                           };
     
     _filterSectionTitles = [[_filtersAvailable allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-    NSLog(@"This is the order of the titles: %@", [_filtersAvailable allKeys]);
+//    NSLog(@"This is the order of the titles: %@", [_filtersAvailable allKeys]);
     
     
     //    _adjustmentsAvailable = [NSArray arrayWithObjects:

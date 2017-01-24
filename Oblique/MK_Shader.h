@@ -52,6 +52,7 @@
 + (GPUImageFilterGroup *)noFilter;
 
 // Presets
++ (GPUImageFilterGroup *)rainbow;
 + (GPUImageFilterGroup *)colorCompress;
 + (GPUImageFilterGroup *)rgbSeparation;
 + (GPUImageFilterGroup *)noiseWarp;

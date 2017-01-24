@@ -42,12 +42,14 @@ void main()
 {
     highp vec4 sample0, sample1, sample2, sample3;
     
-    highp float fStep = map(center.x, 0., 1., -0.01, .5); // Mapped it to give it a little space from the edge.
+    highp float distFromCenter = distance(vec2(.5, .5), center);
     
-    sample0 = texture2D(inputImageTexture, vec2(textureCoordinate.x - fStep, textureCoordinate.y - fStep));
-    sample1 = texture2D(inputImageTexture, vec2(textureCoordinate.x + fStep, textureCoordinate.y + fStep));
-    sample2 = texture2D(inputImageTexture, vec2(textureCoordinate.x + fStep, textureCoordinate.y - fStep));
-    sample3 = texture2D(inputImageTexture, vec2(textureCoordinate.x - fStep, textureCoordinate.y + fStep));
+    //highp float fStep = map(center.x, 0., 1., -0.01, .5); // Mapped it to give it a little space from the edge.
+    
+    sample0 = texture2D(inputImageTexture, vec2(textureCoordinate.x - distFromCenter, textureCoordinate.y - distFromCenter));
+    sample1 = texture2D(inputImageTexture, vec2(textureCoordinate.x + distFromCenter, textureCoordinate.y + distFromCenter));
+    sample2 = texture2D(inputImageTexture, vec2(textureCoordinate.x + distFromCenter, textureCoordinate.y - distFromCenter));
+    sample3 = texture2D(inputImageTexture, vec2(textureCoordinate.x - distFromCenter, textureCoordinate.y + distFromCenter));
     lowp vec4 textureColor = texture2D(inputImageTexture, fract(textureCoordinate));
     
     gl_FragColor = vec4(((sample0 + sample1 + sample2 + sample3)/4.0));

@@ -30,9 +30,22 @@
 
 - (void)perform {
     UIViewController *sourceViewController = self.sourceViewController;
-    [sourceViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-    [(ViewController *)sourceViewController.presentingViewController.childViewControllers[1] toggleVisibilityOfButtons];
     
+    [(ViewController *)sourceViewController.presentingViewController.childViewControllers[1] toggleVisibilityOfButtons];
+
+    
+    [UIView animateWithDuration:0.125
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveLinear
+                     animations:^{
+                         [self.sourceViewController.view setTransform:CGAffineTransformMakeTranslation(0, self.sourceViewController.view.frame.size.height)];
+                     }
+                     completion:^(BOOL finished){
+
+                         [(ViewController *)sourceViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+
+                     }
+     ];
 }
 
 

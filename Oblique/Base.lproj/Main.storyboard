@@ -322,6 +322,7 @@
                                                     <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
+                                                    <action selector="exitAdjustments:" destination="Hid-rJ-OQe" eventType="touchUpInside" id="qbZ-gZ-MOw"/>
                                                     <segue destination="BYZ-38-t0r" kind="custom" customClass="MK_DismissSegue" id="Fz4-34-M7I"/>
                                                 </connections>
                                             </button>
@@ -515,7 +516,7 @@
                                         <state key="highlighted" image="AdjustmentSelected"/>
                                         <connections>
                                             <action selector="toggleAdjustments:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qXx-Uz-CwS"/>
-                                            <segue destination="Hid-rJ-OQe" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="7RK-nT-esn"/>
+                                            <segue destination="Hid-rJ-OQe" kind="presentation" customClass="MK_AdjustmentSegue" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="7RK-nT-esn"/>
                                         </connections>
                                     </button>
                                 </subviews>

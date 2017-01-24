@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		16540918296C78DC978EBDB2 /* libPods-Oblique.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F9F2C64BA2D46DFCAD4831 /* libPods-Oblique.a */; };
 		A510BD1C1E21967C006FA9D4 /* MK_FShader_overMirror.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A510BD1B1E21967C006FA9D4 /* MK_FShader_overMirror.fsh */; };
+		A525DC1D1E3553300083F8E8 /* MK_FShader_Rainbow.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A525DC1C1E3553300083F8E8 /* MK_FShader_Rainbow.fsh */; };
+		A52656D01E353D0E0062F506 /* MK_AdjustmentSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = A52656CF1E353D0E0062F506 /* MK_AdjustmentSegue.m */; };
 		A55B748C1E32E60700C53A04 /* MK_FShader_RGB_Separation.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A55B748B1E32E60700C53A04 /* MK_FShader_RGB_Separation.fsh */; };
 		A560E30D1E1D7A5900F1ED4E /* MK_GPUImageStillCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = A560E30C1E1D7A5900F1ED4E /* MK_GPUImageStillCamera.m */; };
 		A560E30F1E1DB0BD00F1ED4E /* MK_FShader_NoiseWarp.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A560E30E1E1DB0BD00F1ED4E /* MK_FShader_NoiseWarp.fsh */; };
@@ -67,6 +69,9 @@
 		52F9F2C64BA2D46DFCAD4831 /* libPods-Oblique.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Oblique.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78A635A2ED891BB3F72CE758 /* Pods-Oblique.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oblique.release.xcconfig"; path = "Pods/Target Support Files/Pods-Oblique/Pods-Oblique.release.xcconfig"; sourceTree = "<group>"; };
 		A510BD1B1E21967C006FA9D4 /* MK_FShader_overMirror.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_overMirror.fsh; sourceTree = "<group>"; };
+		A525DC1C1E3553300083F8E8 /* MK_FShader_Rainbow.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_Rainbow.fsh; sourceTree = "<group>"; };
+		A52656CE1E353CEA0062F506 /* MK_AdjustmentSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MK_AdjustmentSegue.h; sourceTree = "<group>"; };
+		A52656CF1E353D0E0062F506 /* MK_AdjustmentSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MK_AdjustmentSegue.m; sourceTree = "<group>"; };
 		A55B748B1E32E60700C53A04 /* MK_FShader_RGB_Separation.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_RGB_Separation.fsh; sourceTree = "<group>"; };
 		A560E30B1E1D7A5900F1ED4E /* MK_GPUImageStillCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MK_GPUImageStillCamera.h; sourceTree = "<group>"; };
 		A560E30C1E1D7A5900F1ED4E /* MK_GPUImageStillCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MK_GPUImageStillCamera.m; sourceTree = "<group>"; };
@@ -291,6 +296,7 @@
 				A5ACC7831E17344A0014795F /* MK_FShader_Waves.fsh */,
 				A55B748B1E32E60700C53A04 /* MK_FShader_RGB_Separation.fsh */,
 				A5E2337B1E33BEB2002A15CE /* MK_FShader_Color_Compress.fsh */,
+				A525DC1C1E3553300083F8E8 /* MK_FShader_Rainbow.fsh */,
 			);
 			name = Filters;
 			sourceTree = "<group>";
@@ -322,9 +328,9 @@
 				A5EFBECC1E162A290046E72A /* Main Camera View */,
 				A59D95061E16EDA000049C5D /* Camera Manager */,
 				A59D950D1E16F82B00049C5D /* Custom Filter */,
-				A5ACC70C1E1700D30014795F /* Shader Files */,
 				A59D94FC1E16E99A00049C5D /* Filter Menu */,
 				A51DC8E91E1851E40050C0D8 /* Adjustment Menu */,
+				A5ACC70C1E1700D30014795F /* Shader Files */,
 				A5C6C9E21E15D39800364421 /* Assets.xcassets */,
 				A5C6C9E41E15D39800364421 /* LaunchScreen.storyboard */,
 				A5C6C9E71E15D39800364421 /* Info.plist */,
@@ -346,6 +352,8 @@
 			children = (
 				A59D95111E16FA5700049C5D /* Common.h */,
 				A59D95121E16FA5700049C5D /* Common.m */,
+				A52656CE1E353CEA0062F506 /* MK_AdjustmentSegue.h */,
+				A52656CF1E353D0E0062F506 /* MK_AdjustmentSegue.m */,
 				A5AA384E1E1819080056A532 /* MK_DismissSegue.h */,
 				A5AA384F1E1819080056A532 /* MK_DismissSegue.m */,
 				A59F9B041E1887900020CC87 /* MK_DismissInfoSegue.h */,
@@ -466,6 +474,7 @@
 				A5ACC71B1E17015E0014795F /* MK_FShader_Sharpness.fsh in Resources */,
 				A5C6C9E11E15D39800364421 /* Main.storyboard in Resources */,
 				A5ACC78E1E17344A0014795F /* MK_FShader_Shear.fsh in Resources */,
+				A525DC1D1E3553300083F8E8 /* MK_FShader_Rainbow.fsh in Resources */,
 				A5ACC7921E17344A0014795F /* MK_FShader_VerticalStripes.fsh in Resources */,
 				A5ACC7191E17015E0014795F /* MK_FShader_Hue.fsh in Resources */,
 				A5ACC7891E17344A0014795F /* MK_FShader_GridImage.fsh in Resources */,
@@ -547,6 +556,7 @@
 				A59D95131E16FA5700049C5D /* Common.m in Sources */,
 				A59D95051E16ED8F00049C5D /* MK_ShaderGroup.m in Sources */,
 				A58D18B31E19B13A00EB8C49 /* MK_AdjustmentViewController.m in Sources */,
+				A52656D01E353D0E0062F506 /* MK_AdjustmentSegue.m in Sources */,
 				A5A598601E2EEC28009E72BE /* MK_LabelWithInsets.m in Sources */,
 				A59F9B061E18879B0020CC87 /* MK_DismissInfoSegue.m in Sources */,
 				A560E30D1E1D7A5900F1ED4E /* MK_GPUImageStillCamera.m in Sources */,

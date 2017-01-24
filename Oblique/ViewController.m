@@ -54,6 +54,7 @@
     CGFloat distanceOfTouch;
     CGFloat xDistance;
     CGFloat yDistance;
+    CGFloat distanceFromCenter;
     
     BOOL fullScreen;
     
@@ -300,16 +301,34 @@
 
 - (void)toggleVisibilityOfButtons {
     fullScreen = !fullScreen;
-    [self fullScreenCamera:fullScreen];
-    self.adjustmentButton.alpha = !self.adjustmentButton.alpha;
-    self.filterButton.alpha = !self.filterButton.alpha;
-    self.shutterReleaseButton.alpha = !self.shutterReleaseButton.alpha;
-    self.selfieButton.alpha = !self.selfieButton.alpha;
-    self.cameraGridButton.alpha = !self.cameraGridButton.alpha;
-    if (!(cameraManager.stillCamera.cameraPosition == AVCaptureDevicePositionFront)) {
-        self.flashButton.alpha = !self.flashButton.alpha;
+    
+    if (fullScreen) {
+        self.adjustmentButton.alpha = !self.adjustmentButton.alpha;
+        self.filterButton.alpha = !self.filterButton.alpha;
+        self.shutterReleaseButton.alpha = !self.shutterReleaseButton.alpha;
+        self.selfieButton.alpha = !self.selfieButton.alpha;
+        self.cameraGridButton.alpha = !self.cameraGridButton.alpha;
+        if (!(cameraManager.stillCamera.cameraPosition == AVCaptureDevicePositionFront)) {
+            self.flashButton.alpha = !self.flashButton.alpha;
+        }
+        self.infoButton.alpha = !self.infoButton.alpha;
+    } else {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.125 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:0.125 animations:^{
+                self.adjustmentButton.alpha = !self.adjustmentButton.alpha;
+                self.filterButton.alpha = !self.filterButton.alpha;
+                self.shutterReleaseButton.alpha = !self.shutterReleaseButton.alpha;
+                self.selfieButton.alpha = !self.selfieButton.alpha;
+                self.cameraGridButton.alpha = !self.cameraGridButton.alpha;
+                if (!(cameraManager.stillCamera.cameraPosition == AVCaptureDevicePositionFront)) {
+                    self.flashButton.alpha = !self.flashButton.alpha;
+                }
+                self.infoButton.alpha = !self.infoButton.alpha;
+            }];
+        });
     }
-    self.infoButton.alpha = !self.infoButton.alpha;
+    [self fullScreenCamera:fullScreen];
+    
 }
 
 - (void)fullScreenCamera:(BOOL)on {
@@ -361,7 +380,19 @@
             distanceOfTouch = distanceBetween(normalizedTouchStartingCoord, normalizedTouchPoint); // AKA hypoteneuse
             xDistance = normalizedTouchPoint.x - normalizedTouchStartingCoord.x;
             yDistance = normalizedTouchPoint.y - normalizedTouchStartingCoord.y;
-            angleOfTouch = -atan2(yDistance, xDistance); // Negative because the coordinate system is reversed but I'd like it to be relative to the user.
+            // This is the angle of touch from the previous touch point.
+            //angleOfTouch = -atan2(yDistance, xDistance); // Negative because the coordinate system is reversed but I'd like it to be relative to the user.
+            
+            // This is the angle of touch from the center of the imageView.
+            // SOURCE: http://stackoverflow.com/questions/32417157/node-rotation-doesnt-follow-a-finger
+            CGFloat dx = .5 - normalizedTouchPoint.x;
+            CGFloat dy = .5 - normalizedTouchPoint.y;
+            angleOfTouch = atan2(dy, dx) + M_PI_2;
+            
+            if(angleOfTouch < 0){
+                angleOfTouch = angleOfTouch + 2 * M_PI;
+            }
+            
             informationFieldText = [cameraManager changeFilterParameterUsingXPos:normalizedTouchPoint.x yPos:normalizedTouchPoint.y xDistance:xDistance yDistance:yDistance angle:angleOfTouch];
         }
         
@@ -386,11 +417,11 @@
     normalizedTouchEndingCoord.x = touchEndingCoord.x / photoViewWidth;
     normalizedTouchEndingCoord.y = touchEndingCoord.y / photoViewHeight;
     
-    NSLog(@"touchEndingCoord = %@", NSStringFromCGPoint(touchEndingCoord));
-    NSLog(@"normalizedTouchEndingCoord = %@", NSStringFromCGPoint(normalizedTouchEndingCoord));
-    NSLog(@"distanceOfTouch is %f", distanceOfTouch);
-    NSLog(@"xDistance = %f and yDistance = %f", xDistance, yDistance);
-    NSLog(@"angleOfTouch = %.2f", angleOfTouch);
+//    NSLog(@"touchEndingCoord = %@", NSStringFromCGPoint(touchEndingCoord));
+//    NSLog(@"normalizedTouchEndingCoord = %@", NSStringFromCGPoint(normalizedTouchEndingCoord));
+//    NSLog(@"distanceOfTouch is %f", distanceOfTouch);
+//    NSLog(@"xDistance = %f and yDistance = %f", xDistance, yDistance);
+//    NSLog(@"angleOfTouch = %.2f", angleOfTouch);
     informationFieldText = @"";
     [self.informationField setText:informationFieldText];
 }

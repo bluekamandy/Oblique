@@ -47,6 +47,7 @@ const float TINT_DEFAULT = 0.0;
     CGPoint touchChanges;
     CGFloat touchXPos;
     CGFloat touchYPos;
+    CGFloat angleOfTouch;
     dispatch_queue_t sharedContextQueue;
 }
 
@@ -90,7 +91,7 @@ const float TINT_DEFAULT = 0.0;
         if (!_invert) { _invert = INVERT_DEFAULT; }
         if (!_equalize) { _equalize = EQUALIZE_DEFAULT; }
         NSLog(@"Equalize is starting up as %d", _equalize);
-        touchChanges = CGPointMake(0,0);
+        //touchChanges = CGPointMake(0,0);
         
         _filterChain = [self createNewFilterChain:@"noFilter" equalizationOn:_equalize];
         
@@ -304,6 +305,8 @@ const float TINT_DEFAULT = 0.0;
     NSString *informationField;
     touchXPos = xPos;
     touchYPos = yPos;
+    angleOfTouch = angle;
+    
     if (self.mainFilter.usesTouch == [NSNumber numberWithBool:NO]){
         informationField = nil;
     } else {
@@ -316,13 +319,15 @@ const float TINT_DEFAULT = 0.0;
 - (void)updateTouch {
     
     MK_GPUImageCustom3Input *myFilterToChange = (MK_GPUImageCustom3Input *)self.mainFilter.terminalFilter;
+
     // Have to copy it and then copy it back because you can't access the myFilterToChange.center's CGPoint structure directly and I don't want to use CGPoints.
     touchChanges = myFilterToChange.center;
+    
     touchChanges.x = touchXPos;
     touchChanges.y = touchYPos;
     
     myFilterToChange.center = touchChanges;
-    
+    myFilterToChange.parameter = angleOfTouch;
 }
 
 #pragma mark - Setters for Brightness, Contrast, Saturation and Hue

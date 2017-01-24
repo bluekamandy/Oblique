@@ -286,6 +286,18 @@
     }];
 }
 
+- (IBAction)exitAdjustments:(id)sender {
+    [UIView animateWithDuration:0.75
+                          delay:0.0
+                        options:UIViewAnimationOptionTransitionFlipFromBottom
+                     animations:^{
+                         [self.view setTransform:CGAffineTransformMakeTranslation(0, -self.view.frame.size.height)];
+                     }
+                     completion:^(BOOL finished){
+                         [self dismissViewControllerAnimated:NO completion:nil];
+                     }
+     ];
+}
 
 
 /*

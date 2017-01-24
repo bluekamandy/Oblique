@@ -73,7 +73,7 @@ NSString *const kMK_GPUImageCustom3InputFragmentShaderString = SHADER_STRING
  {
      lowp vec4 textureColor = texture2D(inputImageTexture, textureCoordinate);
      
-     gl_FragColor = vec4((textureColor.rgb + vec3(parameter)), textureColor.w);
+     gl_FragColor = vec4((textureColor.rgb), textureColor.w);
  }
  );
 
@@ -104,7 +104,7 @@ NSString *const kMK_GPUImageCustom3InputFragmentShaderString = SHADER_STRING
     self.parameter = 0.0;
     
     centerUniform = [filterProgram uniformIndex:@"center"];
-    self.center = CGPointMake(0.5, 0.5);
+    self.center = CGPointMake(0.25, 0.25);
     
     timeUniform = [filterProgram uniformIndex:@"time"];
     self.time = 0.0;
@@ -136,7 +136,7 @@ NSString *const kMK_GPUImageCustom3InputFragmentShaderString = SHADER_STRING
     self.parameter = 0.0;
     
     centerUniform = [filterProgram uniformIndex:@"center"];
-    self.center = CGPointMake(0.5, 0.5);
+    self.center = CGPointMake(0.25, 0.25);
     
     timeUniform = [filterProgram uniformIndex:@"time"];
     self.time = 0.0;
@@ -167,7 +167,7 @@ NSString *const kMK_GPUImageCustom3InputFragmentShaderString = SHADER_STRING
     self.parameter = 0.0;
     
     centerUniform = [filterProgram uniformIndex:@"center"];
-    self.center = CGPointMake(0.5, 0.5);
+    self.center = CGPointMake(0.25, 0.25);
     
     timeUniform = [filterProgram uniformIndex:@"time"];
     self.time = 0.0;
@@ -189,7 +189,7 @@ NSString *const kMK_GPUImageCustom3InputFragmentShaderString = SHADER_STRING
     self.parameter = 0.0;
     
     centerUniform = [filterProgram uniformIndex:@"center"];
-    self.center = CGPointMake(0.5, 0.5);
+    self.center = CGPointMake(0.25, 0.25);
     
     timeUniform = [filterProgram uniformIndex:@"time"];
     self.time = 0.0;

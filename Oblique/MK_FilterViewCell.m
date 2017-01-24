@@ -46,8 +46,6 @@
         
         sharedCameraManager = [MK_GPUImageCameraManager sharedManager];
         
-        NSLog(@"initWithCoder : Cell");
-        // Creating if statement so that 'No filter' (without title) is centered.
         _filterView = [[GPUImageView alloc] initWithFrame:CGRectMake(20, 15, 85, 85)];
         
         _filterView.fillMode = kGPUImageFillModePreserveAspectRatioAndFill;
