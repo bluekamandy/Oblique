@@ -37,6 +37,8 @@ void main()
     highp vec2 normCenter = 2.0 * center - 1.0;
     
     normCoord -= normCenter;
+    
+    // sign returns -1.0 if x is less than 0.0, 0.0 if x is equal to 0.0, and +1.0 if x is greater than 0.0.
     mediump vec2 s = sign(normCoord);
     normCoord = abs(normCoord);
     normCoord = 0.5 * normCoord + 0.5 * smoothstep(0.25, 0.5, normCoord) * normCoord;

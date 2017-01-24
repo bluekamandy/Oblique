@@ -128,7 +128,7 @@ void main()
         
     highp float distFromCenter = distance(vec2(.5, .5), center);
     
-    int numOfSteps = int(ceil(map(distFromCenter, 0., .5, 1., 25.)));
+    int numOfSteps = int(ceil(map(distFromCenter, 0., .5, 1., 20.)));
     
     highp float xAmount = (0.25 - center.x * 0.5) / 10.;
     highp float yAmount = (0.25 - center.y * 0.5) / 10.;;

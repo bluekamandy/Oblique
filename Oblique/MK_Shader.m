@@ -29,10 +29,10 @@
 #import "Common.h"
 
 @implementation MK_Shader
-    
+
 #pragma mark - Class Methods
-    
-    // Reset
+
+// Reset
 + (GPUImageFilterGroup *) noFilter {
     GPUImageFilter *filter = [[MK_GPUImageCustom3Input alloc] init];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -40,7 +40,7 @@
     [(GPUImageFilterGroup *) group setTerminalFilter:filter];
     group.title = @"No Filter";
     group.informationFormatter = ^(CGFloat xPos, CGFloat yPos, CGFloat xDistance, CGFloat yDistance, CGFloat angle) {
-
+        
         NSString *string = [NSString stringWithFormat:@""];
         return string;
     };
@@ -49,8 +49,8 @@
     group.iconName = @"Polygon";
     return group;
 }
-    
-    // Filter Presets
+
+// Filter Presets
 
 + (GPUImageFilterGroup *)rainbow {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_Rainbow"];
@@ -62,7 +62,7 @@
         
         NSString *string = [NSString stringWithFormat:@""];
         return string;
-
+        
     };
     
     group.useLivePreviewObj = [NSNumber numberWithBool:YES];
@@ -80,9 +80,10 @@
     group.title = @"Color Compress";
     group.informationFormatter = ^(CGFloat xPos, CGFloat yPos, CGFloat xDistance, CGFloat yDistance, CGFloat angle) {
         
-        CGFloat newX = map(xPos, 0.0, 1.0, 0.0, 20.0);
-        
-        NSString *string = [NSString stringWithFormat:@"X: %1.2f", newX];
+        //        CGFloat newX = map(xPos, 0.0, 1.0, 0.0, 20.0);
+        //
+        //        NSString *string = [NSString stringWithFormat:@"X: %1.2f", newX];
+        NSString *string = [NSString stringWithFormat:@""];
         return string;
     };
     
@@ -101,7 +102,8 @@
     group.title = @"RGB Separation";
     group.informationFormatter = ^(CGFloat xPos, CGFloat yPos, CGFloat xDistance, CGFloat yDistance, CGFloat angle) {
         
-        NSString *string = [NSString stringWithFormat:@"X: %1.2f Y: %1.2f", xPos, yPos];
+        //        NSString *string = [NSString stringWithFormat:@"X: %1.2f Y: %1.2f", xPos, yPos];
+        NSString *string = [NSString stringWithFormat:@""];
         return string;
     };
     
@@ -110,8 +112,8 @@
     group.iconName = @"Polygon";
     return group;
 }
-    
-    
+
+
 + (GPUImageFilterGroup *)noiseWarp {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_NoiseWarp"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -128,7 +130,7 @@
     group.iconName = @"Polygon";
     return group;
 }
-    
+
 + (GPUImageFilterGroup *)mrPerlin {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_MrPerlin"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -137,7 +139,8 @@
     group.title = @"Mr Perlin";
     group.informationFormatter = ^(CGFloat xPos, CGFloat yPos, CGFloat xDistance, CGFloat yDistance, CGFloat angle) {
         
-        NSString *string = [NSString stringWithFormat:@"X: %1.2f Y: %1.2f", xPos, yPos];
+        //        NSString *string = [NSString stringWithFormat:@"X: %1.2f Y: %1.2f", xPos, yPos];
+        NSString *string = [NSString stringWithFormat:@""];
         return string;
     };
     group.useLivePreviewObj = [NSNumber numberWithBool:YES];
@@ -145,9 +148,9 @@
     group.iconName = @"Polygon";
     return group;
 }
-    
-    
-    
+
+
+
 + (GPUImageFilterGroup *)colorCycleFilter {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_ColorCycle"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -156,11 +159,12 @@
     group.title = @"Color Cycle";
     group.informationFormatter = ^(CGFloat xPos, CGFloat yPos, CGFloat xDistance, CGFloat yDistance, CGFloat angle) {
         
-        CGFloat red = fmod(xPos, 1);
-        CGFloat green = fmod(yPos, 1);
-        CGFloat blue = fmod(xPos/yPos, 1);
-        
-        NSString *string = [NSString stringWithFormat:@"R +%1.2f  G +%1.2f  B +%1.2f", red, green, blue];
+        //        CGFloat red = fmod(xPos, 1);
+        //        CGFloat green = fmod(yPos, 1);
+        //        CGFloat blue = fmod(xPos/yPos, 1);
+        //
+        //        NSString *string = [NSString stringWithFormat:@"R +%1.2f  G +%1.2f  B +%1.2f", red, green, blue];
+        NSString *string = [NSString stringWithFormat:@""];
         return string;
     };
     group.useLivePreviewObj = [NSNumber numberWithBool:YES];
@@ -168,7 +172,7 @@
     group.iconName = @"Polygon";
     return group;
 }
-    
+
 + (GPUImageFilterGroup *)grid {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_GridImage"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -188,7 +192,7 @@
     group.iconName = @"Polygon";
     return group;
 }
-    
+
 + (GPUImageFilterGroup *)tunnel {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_Tunnel"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -196,9 +200,10 @@
     [(GPUImageFilterGroup *)group setTerminalFilter:filter];
     group.title = @"Tunnel";
     group.informationFormatter = ^(CGFloat xPos, CGFloat yPos, CGFloat xDistance, CGFloat yDistance, CGFloat angle) {
-        CGFloat newX = map(xPos, 0.0, 1.0, 0.0, 20.0);
-        // Reversed the numbers so it makes more sense to the user
-        NSString *string = [NSString stringWithFormat:@"X:+%1.2f", newX];
+        //        CGFloat newX = map(xPos, 0.0, 1.0, 0.0, 20.0);
+        //        // Reversed the numbers so it makes more sense to the user
+        //        NSString *string = [NSString stringWithFormat:@"X:+%1.2f", newX];
+        NSString *string = [NSString stringWithFormat:@""];
         return string;
     };
     
@@ -208,7 +213,7 @@
     return group;
     
 }
-    
+
 + (GPUImageFilterGroup *)waves {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_Waves" timerOn:YES ];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -216,7 +221,8 @@
     [(GPUImageFilterGroup *)group setTerminalFilter:filter];
     group.title = @"Waves";
     group.informationFormatter = ^(CGFloat xPos, CGFloat yPos, CGFloat xDistance, CGFloat yDistance, CGFloat angle) {
-        NSString *string = [NSString stringWithFormat:@"X: %1.2f  Y: %1.2f", xPos, yPos];
+        //        NSString *string = [NSString stringWithFormat:@"X: %1.2f  Y: %1.2f", xPos, yPos];
+        NSString *string = [NSString stringWithFormat:@""];
         return string;
     };
     group.useLivePreviewObj = [NSNumber numberWithBool:YES];
@@ -225,7 +231,7 @@
     return group;
     
 }
-    
+
 + (GPUImageFilterGroup *)shear {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_Shear"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -233,7 +239,8 @@
     [(GPUImageFilterGroup *)group setTerminalFilter:filter];
     group.title = @"Shear";
     group.informationFormatter = ^(CGFloat xPos, CGFloat yPos, CGFloat xDistance, CGFloat yDistance, CGFloat angle) {
-        NSString *string = [NSString stringWithFormat:@"X: %1.2f  Y: %1.2f", xPos, yPos];
+        //        NSString *string = [NSString stringWithFormat:@"X: %1.2f  Y: %1.2f", xPos, yPos];
+        NSString *string = [NSString stringWithFormat:@""];
         return string;
     };
     group.useLivePreviewObj = [NSNumber numberWithBool:YES];
@@ -242,7 +249,7 @@
     return group;
     
 }
-    
+
 + (GPUImageFilterGroup *)stretch {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_Stretch"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -250,7 +257,8 @@
     [(GPUImageFilterGroup *)group setTerminalFilter:filter];
     group.title = @"Stretch";
     group.informationFormatter = ^(CGFloat xPos, CGFloat yPos, CGFloat xDistance, CGFloat yDistance, CGFloat angle) {
-        NSString *string = [NSString stringWithFormat:@"X: %1.2f  Y: %1.2f", xPos, yPos];
+        //        NSString *string = [NSString stringWithFormat:@"X: %1.2f  Y: %1.2f", xPos, yPos];
+        NSString *string = [NSString stringWithFormat:@""];
         return string;
     };
     group.useLivePreviewObj = [NSNumber numberWithBool:YES];
@@ -259,26 +267,20 @@
     return group;
     
 }
-    
-    
+
+
 + (GPUImageFilterGroup *)polarStripes {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_Polar"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
     [(GPUImageFilterGroup *)group setInitialFilters:[NSArray arrayWithObject:filter]];
     [(GPUImageFilterGroup *)group setTerminalFilter:filter];
     group.title = @"Polar Stripes";
-    group.informationFormatter = ^(CGFloat xPos, CGFloat yPos, CGFloat xDistance, CGFloat yDistance, CGFloat angle) {
-        
-        NSString *string = [NSString stringWithFormat:@"No touch."];
-        return string;
-    };
-    
     group.useLivePreviewObj = [NSNumber numberWithBool:YES];
     group.usesTouch = [NSNumber numberWithBool:NO];
     group.iconName = @"Polygon";
     return group;
 }
-    
+
 + (GPUImageFilterGroup *)verticalStripes {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_VerticalStripes"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -291,7 +293,7 @@
     return group;
     
 }
-    
+
 + (GPUImageFilterGroup *)horizontalStripes {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_HorizontalStripes"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -303,7 +305,7 @@
     group.iconName = @"Polygon";
     return group;
 }
-    
+
 + (GPUImageFilterGroup *)verticalMirror {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_VerticalMirror"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -315,7 +317,7 @@
     group.iconName = @"Polygon";
     return group;
 }
-    
+
 + (GPUImageFilterGroup *)horizontalMirror {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_HorizontalMirror"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -327,7 +329,7 @@
     group.iconName = @"Polygon";
     return group;
 }
-    
+
 + (GPUImageFilterGroup *)overMirror {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_overMirror"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -339,8 +341,8 @@
     group.iconName = @"Polygon";
     return group;
 }
-    
-    
+
+
 + (GPUImageFilterGroup *)fourScope {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_4Scope"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -352,8 +354,8 @@
     group.iconName = @"Polygon";
     return group;
 }
-    
-    
+
+
 + (GPUImageFilterGroup *)fourSplit {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_4Split"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -371,22 +373,10 @@
     group.iconName = @"Polygon";
     return group;
 }
-    
-    //    + (GPUImageFilterGroup *)canny {
-    //        GPUImageCannyEdgeDetectionFilter *filter = [[GPUImageCannyEdgeDetectionFilter alloc] init];
-    //        GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
-    //        [(GPUImageFilterGroup *)group setInitialFilters:[NSArray arrayWithObject:filter]];
-    //        [(GPUImageFilterGroup *)group setTerminalFilter:filter];
-    //        group.title = @"Canny";
-    //        group.useLivePreviewObj = [NSNumber numberWithBool:YES];
-    //        group.usesTouch = [NSNumber numberWithBool:NO];
-    //        group.iconName = @"Polygon";
-    //        return group;
-    //    }
-    
-    
-    // Image Adjustment Filters (NOT CURRENTLY USED)
-    
+
+
+// Image Adjustment Filters (NOT CURRENTLY USED)
+
 + (GPUImageFilterGroup *)brightness {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_Brightness"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -398,7 +388,7 @@
     group.iconName = @"Polygon";
     return group;
 }
-    
+
 + (GPUImageFilterGroup *)contrast {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_Contrast"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -411,7 +401,7 @@
     return group;
     
 }
-    
+
 + (GPUImageFilterGroup *)saturation {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_Saturation"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -424,7 +414,7 @@
     return group;
     
 }
-    
+
 + (GPUImageFilterGroup *)hue {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_Hue"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -437,7 +427,7 @@
     return group;
     
 }
-    
+
 + (GPUImageFilterGroup *)invert {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_Invert"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -449,8 +439,8 @@
     group.iconName = @"Polygon";
     return group;
 }
-    
-    
+
+
 + (GPUImageFilterGroup *)sharpness {
     GPUImageSharpenFilter *filter = [[GPUImageSharpenFilter alloc] init];
     filter.sharpness = 25.0;
@@ -463,8 +453,8 @@
     group.iconName = @"Polygon";
     return group;
 }
-    
-    // Tools
+
+// Tools
 + (GPUImageFilterGroup *)addFilter:(GPUImageFilterGroup *)newFilter toCurrentFilter:(GPUImageFilterGroup *)currentFilter{
     GPUImageFilterGroup *replacementFilterGroup = [[GPUImageFilterGroup alloc] init];
     for (id GPUImageFilter in currentFilter.initialFilters) {
@@ -477,7 +467,7 @@
     
     return replacementFilterGroup;
 }
-    
+
 + (GPUImageFilterGroup *)removeFilter:(GPUImageFilterGroup *)filterToRemove fromCurrentFilter:(GPUImageFilterGroup *)currentFilter {
     
     GPUImageFilterGroup *replacementFilterGroup = [[GPUImageFilterGroup alloc] init];
@@ -495,9 +485,9 @@
     return replacementFilterGroup;
     
 }
-    
+
 #pragma mark - Initializer
-    
+
 - (id)init {
     
     self = [super init];
@@ -525,7 +515,7 @@
                           };
     
     _filterSectionTitles = [[_filtersAvailable allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-//    NSLog(@"This is the order of the titles: %@", [_filtersAvailable allKeys]);
+    //    NSLog(@"This is the order of the titles: %@", [_filtersAvailable allKeys]);
     
     
     //    _adjustmentsAvailable = [NSArray arrayWithObjects:
@@ -538,5 +528,5 @@
     
     return self;
 }
-    
-    @end
+
+@end
