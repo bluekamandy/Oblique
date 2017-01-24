@@ -304,6 +304,8 @@
                                                 <state key="normal" image="Reset">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <state key="selected" image="ResetSelected"/>
+                                                <state key="highlighted" image="ResetSelected"/>
                                                 <connections>
                                                     <action selector="resetToDefaults:" destination="Hid-rJ-OQe" eventType="touchUpInside" id="b1n-Kz-JOu"/>
                                                 </connections>
@@ -317,6 +319,8 @@
                                                 <state key="normal" image="Exit">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <state key="selected" image="ExitSelected"/>
+                                                <state key="highlighted" image="ExitSelected"/>
                                                 <connections>
                                                     <action selector="exitAdjustments:" destination="Hid-rJ-OQe" eventType="touchUpInside" id="qbZ-gZ-MOw"/>
                                                     <segue destination="BYZ-38-t0r" kind="custom" customClass="MK_DismissSegue" id="Fz4-34-M7I"/>
@@ -582,22 +586,7 @@
                                                 <fragment>
                                                     <string key="content">Oblique
 
-Made with </string>
-                                                    <attributes>
-                                                        <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <font key="NSFont" size="14" name=".SFNSText"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                                <fragment content="❤️">
-                                                    <attributes>
-                                                        <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <font key="NSFont" size="14" name="AppleColorEmoji"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                                <fragment>
-                                                    <string key="content"> by artist
+Made with ❤️ by artist
 Masood Kamandy for his exhibition
 The Effect of Lighting on a Rainbow
 at Luis De Jesus Los Angeles.
@@ -618,6 +607,9 @@ oblique@masoodkamandy.com
 
 © 2017 Masood Kamandy
 All rights reserved.
+
+Version 0.1
+Build 12
 
 Open Source Notices
 
@@ -699,6 +691,7 @@ Early code inspired on a similar class by Philip Kluz (Philip.Kluz@zuui.org)</st
         <image name="Adjustment" width="29" height="32"/>
         <image name="AdjustmentSelected" width="29" height="32"/>
         <image name="Exit" width="30" height="30"/>
+        <image name="ExitSelected" width="30" height="30"/>
         <image name="FilterList" width="32" height="32"/>
         <image name="FilterListSelected" width="32" height="32"/>
         <image name="Flash" width="14" height="18"/>
@@ -709,12 +702,13 @@ Early code inspired on a similar class by Philip Kluz (Philip.Kluz@zuui.org)</st
         <image name="InfoSelected" width="22" height="22"/>
         <image name="ObliqueLogo" width="75" height="48"/>
         <image name="Reset" width="32" height="31"/>
+        <image name="ResetSelected" width="32" height="31"/>
         <image name="Selfie" width="35" height="33"/>
         <image name="SelfieSelected" width="35" height="33"/>
         <image name="ShutterRelease" width="84" height="84"/>
         <image name="ShutterReleaseSelected" width="84" height="84"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Fz4-34-M7I"/>
+        <segue reference="kXO-ft-9VJ"/>
     </inferredMetricsTieBreakers>
 </document>
