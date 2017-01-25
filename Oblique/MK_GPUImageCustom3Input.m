@@ -64,14 +64,15 @@ NSString *const kMK_GPUImageCustom3InputFragmentShaderString = SHADER_STRING
  varying highp vec2 textureCoordinate;
  
  uniform sampler2D inputImageTexture;
- uniform lowp float parameter;
- uniform lowp float time;
+ uniform highp float parameter;
+ uniform highp float time;
  uniform highp vec2 center;
+ uniform int easterEgg;
  
  
  void main()
  {
-     lowp vec4 textureColor = texture2D(inputImageTexture, textureCoordinate);
+     highp vec4 textureColor = texture2D(inputImageTexture, textureCoordinate);
      
      gl_FragColor = vec4((textureColor.rgb), textureColor.w);
  }
@@ -83,6 +84,7 @@ NSString *const kMK_GPUImageCustom3InputFragmentShaderString = SHADER_STRING
 @synthesize parameter = _parameter;
 @synthesize center = _center;
 @synthesize time = _time;
+@synthesize easterEgg = _easterEgg;
 
 #pragma mark - Initialization and teardown
 
@@ -109,11 +111,14 @@ NSString *const kMK_GPUImageCustom3InputFragmentShaderString = SHADER_STRING
     timeUniform = [filterProgram uniformIndex:@"time"];
     self.time = 0.0;
     
+    easterEggUniform = [filterProgram uniformIndex:@"easterEgg"];
+    self.easterEgg = 0;
+    
     if (t) {
         
         timer = [MK_PausableTimer timerWithTimeInterval:.01 target:self selector:@selector(incrementTime:) userInfo:nil repeats:YES];
         [timer start];
-        NSLog(@"Timer has started");
+//        NSLog(@"Timer has started");
     } else {
         timer = nil;
     }
@@ -141,11 +146,15 @@ NSString *const kMK_GPUImageCustom3InputFragmentShaderString = SHADER_STRING
     timeUniform = [filterProgram uniformIndex:@"time"];
     self.time = 0.0;
     
+    easterEggUniform = [filterProgram uniformIndex:@"easterEgg"];
+    self.easterEgg = 0;
+
+    
     if (t) {
         
         timer = [MK_PausableTimer timerWithTimeInterval:.01 target:self selector:@selector(incrementTime:) userInfo:nil repeats:YES];
         [timer start];
-        NSLog(@"Timer has started");
+//        NSLog(@"Timer has started");
     } else {
         timer = nil;
     }
@@ -172,6 +181,10 @@ NSString *const kMK_GPUImageCustom3InputFragmentShaderString = SHADER_STRING
     timeUniform = [filterProgram uniformIndex:@"time"];
     self.time = 0.0;
     
+    easterEggUniform = [filterProgram uniformIndex:@"easterEgg"];
+    self.easterEgg = 0;
+
+    
     timer = nil;
     
     return self;
@@ -194,6 +207,9 @@ NSString *const kMK_GPUImageCustom3InputFragmentShaderString = SHADER_STRING
     timeUniform = [filterProgram uniformIndex:@"time"];
     self.time = 0.0;
     
+    easterEggUniform = [filterProgram uniformIndex:@"easterEgg"];
+    self.easterEgg = 0;
+    
     timer = nil;
     
     return self;
@@ -204,20 +220,20 @@ NSString *const kMK_GPUImageCustom3InputFragmentShaderString = SHADER_STRING
 #pragma mark - Accessors
 
 
-- (void)setInputRotation:(GPUImageRotationMode)newInputRotation atIndex:(NSInteger)textureIndex;
+- (void)setInputRotation:(GPUImageRotationMode)newInputRotation atIndex:(NSInteger)textureIndex
 {
     [super setInputRotation:newInputRotation atIndex:textureIndex];
     [self setCenter:self.center];
 }
 
-- (void)setParameter:(CGFloat)newValue;
+- (void)setParameter:(CGFloat)newValue
 {
     _parameter = newValue;
     
     [self setFloat:_parameter forUniform:parameterUniform program:filterProgram];
 }
 
-- (void)setCenter:(CGPoint)newValue;
+- (void)setCenter:(CGPoint)newValue
 {
     _center = newValue;
     
@@ -225,13 +241,19 @@ NSString *const kMK_GPUImageCustom3InputFragmentShaderString = SHADER_STRING
     [self setPoint:rotatedPoint forUniform:centerUniform program:filterProgram];
 }
 
-- (void)setTime:(GLfloat)time;
+- (void)setTime:(GLfloat)time
 {
     _time = time;
     
     [self setFloat:_time forUniform:timeUniform program:filterProgram];
 }
 
+- (void)setEasterEgg:(int)easterEgg
+{
+    _easterEgg = easterEgg;
+    
+    [self setInteger:_easterEgg forUniform:easterEggUniform program:filterProgram];
+}
 
 #pragma mark - Private Timer Actions
 
@@ -256,7 +278,7 @@ NSString *const kMK_GPUImageCustom3InputFragmentShaderString = SHADER_STRING
     
     if(timer != nil)
     {
-        NSLog(@"Timer has been deallocated");
+//        NSLog(@"Timer has been deallocated");
         timer = nil;
     }
     

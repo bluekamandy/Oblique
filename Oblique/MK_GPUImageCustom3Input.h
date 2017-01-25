@@ -31,11 +31,13 @@
     GLint parameterUniform;
     GLint centerUniform;
     GLint timeUniform;
+    GLint easterEggUniform;
 }
 
 // 3 properties. One is a custom parameter. One is a touch coordinate. One is a read-only time interval.
 @property(readwrite, nonatomic) CGFloat parameter;
 @property(readwrite, nonatomic) CGPoint center;
+@property(readwrite, nonatomic) int easterEgg;
 
 - (id)initWithFragmentShaderFromFile:(NSString *)fragmentShaderFilename timerOn:(BOOL)timer;
 

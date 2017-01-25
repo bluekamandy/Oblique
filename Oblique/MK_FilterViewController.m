@@ -137,7 +137,7 @@
     
     SEL s = NSSelectorFromString([sectionFilter objectAtIndex:indexPath.row]);
     cell.filterGroup = [MK_Shader performSelector:s];
-    NSLog(@"%@", NSStringFromSelector(s));
+//    NSLog(@"%@", NSStringFromSelector(s));
     cameraManager = [MK_GPUImageCameraManager sharedManager];
     
     [cell.filterGroup forceProcessingAtSize:cell.filterView.sizeInPixels];
@@ -161,9 +161,9 @@
     NSString *sectionTitle = [shaderDatabase.filterSectionTitles objectAtIndex:indexPath.section];
     NSArray *sectionFilter = [shaderDatabase.filtersAvailable objectForKey:sectionTitle];
     
-    NSLog(@"%@", [sectionFilter objectAtIndex:indexPath.row]);
+//    NSLog(@"%@", [sectionFilter objectAtIndex:indexPath.row]);
     [sharedCameraManager changeToFilter:[sectionFilter objectAtIndex:indexPath.row]];
-    NSLog(@"Filter number set to %ld", (long)indexPath.row + 1);
+//    NSLog(@"Filter number set to %ld", (long)indexPath.row + 1);
     
 }
 

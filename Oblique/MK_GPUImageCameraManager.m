@@ -48,6 +48,7 @@ const float TINT_DEFAULT = 0.0;
     CGFloat touchXPos;
     CGFloat touchYPos;
     CGFloat angleOfTouch;
+    int easterEgg;
     dispatch_queue_t sharedContextQueue;
 }
 
@@ -90,8 +91,6 @@ const float TINT_DEFAULT = 0.0;
         if (!_hue) { _hue = HUE_DEFAULT; }
         if (!_invert) { _invert = INVERT_DEFAULT; }
         if (!_equalize) { _equalize = EQUALIZE_DEFAULT; }
-        NSLog(@"Equalize is starting up as %d", _equalize);
-        //touchChanges = CGPointMake(0,0);
         
         _filterChain = [self createNewFilterChain:@"noFilter" equalizationOn:_equalize];
         
@@ -159,7 +158,7 @@ const float TINT_DEFAULT = 0.0;
     
     self.filterName = filterName;
     
-    NSLog(@"Setting non-equalized filter to %@", filterName);
+//    NSLog(@"Setting non-equalized filter to %@", filterName);
     
     SEL s = NSSelectorFromString(filterName);
     self.mainFilter = [MK_Shader performSelector:s];
@@ -213,7 +212,7 @@ const float TINT_DEFAULT = 0.0;
         newFilterChain = [[GPUImageFilterGroup alloc] init];
         
         self.filterName = filterName;
-        NSLog(@"Setting equalized filter to %@", filterName);
+//        NSLog(@"Setting equalized filter to %@", filterName);
         
         SEL s = NSSelectorFromString(filterName);
         self.mainFilter = [MK_Shader performSelector:s];
@@ -272,18 +271,18 @@ const float TINT_DEFAULT = 0.0;
     if (self.filterChain) {
         [self.stillCamera removeTarget:self.filterChain];
         self.filterChain = nil;
-        NSLog(@"Removing target self.filterChain");
-        NSLog (@"%@", self.filterChain.targets);
+//        NSLog(@"Removing target self.filterChain");
+//        NSLog (@"%@", self.filterChain.targets);
     }
     self.filterChain = [self createNewFilterChain:filterName equalizationOn:self.equalize];
-    NSLog(@"%@", self.filterChain);
+//    NSLog(@"%@", self.filterChain);
     
     [self.stillCamera addTarget:self.filterChain];
     [self.filterChain addTarget:self.stillCameraPreview];
     [self.stillCamera startCameraCapture];
     
     
-    NSLog(@"Selected filter is %@", self.mainFilter.title);
+//    NSLog(@"Selected filter is %@", self.mainFilter.title);
 }
 
 - (void)resetAdjustmentsToDefaults {
@@ -300,12 +299,13 @@ const float TINT_DEFAULT = 0.0;
 
 // Information field is entirely formated here.
 
-- (NSString *)changeFilterParameterUsingXPos:(CGFloat)xPos yPos:(CGFloat)yPos xDistance:(CGFloat)xDistance yDistance:(CGFloat)yDistance angle:(CGFloat)angle
+- (NSString *)changeFilterParameterUsingXPos:(CGFloat)xPos yPos:(CGFloat)yPos xDistance:(CGFloat)xDistance yDistance:(CGFloat)yDistance angle:(CGFloat)angle easterEgg:(int)easter
 {
     NSString *informationField;
     touchXPos = xPos;
     touchYPos = yPos;
     angleOfTouch = angle;
+    easterEgg = easter;
     
     if (self.mainFilter.usesTouch == [NSNumber numberWithBool:NO]){
         informationField = nil;
@@ -328,6 +328,7 @@ const float TINT_DEFAULT = 0.0;
     
     myFilterToChange.center = touchChanges;
     myFilterToChange.parameter = angleOfTouch;
+    myFilterToChange.easterEgg = easterEgg;
 }
 
 #pragma mark - Setters for Brightness, Contrast, Saturation and Hue

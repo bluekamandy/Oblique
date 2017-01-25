@@ -55,6 +55,7 @@
     CGFloat xDistance;
     CGFloat yDistance;
     CGFloat distanceFromCenter;
+    int easterEgg;
     
     BOOL fullScreen;
     
@@ -90,15 +91,15 @@
     self.revealViewController.frontViewShadowOpacity = 0.0;
     
     //Constraint debugging
-    NSLog(@"imageView %p",_imageView);
-    NSLog(@"shutterReleaseButton %p",_shutterReleaseButton);
-    NSLog(@"filterButton %p",_filterButton);
-    NSLog(@"adjustmentButton %p",_adjustmentButton);
-    NSLog(@"cameraGridButton %p",_cameraGridButton);
-    NSLog(@"selfieButton %p",_selfieButton);
-    NSLog(@"flashButton %p",_flashButton);
-    NSLog(@"infoButton %p",_infoButton);
-    NSLog(@"informationField %p",_informationField);
+//    NSLog(@"imageView %p",_imageView);
+//    NSLog(@"shutterReleaseButton %p",_shutterReleaseButton);
+//    NSLog(@"filterButton %p",_filterButton);
+//    NSLog(@"adjustmentButton %p",_adjustmentButton);
+//    NSLog(@"cameraGridButton %p",_cameraGridButton);
+//    NSLog(@"selfieButton %p",_selfieButton);
+//    NSLog(@"flashButton %p",_flashButton);
+//    NSLog(@"infoButton %p",_infoButton);
+//    NSLog(@"informationField %p",_informationField);
     
     if ( revealViewController )
     {
@@ -143,8 +144,8 @@
     cameraManager = [MK_GPUImageCameraManager sharedManager];
     
     [_imageView addSubview:[cameraManager createCameraViewWithFrame:CGRectMake(0, 0, _imageView.bounds.size.width, _imageView.bounds.size.height)]];
-    NSLog(@"self.view.bounds.size is %@", NSStringFromCGSize(self.view.bounds.size));
-    NSLog(@"_imageView.bounds.size is %@", NSStringFromCGSize(_imageView.bounds.size));
+//    NSLog(@"self.view.bounds.size is %@", NSStringFromCGSize(self.view.bounds.size));
+//    NSLog(@"_imageView.bounds.size is %@", NSStringFromCGSize(_imageView.bounds.size));
     
     // Set up brightness, contrast, saturation and hue
 }
@@ -347,7 +348,7 @@
                                                                  (self.view.bounds.size.height/self.imageView.bounds.size.height));
             CGAffineTransform translate = CGAffineTransformMakeTranslation(0, self.view.bounds.size.height/2 - self.imageView.bounds.size.height/2 - 40);
             self.imageView.layer.affineTransform = CGAffineTransformConcat(scale, translate);
-            NSLog(@"%f", self.imageView.frame.origin.y);
+//            NSLog(@"%f", self.imageView.frame.origin.y);
         } completion:nil ];
     } else {
         [UIView animateWithDuration:.125 delay:0 options:0 animations:^{
@@ -393,15 +394,15 @@
             
             // This is the angle of touch from the center of the imageView.
             // SOURCE: http://stackoverflow.com/questions/32417157/node-rotation-doesnt-follow-a-finger
-//            CGFloat dx = .5 - normalizedTouchPoint.x;
-//            CGFloat dy = .5 - normalizedTouchPoint.y;
-//            angleOfTouch = atan2(dy, dx) + M_PI_2;
-//            
-//            if(angleOfTouch < 0){
-//                angleOfTouch = angleOfTouch + 2 * M_PI;
-//            }
+            CGFloat dx = .5 - normalizedTouchPoint.x;
+            CGFloat dy = .5 - normalizedTouchPoint.y;
+            angleOfTouch = atan2(dy, dx) + M_PI_2;
             
-            informationFieldText = [cameraManager changeFilterParameterUsingXPos:normalizedTouchPoint.x yPos:normalizedTouchPoint.y xDistance:xDistance yDistance:yDistance angle:angleOfTouch];
+            if(angleOfTouch < 0){
+                angleOfTouch = angleOfTouch + 2 * M_PI;
+            }
+            
+            informationFieldText = [cameraManager changeFilterParameterUsingXPos:normalizedTouchPoint.x yPos:normalizedTouchPoint.y xDistance:xDistance yDistance:yDistance angle:angleOfTouch easterEgg:easterEgg];
         }
         
         [self.informationField setText:informationFieldText];
@@ -440,10 +441,10 @@
     CGPoint p = [gestureRecognizer locationInView:self.view];
     if (CGRectContainsPoint(self.view.frame, p)) {
         if ([cameraManager.filterName  isEqual: @"ferrissThreads"]) {
-            angleOfTouch++;
-            angleOfTouch = fmodf(angleOfTouch, 6.0);
-            NSLog(@"angleOfTouch: %f", angleOfTouch);
-            [cameraManager changeFilterParameterUsingXPos:normalizedTouchPoint.x yPos:normalizedTouchPoint.y xDistance:xDistance yDistance:yDistance angle:angleOfTouch];
+            easterEgg++;
+            easterEgg = easterEgg % 6;
+//            NSLog(@"easterEgg: %d", easterEgg);
+            [cameraManager changeFilterParameterUsingXPos:normalizedTouchPoint.x yPos:normalizedTouchPoint.y xDistance:xDistance yDistance:yDistance angle:angleOfTouch easterEgg:easterEgg];
             [UIView animateWithDuration:.125 delay:0 options:0 animations:^{
                 self.view.backgroundColor = [UIColor redColor];
             } completion:^(BOOL finished)
@@ -456,11 +457,18 @@
                      
                  } completion: nil];
              }];
+            [self.informationField setAlpha:0.0];
+            [UIView animateWithDuration:.125 animations:^{
+                [self.informationField setText:@"EASTER EGG"];
+                [self.informationField setAlpha:1.0];
+            } completion:^(BOOL finished) {
+                [self.informationField setText:@""];
+            }];
 
         }
 
     } else {
-        NSLog(@"got a tap, but not where i need it");
+        // You could use an else if you wanted to specify a smaller area than the self.view.frame for the tap sensitivity.
     }
 }
 

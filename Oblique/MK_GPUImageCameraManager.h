@@ -83,7 +83,7 @@ extern const float TINT_DEFAULT;
 - (void)removeCameraView:(GPUImageView*)cameraView;
 - (void)changeToFilter:(NSString *)filterName;
 - (void)resetAdjustmentsToDefaults;
-- (NSString *)changeFilterParameterUsingXPos:(CGFloat)xPos yPos:(CGFloat)yPos xDistance:(CGFloat)xDistance yDistance:(CGFloat)yDistance angle:(CGFloat)angle;
+- (NSString *)changeFilterParameterUsingXPos:(CGFloat)xPos yPos:(CGFloat)yPos xDistance:(CGFloat)xDistance yDistance:(CGFloat)yDistance angle:(CGFloat)angle easterEgg:(int)easter;
 - (void)captureImage;
     
 -(void)pauseCamera;

@@ -112,30 +112,31 @@ uniform sampler2D inputImageTexture;
 uniform highp float parameter;
 //uniform lowp float time;
 uniform highp vec2 center;
+uniform int easterEgg;
 
 
 void main()
 {
     highp vec4 t;
     
-    if (parameter < .9){
-        //vertical stripes
-        t = texture2D(inputImageTexture, vec2(mod(textureCoordinate.x + center.x, 1.0), clamp(textureCoordinate.y, 0.0, 0.001) + center.y));
-    } else if (parameter < 1.9 && parameter > .9) {
-        //horizontal halfsies
-        t = texture2D(inputImageTexture, vec2(clamp(textureCoordinate.x, center.x - 0.001, center.x), mod(textureCoordinate.y + center.y, 1.0)));
-    } else if (parameter < 2.9 && parameter > 1.9) {
-        //top down curtain
-        t = texture2D(inputImageTexture, vec2(textureCoordinate.x, clamp(textureCoordinate.y, center.y, 1.0 )));
-    } else if (parameter < 3.9 && parameter > 2.9) {
-        //left right curtain
-        t = texture2D(inputImageTexture, vec2(clamp(textureCoordinate.x, 0.0, center.x), textureCoordinate.y));
-    } else if (parameter < 4.9 && parameter > 3.9) {
-        //horizontal stripes meet in the middle
-        t = texture2D(inputImageTexture, vec2(mod(clamp(textureCoordinate.x, 1.0 - center.x, center.x)+center.y, 1.0), textureCoordinate.y));
-    } else if (parameter < 5.9 && parameter > 4.9) {
+    if (easterEgg == 0){
         //vertical stripes meet in the middle
         t = texture2D(inputImageTexture, vec2(textureCoordinate.x, mod(clamp(textureCoordinate.y, 1.0 - center.y, center.y) + center.x, 1.0)));
+    } else if (easterEgg == 1) {
+        //horizontal stripes meet in the middle
+        t = texture2D(inputImageTexture, vec2(mod(clamp(textureCoordinate.x, 1.0 - center.x, center.x)+center.y, 1.0), textureCoordinate.y));
+    } else if (easterEgg == 2) {
+        //top down curtain
+        t = texture2D(inputImageTexture, vec2(textureCoordinate.x, clamp(textureCoordinate.y, center.y, 1.0 )));
+   } else if (easterEgg == 3) {
+       //left right curtain
+       t = texture2D(inputImageTexture, vec2(clamp(textureCoordinate.x, 0.0, center.x), textureCoordinate.y));
+    } else if (easterEgg == 4) {
+        //horizontal halfsies
+        t = texture2D(inputImageTexture, vec2(clamp(textureCoordinate.x, center.x - 0.001, center.x), mod(textureCoordinate.y + center.y, 1.0)));
+    } else if (easterEgg == 5) {
+        //vertical stripes
+        t = texture2D(inputImageTexture, vec2(mod(textureCoordinate.x + center.x, 1.0), clamp(textureCoordinate.y, 0.0, 0.001) + center.y));
     }
     
     gl_FragColor = t;
