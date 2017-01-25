@@ -439,22 +439,25 @@
 - (void)handleGesture:(UIGestureRecognizer *)gestureRecognizer {
     CGPoint p = [gestureRecognizer locationInView:self.view];
     if (CGRectContainsPoint(self.view.frame, p)) {
-        angleOfTouch++;
-        angleOfTouch = fmodf(angleOfTouch, 6.0);
-        NSLog(@"angleOfTouch: %f", angleOfTouch);
-        [cameraManager changeFilterParameterUsingXPos:normalizedTouchPoint.x yPos:normalizedTouchPoint.y xDistance:xDistance yDistance:yDistance angle:angleOfTouch];
-        [UIView animateWithDuration:.125 delay:0 options:0 animations:^{
-            self.view.backgroundColor = [UIColor redColor];
-        } completion:^(BOOL finished)
-         {
-             
-             
-             
-             [UIView animateWithDuration:.125 delay:0 options:0 animations:^{
-                 self.view.backgroundColor = [UIColor blackColor];
+        if ([cameraManager.filterName  isEqual: @"ferrissThreads"]) {
+            angleOfTouch++;
+            angleOfTouch = fmodf(angleOfTouch, 6.0);
+            NSLog(@"angleOfTouch: %f", angleOfTouch);
+            [cameraManager changeFilterParameterUsingXPos:normalizedTouchPoint.x yPos:normalizedTouchPoint.y xDistance:xDistance yDistance:yDistance angle:angleOfTouch];
+            [UIView animateWithDuration:.125 delay:0 options:0 animations:^{
+                self.view.backgroundColor = [UIColor redColor];
+            } completion:^(BOOL finished)
+             {
                  
-             } completion: nil];
-         }];
+                 
+                 
+                 [UIView animateWithDuration:.125 delay:0 options:0 animations:^{
+                     self.view.backgroundColor = [UIColor blackColor];
+                     
+                 } completion: nil];
+             }];
+
+        }
 
     } else {
         NSLog(@"got a tap, but not where i need it");
