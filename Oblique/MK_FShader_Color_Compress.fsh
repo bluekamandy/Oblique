@@ -106,8 +106,8 @@ highp float map(highp float value, highp float low1, highp float high1, highp fl
 
 void main()
 {
-    highp float remappedX = map(center.x, 0., 1., 0., 20.0);
-    highp float remappedY = map(center.y, 0., 1., 0., 20.0);
+    highp float remappedX = map(center.x, 0., 1., 1., 20.0);
+    highp float remappedY = map(center.y, 0., 1., 1., 20.0);
     
     highp vec4 textureColor = texture2D(inputImageTexture, textureCoordinate);
     

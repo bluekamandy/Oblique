@@ -91,6 +91,10 @@ const float TINT_DEFAULT = 0.0;
         if (!_hue) { _hue = HUE_DEFAULT; }
         if (!_invert) { _invert = INVERT_DEFAULT; }
         if (!_equalize) { _equalize = EQUALIZE_DEFAULT; }
+        touchChanges = CGPointMake(0.25, 0.25);
+        touchXPos = 0.25;
+        touchYPos = 0.25;
+        [self updateTouch];
         
         _filterChain = [self createNewFilterChain:@"noFilter" equalizationOn:_equalize];
         
@@ -158,7 +162,7 @@ const float TINT_DEFAULT = 0.0;
     
     self.filterName = filterName;
     
-//    NSLog(@"Setting non-equalized filter to %@", filterName);
+    //    NSLog(@"Setting non-equalized filter to %@", filterName);
     
     SEL s = NSSelectorFromString(filterName);
     self.mainFilter = [MK_Shader performSelector:s];
@@ -196,9 +200,7 @@ const float TINT_DEFAULT = 0.0;
     [(GPUImageFilterGroup *)newFilterChain setInitialFilters:[NSArray arrayWithObject:self.mainFilter]];
     [(GPUImageFilterGroup *)newFilterChain setTerminalFilter:self.invertFilter];
     
-    if ((touchChanges.x != 0) && (touchChanges.y != 0)) {
-        [self updateTouch];
-    }
+    [self updateTouch];
     
     return newFilterChain;
 }
@@ -212,7 +214,7 @@ const float TINT_DEFAULT = 0.0;
         newFilterChain = [[GPUImageFilterGroup alloc] init];
         
         self.filterName = filterName;
-//        NSLog(@"Setting equalized filter to %@", filterName);
+        //        NSLog(@"Setting equalized filter to %@", filterName);
         
         SEL s = NSSelectorFromString(filterName);
         self.mainFilter = [MK_Shader performSelector:s];
@@ -254,9 +256,8 @@ const float TINT_DEFAULT = 0.0;
         [(GPUImageFilterGroup *)newFilterChain setInitialFilters:[NSArray arrayWithObject:self.mainFilter]];
         [(GPUImageFilterGroup *)newFilterChain setTerminalFilter:self.invertFilter];
         
-        if ((touchChanges.x != 0) && (touchChanges.y != 0)) {
-            [self updateTouch];
-        }
+        [self updateTouch];
+        
         
     } else {
         newFilterChain = [self createNewFilterChain:filterName];
@@ -271,18 +272,18 @@ const float TINT_DEFAULT = 0.0;
     if (self.filterChain) {
         [self.stillCamera removeTarget:self.filterChain];
         self.filterChain = nil;
-//        NSLog(@"Removing target self.filterChain");
-//        NSLog (@"%@", self.filterChain.targets);
+        //        NSLog(@"Removing target self.filterChain");
+        //        NSLog (@"%@", self.filterChain.targets);
     }
     self.filterChain = [self createNewFilterChain:filterName equalizationOn:self.equalize];
-//    NSLog(@"%@", self.filterChain);
+    //    NSLog(@"%@", self.filterChain);
     
     [self.stillCamera addTarget:self.filterChain];
     [self.filterChain addTarget:self.stillCameraPreview];
     [self.stillCamera startCameraCapture];
     
     
-//    NSLog(@"Selected filter is %@", self.mainFilter.title);
+    //    NSLog(@"Selected filter is %@", self.mainFilter.title);
 }
 
 - (void)resetAdjustmentsToDefaults {
@@ -319,7 +320,7 @@ const float TINT_DEFAULT = 0.0;
 - (void)updateTouch {
     
     MK_GPUImageCustom3Input *myFilterToChange = (MK_GPUImageCustom3Input *)self.mainFilter.terminalFilter;
-
+    
     // Have to copy it and then copy it back because you can't access the myFilterToChange.center's CGPoint structure directly and I don't want to use CGPoints.
     touchChanges = myFilterToChange.center;
     
