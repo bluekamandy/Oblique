@@ -178,12 +178,12 @@
 
 - (IBAction)brightnessDidStartDragging:(id)sender {
     [self fadeControlsExcept:sender toAlpha:0.1];
-    NSLog(@"Fade Out");
+//    NSLog(@"Fade Out");
 }
 
 - (IBAction)brightnessDidFinishDragging:(id)sender {
     [self fadeControlsExcept:sender toAlpha:1.0];
-    NSLog(@"Fade In");
+//    NSLog(@"Fade In");
 }
 
 - (IBAction)contrastSliderChanged:(id)sender {

@@ -35,7 +35,8 @@
 @property (nonatomic)  GPUImageFilterGroup *filterGroup;
 @property (nonatomic)  GPUImageView *filterView;
 
-- (void)setState:(UIControlState)state;
-
+//- (void)setSelected:(BOOL)selected animated:(BOOL)animated;
+- (void)setHighlighted:(BOOL)highlighted;
+- (void)setSelected:(BOOL)selected;
 
 @end

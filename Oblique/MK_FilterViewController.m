@@ -35,6 +35,7 @@
     NSInteger *filterNumber;
     MK_Shader *shaderDatabase;
     MK_GPUImageCameraManager *cameraManager;
+    NSIndexPath *selectedRow;
 }
 
 @end
@@ -137,7 +138,7 @@
     
     SEL s = NSSelectorFromString([sectionFilter objectAtIndex:indexPath.row]);
     cell.filterGroup = [MK_Shader performSelector:s];
-//    NSLog(@"%@", NSStringFromSelector(s));
+    //    NSLog(@"%@", NSStringFromSelector(s));
     cameraManager = [MK_GPUImageCameraManager sharedManager];
     
     [cell.filterGroup forceProcessingAtSize:cell.filterView.sizeInPixels];
@@ -150,7 +151,25 @@
     UILabel *filterNameLabel = (UILabel *)[cell viewWithTag:101];
     filterNameLabel.text = [cell.filterGroup.title uppercaseString];
     
+    
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // SOURCE: http://stackoverflow.com/questions/897071/iphone-uitableview-cells-stay-selected/35605984#35605984
+    
+    NSLog(@"selectedRow: %@ and indexPath: %@", selectedRow, indexPath);
+    
+    if ([selectedRow isEqual:indexPath]) {
+        [cell setSelected:YES];
+        [cell setHighlighted:YES];
+        NSLog(@"YES");
+    } else {
+        [cell setSelected:NO];
+        [cell setHighlighted:NO];
+        NSLog(@"NO");
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -161,9 +180,11 @@
     NSString *sectionTitle = [shaderDatabase.filterSectionTitles objectAtIndex:indexPath.section];
     NSArray *sectionFilter = [shaderDatabase.filtersAvailable objectForKey:sectionTitle];
     
-//    NSLog(@"%@", [sectionFilter objectAtIndex:indexPath.row]);
+    selectedRow = indexPath;
+    
+    //    NSLog(@"%@", [sectionFilter objectAtIndex:indexPath.row]);
     [sharedCameraManager changeToFilter:[sectionFilter objectAtIndex:indexPath.row]];
-//    NSLog(@"Filter number set to %ld", (long)indexPath.row + 1);
+    //    NSLog(@"Filter number set to %ld", (long)indexPath.row + 1);
     
 }
 

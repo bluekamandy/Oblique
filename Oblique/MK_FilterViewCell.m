@@ -72,6 +72,18 @@
     
 }
 
+- (void)setHighlighted:(BOOL)highlighted {
+    NSLog(@"setHighlighted custom override");
+    if (highlighted) {
+        self.filterView.layer.borderColor = [UIColor yellowColor].CGColor;
+        self.filterView.layer.borderWidth = 5.0f;
+    } else {
+        self.filterView.layer.borderColor = [UIColor clearColor].CGColor;
+        self.filterView.layer.borderWidth = 0.0f;
+        
+    }
+}
+
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated
 {
     if (highlighted) {
@@ -85,6 +97,19 @@
     }
 }
 
+- (void)setSelected:(BOOL)selected {
+    if (selected) {
+        self.filterView.layer.borderColor = [UIColor yellowColor].CGColor;
+        self.filterView.layer.borderWidth = 5.0f;
+        
+    } else {
+        self.filterView.layer.borderColor = [UIColor clearColor].CGColor;
+        self.filterView.layer.borderWidth = 0.0f;
+        
+    }
+
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     if (selected) {
         self.filterView.layer.borderColor = [UIColor yellowColor].CGColor;
@@ -95,10 +120,6 @@
         self.filterView.layer.borderWidth = 0.0f;
         
     }
-    
-}
-
-- (void)setState:(UIControlState)state {
     
 }
 
