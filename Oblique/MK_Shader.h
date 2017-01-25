@@ -52,6 +52,7 @@
 + (GPUImageFilterGroup *)noFilter;
 
 // Presets
++ (GPUImageFilterGroup *)ferrissThreads;
 + (GPUImageFilterGroup *)rainbow;
 + (GPUImageFilterGroup *)colorCompress;
 + (GPUImageFilterGroup *)rgbSeparation;

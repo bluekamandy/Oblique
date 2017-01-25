@@ -121,6 +121,14 @@
     
     fullScreen = NO;
     
+    // EASTER EGG TAP RECOGNIZER
+    UITapGestureRecognizer *gr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
+    [self.imageView addGestureRecognizer:gr];
+    // if not using ARC, you should [gr release];
+    // mySensitiveRect coords are in the coordinate system of self.view
+    
+    gr.numberOfTapsRequired = 2;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -385,13 +393,13 @@
             
             // This is the angle of touch from the center of the imageView.
             // SOURCE: http://stackoverflow.com/questions/32417157/node-rotation-doesnt-follow-a-finger
-            CGFloat dx = .5 - normalizedTouchPoint.x;
-            CGFloat dy = .5 - normalizedTouchPoint.y;
-            angleOfTouch = atan2(dy, dx) + M_PI_2;
-            
-            if(angleOfTouch < 0){
-                angleOfTouch = angleOfTouch + 2 * M_PI;
-            }
+//            CGFloat dx = .5 - normalizedTouchPoint.x;
+//            CGFloat dy = .5 - normalizedTouchPoint.y;
+//            angleOfTouch = atan2(dy, dx) + M_PI_2;
+//            
+//            if(angleOfTouch < 0){
+//                angleOfTouch = angleOfTouch + 2 * M_PI;
+//            }
             
             informationFieldText = [cameraManager changeFilterParameterUsingXPos:normalizedTouchPoint.x yPos:normalizedTouchPoint.y xDistance:xDistance yDistance:yDistance angle:angleOfTouch];
         }
@@ -425,6 +433,34 @@
     informationFieldText = @"";
     [self.informationField setText:informationFieldText];
 }
+
+#pragma mark - Easter Egg Touch
+
+- (void)handleGesture:(UIGestureRecognizer *)gestureRecognizer {
+    CGPoint p = [gestureRecognizer locationInView:self.view];
+    if (CGRectContainsPoint(self.view.frame, p)) {
+        angleOfTouch++;
+        angleOfTouch = fmodf(angleOfTouch, 6.0);
+        NSLog(@"angleOfTouch: %f", angleOfTouch);
+        [cameraManager changeFilterParameterUsingXPos:normalizedTouchPoint.x yPos:normalizedTouchPoint.y xDistance:xDistance yDistance:yDistance angle:angleOfTouch];
+        [UIView animateWithDuration:.125 delay:0 options:0 animations:^{
+            self.view.backgroundColor = [UIColor redColor];
+        } completion:^(BOOL finished)
+         {
+             
+             
+             
+             [UIView animateWithDuration:.125 delay:0 options:0 animations:^{
+                 self.view.backgroundColor = [UIColor blackColor];
+                 
+             } completion: nil];
+         }];
+
+    } else {
+        NSLog(@"got a tap, but not where i need it");
+    }
+}
+
 
 
 @end

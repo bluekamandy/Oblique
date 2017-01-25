@@ -52,6 +52,26 @@
 
 // Filter Presets
 
++ (GPUImageFilterGroup *)ferrissThreads {
+    MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_FerrissThreads"];
+    GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
+    [(GPUImageFilterGroup *)group setInitialFilters:[NSArray arrayWithObject:filter]];
+    [(GPUImageFilterGroup *)group setTerminalFilter:filter];
+    group.title = @"Ferriss Threads";
+    group.informationFormatter = ^(CGFloat xPos, CGFloat yPos, CGFloat xDistance, CGFloat yDistance, CGFloat angle) {
+        
+        NSString *string = [NSString stringWithFormat:@""];
+        return string;
+        
+    };
+    
+    group.useLivePreviewObj = [NSNumber numberWithBool:YES];
+    group.usesTouch = [NSNumber numberWithBool:YES];
+    group.iconName = @"Polygon";
+    return group;
+}
+
+
 + (GPUImageFilterGroup *)rainbow {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_Rainbow"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -511,6 +531,7 @@
                                                  @"colorCompress",
                                                  @"rgbSeparation",
                                                  @"colorCycleFilter",
+                                                 @"ferrissThreads",
                                                  @"mrPerlin",
                                                  @"noiseWarp"],
                           @"Non-Interactive" : @[@"horizontalMirror",

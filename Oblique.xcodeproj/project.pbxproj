@@ -11,6 +11,8 @@
 		A510BD1C1E21967C006FA9D4 /* MK_FShader_overMirror.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A510BD1B1E21967C006FA9D4 /* MK_FShader_overMirror.fsh */; };
 		A525DC1D1E3553300083F8E8 /* MK_FShader_Rainbow.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A525DC1C1E3553300083F8E8 /* MK_FShader_Rainbow.fsh */; };
 		A52656D01E353D0E0062F506 /* MK_AdjustmentSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = A52656CF1E353D0E0062F506 /* MK_AdjustmentSegue.m */; };
+		A549FE3A1E3827D30003610D /* MK_FShader_FerrissThreads.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A549FE391E3827D30003610D /* MK_FShader_FerrissThreads.fsh */; };
+		A549FE3C1E382DEB0003610D /* MK_FShader_Color_Compress.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A549FE3B1E382DEB0003610D /* MK_FShader_Color_Compress.fsh */; };
 		A55B748C1E32E60700C53A04 /* MK_FShader_RGB_Separation.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A55B748B1E32E60700C53A04 /* MK_FShader_RGB_Separation.fsh */; };
 		A560E30D1E1D7A5900F1ED4E /* MK_GPUImageStillCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = A560E30C1E1D7A5900F1ED4E /* MK_GPUImageStillCamera.m */; };
 		A560E30F1E1DB0BD00F1ED4E /* MK_FShader_NoiseWarp.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A560E30E1E1DB0BD00F1ED4E /* MK_FShader_NoiseWarp.fsh */; };
@@ -61,7 +63,6 @@
 		A5C6C9E11E15D39800364421 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5C6C9DF1E15D39800364421 /* Main.storyboard */; };
 		A5C6C9E31E15D39800364421 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5C6C9E21E15D39800364421 /* Assets.xcassets */; };
 		A5C6C9E61E15D39800364421 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5C6C9E41E15D39800364421 /* LaunchScreen.storyboard */; };
-		A5E2337C1E33BEB2002A15CE /* MK_FShader_Color_Compress.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A5E2337B1E33BEB2002A15CE /* MK_FShader_Color_Compress.fsh */; };
 		A5EFBECB1E1625120046E72A /* QTouchposeApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = A5EFBECA1E1625120046E72A /* QTouchposeApplication.m */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,8 @@
 		A525DC1C1E3553300083F8E8 /* MK_FShader_Rainbow.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_Rainbow.fsh; sourceTree = "<group>"; };
 		A52656CE1E353CEA0062F506 /* MK_AdjustmentSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MK_AdjustmentSegue.h; sourceTree = "<group>"; };
 		A52656CF1E353D0E0062F506 /* MK_AdjustmentSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MK_AdjustmentSegue.m; sourceTree = "<group>"; };
+		A549FE391E3827D30003610D /* MK_FShader_FerrissThreads.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_FerrissThreads.fsh; sourceTree = "<group>"; };
+		A549FE3B1E382DEB0003610D /* MK_FShader_Color_Compress.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_Color_Compress.fsh; sourceTree = "<group>"; };
 		A55B748B1E32E60700C53A04 /* MK_FShader_RGB_Separation.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_RGB_Separation.fsh; sourceTree = "<group>"; };
 		A560E30B1E1D7A5900F1ED4E /* MK_GPUImageStillCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MK_GPUImageStillCamera.h; sourceTree = "<group>"; };
 		A560E30C1E1D7A5900F1ED4E /* MK_GPUImageStillCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MK_GPUImageStillCamera.m; sourceTree = "<group>"; };
@@ -140,7 +143,6 @@
 		A5C6C9E21E15D39800364421 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5C6C9E51E15D39800364421 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5C6C9E71E15D39800364421 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A5E2337B1E33BEB2002A15CE /* MK_FShader_Color_Compress.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_Color_Compress.fsh; sourceTree = "<group>"; };
 		A5EFBEC91E1625120046E72A /* QTouchposeApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTouchposeApplication.h; sourceTree = "<group>"; };
 		A5EFBECA1E1625120046E72A /* QTouchposeApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTouchposeApplication.m; sourceTree = "<group>"; };
 		CB53041B581E739D294BCAA6 /* Pods-Oblique.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oblique.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Oblique/Pods-Oblique.debug.xcconfig"; sourceTree = "<group>"; };
@@ -295,8 +297,9 @@
 				A5ACC7821E17344A0014795F /* MK_FShader_VerticalStripes.fsh */,
 				A5ACC7831E17344A0014795F /* MK_FShader_Waves.fsh */,
 				A55B748B1E32E60700C53A04 /* MK_FShader_RGB_Separation.fsh */,
-				A5E2337B1E33BEB2002A15CE /* MK_FShader_Color_Compress.fsh */,
 				A525DC1C1E3553300083F8E8 /* MK_FShader_Rainbow.fsh */,
+				A549FE3B1E382DEB0003610D /* MK_FShader_Color_Compress.fsh */,
+				A549FE391E3827D30003610D /* MK_FShader_FerrissThreads.fsh */,
 			);
 			name = Filters;
 			sourceTree = "<group>";
@@ -452,7 +455,6 @@
 				A560E30F1E1DB0BD00F1ED4E /* MK_FShader_NoiseWarp.fsh in Resources */,
 				A5ACC7901E17344A0014795F /* MK_FShader_Tunnel.fsh in Resources */,
 				A5ACC78B1E17344A0014795F /* MK_FShader_HorizontalStripes.fsh in Resources */,
-				A5E2337C1E33BEB2002A15CE /* MK_FShader_Color_Compress.fsh in Resources */,
 				A5ACC7871E17344A0014795F /* MK_FShader_ColorCycle.fsh in Resources */,
 				A5ACC78A1E17344A0014795F /* MK_FShader_HorizontalMirror.fsh in Resources */,
 				A5C6C9E61E15D39800364421 /* LaunchScreen.storyboard in Resources */,
@@ -460,10 +462,12 @@
 				A5ACC7981E1734670014795F /* MK_FShader_Invert.fsh in Resources */,
 				A5ACC7641E17338A0014795F /* MK_FShader_TimerTest.fsh in Resources */,
 				A5ACC7171E17015E0014795F /* MK_FShader_Brightness.fsh in Resources */,
+				A549FE3A1E3827D30003610D /* MK_FShader_FerrissThreads.fsh in Resources */,
 				A5ACC78D1E17344A0014795F /* MK_FShader_Rotate.fsh in Resources */,
 				A5ACC78F1E17344A0014795F /* MK_FShader_Stretch.fsh in Resources */,
 				A5ACC7841E17344A0014795F /* MK_FShader_4Scope.fsh in Resources */,
 				A5ACC7971E1734670014795F /* MK_FShader_DrawGrid.fsh in Resources */,
+				A549FE3C1E382DEB0003610D /* MK_FShader_Color_Compress.fsh in Resources */,
 				A5ACC7911E17344A0014795F /* MK_FShader_VerticalMirror.fsh in Resources */,
 				A5ACC7991E1734670014795F /* MK_FShader_Vibrance.fsh in Resources */,
 				A5ACC78C1E17344A0014795F /* MK_FShader_Polar.fsh in Resources */,
