@@ -144,7 +144,7 @@ varying highp vec2 textureCoordinate;
 uniform sampler2D inputImageTexture;
 
 //uniform lowp float parameter;
-//uniform lowp float time;
+uniform highp float time;
 uniform highp vec2 center;
 // Classic Perlin noise
 
@@ -309,7 +309,9 @@ float snoise(vec3 v)
 
 void main()
 {
-    highp vec2 textureCoordinateToUse = vec2(cnoise(textureCoordinate/center.x), cnoise(textureCoordinate/center.y));
+    highp vec2 interp = vec2(mix(.1, 2.0, center.x),
+                             mix(.1, 2.0, center.y));
+    highp vec2 textureCoordinateToUse = mod(vec2(textureCoordinate.x + snoise(vec3(textureCoordinate/interp.x, time/50.)), textureCoordinate.y + snoise(vec3(textureCoordinate/interp.y, time/50.))), 1.0);
    
     gl_FragColor = texture2D(inputImageTexture, textureCoordinateToUse );
     

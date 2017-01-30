@@ -73,7 +73,7 @@
 }
 
 - (void)setHighlighted:(BOOL)highlighted {
-    NSLog(@"setHighlighted custom override");
+//    NSLog(@"setHighlighted custom override");
     if (highlighted) {
         self.filterView.layer.borderColor = [UIColor yellowColor].CGColor;
         self.filterView.layer.borderWidth = 5.0f;

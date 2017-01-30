@@ -10,13 +10,6 @@
 // ------------------------------------------------------------
 // ???
 //
-// ROTATE AROUND DIFFERENT ORIGIN
-// ------------------------------------------------------------
-//highp vec2 rotateAroundPoint(highp float angle, highp vec2 texCoord, highp vec2 rotationPoint) {
-//    return vec2(cos(angle) * (texCoord.x - rotationPoint.x) + sin(angle) * (texCoord.y - rotationPoint.y) + rotationPoint.x,
-//                cos(angle) * (texCoord.y - rotationPoint.y) - sin(angle) * (texCoord.x - rotationPoint.x) + rotationPoint.y);
-//}
-//
 // REMAPPING FUNCTION FOR GLSL
 // ------------------------------------------------------------
 // low2 + (value - low1) * (high2 - low2) / (high1 - low1)
@@ -99,44 +92,28 @@
 //     return color / (color + vec3(1.0));
 // }
 
-// SOURCE: https://www.shadertoy.com/view/Ml2Szz
-
-// Directionality of touch SOURCE: https://www.shadertoy.com/view/XltGWS
-
-// Adam Ferriss Clamp. Used at his suggestion: https://www.shadertoy.com/view/MtyXRc
-
 varying highp vec2 textureCoordinate;
 
 uniform sampler2D inputImageTexture;
-uniform highp float parameter;
+uniform lowp float parameter;
 //uniform lowp float time;
 uniform highp vec2 center;
-uniform int easterEgg;
+
+highp float map(highp float value, highp float low1, highp float high1, highp float low2, highp float high2) {
+    return low2 + (value - low1) * (high2 - low2) / (high1 - low1);
+}
 
 
 void main()
 {
-    highp vec4 t;
+    highp float remappedX = map(center.x, 0., 1., 0., .5);
+    highp float remappedY = map(center.y, 0., 1., 0., .5);
+    highp vec4 textureColor = texture2D(inputImageTexture, textureCoordinate);
+    highp float redTextureColor = step(.25, texture2D(inputImageTexture, vec2(textureCoordinate.x - remappedX, textureCoordinate.y - remappedY)).r);
+    highp float greenTextureColor = step(.25, texture2D(inputImageTexture, textureCoordinate).g);
+    highp float blueTextureColor = step(.25, texture2D(inputImageTexture, vec2(textureCoordinate.x + remappedX, textureCoordinate.y + remappedY)).b);
     
-    if (easterEgg == 0){
-        //vertical stripes meet in the middle
-        t = texture2D(inputImageTexture, vec2(textureCoordinate.x, mod(clamp(textureCoordinate.y, 1.0 - center.y, center.y) + center.x, 1.0)));
-    } else if (easterEgg == 1) {
-        //horizontal stripes meet in the middle
-        t = texture2D(inputImageTexture, vec2(mod(clamp(textureCoordinate.x, 1.0 - center.x, center.x)+center.y, 1.0), textureCoordinate.y));
-    } else if (easterEgg == 2) {
-        //top down curtain
-        t = texture2D(inputImageTexture, vec2(textureCoordinate.x, clamp(textureCoordinate.y, center.y, 1.0 )));
-    } else if (easterEgg == 3) {
-        //left right curtain
-        t = texture2D(inputImageTexture, vec2(clamp(textureCoordinate.x, 0.0, center.x), textureCoordinate.y));
-    } else if (easterEgg == 4) {
-        //horizontal halfsies
-        t = texture2D(inputImageTexture, vec2(clamp(textureCoordinate.x, center.x - 0.001, center.x), mod(textureCoordinate.y + center.y, 1.0)));
-    } else if (easterEgg == 5) {
-        //vertical stripes
-        t = texture2D(inputImageTexture, vec2(mod(textureCoordinate.x + center.x, 1.0), clamp(textureCoordinate.y, 0.0, 0.001) + center.y));
-    }
-    
-    gl_FragColor = t;
+       
+    gl_FragColor = vec4(vec3(redTextureColor, greenTextureColor, blueTextureColor), textureColor.a);
 }
+

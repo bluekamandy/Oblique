@@ -52,6 +52,46 @@
 
 // Filter Presets
 
++ (GPUImageFilterGroup *)rgbHard {
+    MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_RGB_Hard"];
+    GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
+    [(GPUImageFilterGroup *)group setInitialFilters:[NSArray arrayWithObject:filter]];
+    [(GPUImageFilterGroup *)group setTerminalFilter:filter];
+    group.title = @"RGB Hard";
+    group.informationFormatter = ^(CGFloat xPos, CGFloat yPos, CGFloat xDistance, CGFloat yDistance, CGFloat angle) {
+        
+        NSString *string = [NSString stringWithFormat:@""];
+        return string;
+        
+    };
+    
+    group.useLivePreviewObj = [NSNumber numberWithBool:YES];
+    group.usesTouch = [NSNumber numberWithBool:YES];
+    group.iconName = @"Polygon";
+    return group;
+}
+
+
++ (GPUImageFilterGroup *)chaos {
+    MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_Chaos"];
+    GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
+    [(GPUImageFilterGroup *)group setInitialFilters:[NSArray arrayWithObject:filter]];
+    [(GPUImageFilterGroup *)group setTerminalFilter:filter];
+    group.title = @"Chaos";
+    group.informationFormatter = ^(CGFloat xPos, CGFloat yPos, CGFloat xDistance, CGFloat yDistance, CGFloat angle) {
+        
+        NSString *string = [NSString stringWithFormat:@""];
+        return string;
+        
+    };
+    
+    group.useLivePreviewObj = [NSNumber numberWithBool:YES];
+    group.usesTouch = [NSNumber numberWithBool:YES];
+    group.iconName = @"Polygon";
+    return group;
+}
+
+
 + (GPUImageFilterGroup *)ferrissThreads {
     MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_FerrissThreads"];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
@@ -152,7 +192,7 @@
 }
 
 + (GPUImageFilterGroup *)mrPerlin {
-    MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_MrPerlin"];
+    MK_GPUImageCustom3Input *filter = [[MK_GPUImageCustom3Input alloc] initWithFragmentShaderFromFile:@"MK_FShader_MrPerlin" timerOn:YES];
     GPUImageFilterGroup *group = [[GPUImageFilterGroup alloc] init];
     [(GPUImageFilterGroup *)group setInitialFilters:[NSArray arrayWithObject:filter]];
     [(GPUImageFilterGroup *)group setTerminalFilter:filter];
@@ -530,6 +570,7 @@
                                                  @"rainbow",
                                                  @"colorCompress",
                                                  @"rgbSeparation",
+                                                 @"rgbHard",
                                                  @"colorCycleFilter",
                                                  @"ferrissThreads",
                                                  @"mrPerlin",

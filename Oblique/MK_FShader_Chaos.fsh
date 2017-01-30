@@ -99,44 +99,71 @@
 //     return color / (color + vec3(1.0));
 // }
 
-// SOURCE: https://www.shadertoy.com/view/Ml2Szz
-
-// Directionality of touch SOURCE: https://www.shadertoy.com/view/XltGWS
-
-// Adam Ferriss Clamp. Used at his suggestion: https://www.shadertoy.com/view/MtyXRc
-
 varying highp vec2 textureCoordinate;
 
 uniform sampler2D inputImageTexture;
 uniform highp float parameter;
-//uniform lowp float time;
+uniform highp float time;
 uniform highp vec2 center;
 uniform int easterEgg;
+
+//highp float map(highp float value, highp float low1, highp float high1, highp float low2, highp float high2) {
+//    return low2 + (value - low1) * (high2 - low2) / (high1 - low1);
+//}
+//
+//
+//highp float random (highp vec2 st) {
+//    // Original Random Function
+//    return fract(sin(dot(st.xy, vec2(.9898,41414442.233)))* 43758.5453123);
+//
+////        return fract(sin(dot(st.xy, vec2(.9898,41414442.233)))* control);
+//}
+
+//void main() {
+//
+//    highp float interpX = mix(0., 5.0, center.x);
+//
+//    highp float interpY = mix(0., 1.0, center.y);
+//
+//    highp float refractiveIndex = 1.5;
+//    highp vec2 refractedDirection = refract(vec2(center.y), -textureCoordinate, 1.0/interpX);
+////    highp float remappedX = map(center.x, 0., 1., 0., 50000.);
+////    highp vec2 st = textureCoordinate.xy;
+////    highp float rnd = random( st );
+//
+////    highp vec2 texCoordToUse = vec2(mod(st.x+rnd/100., 1.), mod(st.y-rnd/10., 1.));
+//
+////    highp vec4 textureColor = texture2D(inputImageTexture, mod(texCoordToUse+rnd/(center.x*10.), 1.0));
+////    highp vec4 textureColor = texture2D(inputImageTexture, st);
+//
+//    highp vec4 sample0 = texture2D(inputImageTexture, mod(refractedDirection*2., 1.0));
+//
+//    gl_FragColor = sample0;
+//}
+
+#define SIN01(a) (sin(a)*0.5 + 0.5)
+
+highp vec3 rgb2hsv(highp vec3 c)
+{
+    highp vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+    highp vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
+    highp vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
+    
+    highp float d = q.x - min(q.w, q.y);
+    highp float e = 1.0e-10;
+    return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
+}
 
 
 void main()
 {
-    highp vec4 t;
+    highp vec2 interp = vec2(mix(0., 2.5, center.x),
+                             mix(0., 2.5, center.y));
+    highp vec3 hsv = rgb2hsv(texture2D(inputImageTexture, textureCoordinate).rgb);
     
-    if (easterEgg == 0){
-        //vertical stripes meet in the middle
-        t = texture2D(inputImageTexture, vec2(textureCoordinate.x, mod(clamp(textureCoordinate.y, 1.0 - center.y, center.y) + center.x, 1.0)));
-    } else if (easterEgg == 1) {
-        //horizontal stripes meet in the middle
-        t = texture2D(inputImageTexture, vec2(mod(clamp(textureCoordinate.x, 1.0 - center.x, center.x)+center.y, 1.0), textureCoordinate.y));
-    } else if (easterEgg == 2) {
-        //top down curtain
-        t = texture2D(inputImageTexture, vec2(textureCoordinate.x, clamp(textureCoordinate.y, center.y, 1.0 )));
-    } else if (easterEgg == 3) {
-        //left right curtain
-        t = texture2D(inputImageTexture, vec2(clamp(textureCoordinate.x, 0.0, center.x), textureCoordinate.y));
-    } else if (easterEgg == 4) {
-        //horizontal halfsies
-        t = texture2D(inputImageTexture, vec2(clamp(textureCoordinate.x, center.x - 0.001, center.x), mod(textureCoordinate.y + center.y, 1.0)));
-    } else if (easterEgg == 5) {
-        //vertical stripes
-        t = texture2D(inputImageTexture, vec2(mod(textureCoordinate.x + center.x, 1.0), clamp(textureCoordinate.y, 0.0, 0.001) + center.y));
-    }
+    highp float angle = hsv.x + atan(textureCoordinate.y, textureCoordinate.x) + interp.x;
+    highp mat2 RotationMatrix = mat2( cos( angle ), -sin( angle ), sin( angle ),  cos( angle ));
+    highp vec3 col = texture2D(inputImageTexture, textureCoordinate + RotationMatrix * vec2(log(max(SIN01(interp.y)-0.2, 0.)*0.2 + 1.  ),0) * hsv.y).rgb;
     
-    gl_FragColor = t;
+    gl_FragColor = vec4(col,1.0);
 }

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		16540918296C78DC978EBDB2 /* libPods-Oblique.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F9F2C64BA2D46DFCAD4831 /* libPods-Oblique.a */; };
 		A510BD1C1E21967C006FA9D4 /* MK_FShader_overMirror.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A510BD1B1E21967C006FA9D4 /* MK_FShader_overMirror.fsh */; };
+		A513F0981E3E64C90089BB7A /* MK_FShader_Chaos.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A513F0971E3E64C90089BB7A /* MK_FShader_Chaos.fsh */; };
+		A513F09A1E3EFBF80089BB7A /* MK_FShader_RGB_Hard.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A513F0991E3EFBF80089BB7A /* MK_FShader_RGB_Hard.fsh */; };
 		A525DC1D1E3553300083F8E8 /* MK_FShader_Rainbow.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A525DC1C1E3553300083F8E8 /* MK_FShader_Rainbow.fsh */; };
 		A52656D01E353D0E0062F506 /* MK_AdjustmentSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = A52656CF1E353D0E0062F506 /* MK_AdjustmentSegue.m */; };
 		A549FE3A1E3827D30003610D /* MK_FShader_FerrissThreads.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A549FE391E3827D30003610D /* MK_FShader_FerrissThreads.fsh */; };
@@ -70,6 +72,8 @@
 		52F9F2C64BA2D46DFCAD4831 /* libPods-Oblique.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Oblique.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78A635A2ED891BB3F72CE758 /* Pods-Oblique.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oblique.release.xcconfig"; path = "Pods/Target Support Files/Pods-Oblique/Pods-Oblique.release.xcconfig"; sourceTree = "<group>"; };
 		A510BD1B1E21967C006FA9D4 /* MK_FShader_overMirror.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_overMirror.fsh; sourceTree = "<group>"; };
+		A513F0971E3E64C90089BB7A /* MK_FShader_Chaos.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_Chaos.fsh; sourceTree = "<group>"; };
+		A513F0991E3EFBF80089BB7A /* MK_FShader_RGB_Hard.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_RGB_Hard.fsh; sourceTree = "<group>"; };
 		A525DC1C1E3553300083F8E8 /* MK_FShader_Rainbow.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MK_FShader_Rainbow.fsh; sourceTree = "<group>"; };
 		A52656CE1E353CEA0062F506 /* MK_AdjustmentSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MK_AdjustmentSegue.h; sourceTree = "<group>"; };
 		A52656CF1E353D0E0062F506 /* MK_AdjustmentSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MK_AdjustmentSegue.m; sourceTree = "<group>"; };
@@ -297,9 +301,11 @@
 				A5ACC7821E17344A0014795F /* MK_FShader_VerticalStripes.fsh */,
 				A5ACC7831E17344A0014795F /* MK_FShader_Waves.fsh */,
 				A55B748B1E32E60700C53A04 /* MK_FShader_RGB_Separation.fsh */,
+				A513F0991E3EFBF80089BB7A /* MK_FShader_RGB_Hard.fsh */,
 				A525DC1C1E3553300083F8E8 /* MK_FShader_Rainbow.fsh */,
 				A549FE3B1E382DEB0003610D /* MK_FShader_Color_Compress.fsh */,
 				A549FE391E3827D30003610D /* MK_FShader_FerrissThreads.fsh */,
+				A513F0971E3E64C90089BB7A /* MK_FShader_Chaos.fsh */,
 			);
 			name = Filters;
 			sourceTree = "<group>";
@@ -467,6 +473,7 @@
 				A5ACC78F1E17344A0014795F /* MK_FShader_Stretch.fsh in Resources */,
 				A5ACC7841E17344A0014795F /* MK_FShader_4Scope.fsh in Resources */,
 				A5ACC7971E1734670014795F /* MK_FShader_DrawGrid.fsh in Resources */,
+				A513F0981E3E64C90089BB7A /* MK_FShader_Chaos.fsh in Resources */,
 				A549FE3C1E382DEB0003610D /* MK_FShader_Color_Compress.fsh in Resources */,
 				A5ACC7911E17344A0014795F /* MK_FShader_VerticalMirror.fsh in Resources */,
 				A5ACC7991E1734670014795F /* MK_FShader_Vibrance.fsh in Resources */,
@@ -479,6 +486,7 @@
 				A5C6C9E11E15D39800364421 /* Main.storyboard in Resources */,
 				A5ACC78E1E17344A0014795F /* MK_FShader_Shear.fsh in Resources */,
 				A525DC1D1E3553300083F8E8 /* MK_FShader_Rainbow.fsh in Resources */,
+				A513F09A1E3EFBF80089BB7A /* MK_FShader_RGB_Hard.fsh in Resources */,
 				A5ACC7921E17344A0014795F /* MK_FShader_VerticalStripes.fsh in Resources */,
 				A5ACC7191E17015E0014795F /* MK_FShader_Hue.fsh in Resources */,
 				A5ACC7891E17344A0014795F /* MK_FShader_GridImage.fsh in Resources */,

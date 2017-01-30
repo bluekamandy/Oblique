@@ -159,16 +159,16 @@
 {
     // SOURCE: http://stackoverflow.com/questions/897071/iphone-uitableview-cells-stay-selected/35605984#35605984
     
-    NSLog(@"selectedRow: %@ and indexPath: %@", selectedRow, indexPath);
+//    NSLog(@"selectedRow: %@ and indexPath: %@", selectedRow, indexPath);
     
     if ([selectedRow isEqual:indexPath]) {
         [cell setSelected:YES];
         [cell setHighlighted:YES];
-        NSLog(@"YES");
+//        NSLog(@"YES");
     } else {
         [cell setSelected:NO];
         [cell setHighlighted:NO];
-        NSLog(@"NO");
+//        NSLog(@"NO");
     }
 }
 
