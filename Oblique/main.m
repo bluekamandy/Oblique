@@ -13,8 +13,8 @@
 int main(int argc, char * argv[]) {
     @autoreleasepool {
         //For QTouchpose
-//        return UIApplicationMain(argc, argv, NSStringFromClass([QTouchposeApplication class]), NSStringFromClass([AppDelegate class]));
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+        return UIApplicationMain(argc, argv, NSStringFromClass([QTouchposeApplication class]), NSStringFromClass([AppDelegate class]));
+//        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
 
     }
 }
